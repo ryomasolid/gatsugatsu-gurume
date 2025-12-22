@@ -8,10 +8,11 @@ import {
   Typography,
 } from "@mui/material";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import RestaurantCard, { RestaurantInfoDTO } from "./components/RestaurantCard";
 
-export default function Home() {
+// 実際のコンテンツを表示するコンポーネント
+function RestaurantList() {
   const searchParams = useSearchParams();
   const stationParam = searchParams.get("station") || "周辺";
 
@@ -77,12 +78,10 @@ export default function Home() {
                 ? place.types[0].replace(/_/g, " ")
                 : "飲食店";
 
-            // ▼▼▼ 修正: 複数の駅の中から最も近い駅を探して距離を計算 ▼▼▼
             let minWalkMinutes = 999;
             let nearestStationName = "駅";
 
             if (place.location && stationLats.length > 0) {
-              // 各駅との距離を計算し、最小値を採用する
               stationLats.forEach((lat, index) => {
                 const lng = stationLngs[index];
                 if (!lat || !lng) return;
@@ -93,7 +92,6 @@ export default function Home() {
                   place.location.latitude,
                   place.location.longitude
                 );
-                // 不動産基準 80m=1分
                 const minutes = Math.ceil(distance / 80);
 
                 if (minutes < minWalkMinutes) {
@@ -103,7 +101,6 @@ export default function Home() {
               });
             }
 
-            // 駅名が1つのときは「〇〇駅」とし、複数のときは「最寄:〇〇駅」と表現を変えても良い
             const displayStation =
               stationNames.length > 1
                 ? `${nearestStationName}駅(近)`
@@ -137,7 +134,7 @@ export default function Home() {
     } else {
       setLoading(false);
     }
-  }, [searchParams]);
+  }, [searchParams, stationParam]);
 
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
@@ -168,7 +165,7 @@ export default function Home() {
                 imageUrl={restaurant.imageUrl}
                 onClick={() => {
                   window.open(
-                    `https://www.google.com/maps/place/?q=place_id:${encodeURIComponent(
+                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                       restaurant.name + " " + restaurant.address
                     )}`,
                     "_blank"
@@ -180,5 +177,27 @@ export default function Home() {
         </Grid>
       )}
     </Container>
+  );
+}
+
+// メインのPageコンポーネント。ここでSuspenseを使ってラップする。
+export default function Home() {
+  return (
+    <Suspense
+      fallback={
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "50vh",
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      }
+    >
+      <RestaurantList />
+    </Suspense>
   );
 }
