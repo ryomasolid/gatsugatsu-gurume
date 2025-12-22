@@ -1,66 +1,184 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import RestaurantCard, { RestaurantInfoDTO } from "./components/RestaurantCard";
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const stationParam = searchParams.get("station") || "周辺";
+
+  // カンマ区切りのパラメータを配列に変換
+  const stationNames = stationParam.split(",");
+  const stationLats = (searchParams.get("lat") || "").split(",").map(Number);
+  const stationLngs = (searchParams.get("lng") || "").split(",").map(Number);
+
+  // 表示タイトル用（長い場合は省略）
+  const displayTitle =
+    stationNames.length > 2
+      ? `${stationNames[0]}...他${stationNames.length - 1}駅`
+      : stationNames.join("・");
+
+  const [restaurants, setRestaurants] = useState<RestaurantInfoDTO[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // 2点間の距離計算 (Haversine formula)
+  const calculateDistance = (
+    lat1: number,
+    lng1: number,
+    lat2: number,
+    lng2: number
+  ) => {
+    const R = 6371e3; // 地球の半径
+    const φ1 = (lat1 * Math.PI) / 180;
+    const φ2 = (lat2 * Math.PI) / 180;
+    const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+    const Δλ = ((lng2 - lng1) * Math.PI) / 180;
+
+    const a =
+      Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+      Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return R * c;
+  };
+
+  const getGooglePhotoUrl = (photoName: string | undefined) => {
+    if (!photoName) return "/images/no_image.jpg";
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
+    if (!apiKey) return "/images/no_image.jpg";
+
+    return `https://places.googleapis.com/v1/${photoName}/media?key=${apiKey}&maxWidthPx=400&maxHeightPx=400`;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/restaurants?station=${stationParam}`);
+        const data = await res.json();
+
+        if (!data.results) {
+          setRestaurants([]);
+          return;
+        }
+
+        const formattedData: RestaurantInfoDTO[] = data.results
+          .map((place: any) => {
+            const genreText =
+              place.types && place.types.length > 0
+                ? place.types[0].replace(/_/g, " ")
+                : "飲食店";
+
+            // ▼▼▼ 修正: 複数の駅の中から最も近い駅を探して距離を計算 ▼▼▼
+            let minWalkMinutes = 999;
+            let nearestStationName = "駅";
+
+            if (place.location && stationLats.length > 0) {
+              // 各駅との距離を計算し、最小値を採用する
+              stationLats.forEach((lat, index) => {
+                const lng = stationLngs[index];
+                if (!lat || !lng) return;
+
+                const distance = calculateDistance(
+                  lat,
+                  lng,
+                  place.location.latitude,
+                  place.location.longitude
+                );
+                // 不動産基準 80m=1分
+                const minutes = Math.ceil(distance / 80);
+
+                if (minutes < minWalkMinutes) {
+                  minWalkMinutes = minutes;
+                  nearestStationName = stationNames[index];
+                }
+              });
+            }
+
+            // 駅名が1つのときは「〇〇駅」とし、複数のときは「最寄:〇〇駅」と表現を変えても良い
+            const displayStation =
+              stationNames.length > 1
+                ? `${nearestStationName}駅(近)`
+                : `${nearestStationName}駅`;
+
+            return {
+              id: place.id,
+              name: place.name,
+              genre: genreText,
+              address: place.address,
+              station: displayStation,
+              walkMinutes: minWalkMinutes === 999 ? 0 : minWalkMinutes,
+              description: `評価: ★${place.rating} (${place.reviewCount}件の口コミ)`,
+              imageUrl: getGooglePhotoUrl(place.photoReference),
+            };
+          })
+          .filter(
+            (restaurant: RestaurantInfoDTO) => restaurant.walkMinutes <= 10
+          );
+
+        setRestaurants(formattedData);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (stationParam !== "周辺") {
+      fetchData();
+    } else {
+      setLoading(false);
+    }
+  }, [searchParams]);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <Container maxWidth="xl" sx={{ py: 4 }}>
+      <Typography
+        variant="h4"
+        component="h1"
+        gutterBottom
+        sx={{ mb: 4, fontWeight: "bold" }}
+      >
+        {displayTitle}のがっつりグルメ
+      </Typography>
+
+      {loading ? (
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+          <CircularProgress />
+        </Box>
+      ) : (
+        <Grid container spacing={3}>
+          {restaurants.map((restaurant) => (
+            <Grid key={restaurant.id} size={{ xs: 12, sm: 6, lg: 4 }}>
+              <RestaurantCard
+                name={restaurant.name}
+                genre={restaurant.genre}
+                address={restaurant.address}
+                station={restaurant.station}
+                walkMinutes={restaurant.walkMinutes}
+                description={restaurant.description}
+                imageUrl={restaurant.imageUrl}
+                onClick={() => {
+                  window.open(
+                    `https://www.google.com/maps/place/?q=place_id:${encodeURIComponent(
+                      restaurant.name + " " + restaurant.address
+                    )}`,
+                    "_blank"
+                  );
+                }}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+    </Container>
   );
 }
