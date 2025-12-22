@@ -9,7 +9,6 @@ import {
   Button,
   Checkbox,
   Chip,
-  CircularProgress,
   Collapse,
   Divider,
   FormControl,
@@ -148,23 +147,19 @@ export default function Sidebar({ onClose }: SidebarProps) {
     <Box
       sx={{
         width: "100%",
-        height: "100%",
+        height: "100%", // 親（Drawer等）の高さに合わせる
+        display: "flex",
+        flexDirection: "column", // 縦並びのレイアウト
         bgcolor: "#ffffff",
-        p: 3,
-        overflowY: "auto",
-        scrollbarGutter: "stable",
       }}
     >
-      <Box sx={{ mb: 4, px: 1 }}>
-        <Typography variant="h6" fontWeight="bold" color="primary.main">
-          ガツガツグルメ
-        </Typography>
-        <Typography variant="caption" color="text.secondary">
-          駅周辺のおいしいお店を探す
-        </Typography>
-      </Box>
-
-      <List component="nav">
+      {/* 1. ヘッダーセクション（固定） */}
+      <Box sx={{ p: 3, pb: 1 }}>
+        <Box sx={{ mb: 1, px: 1 }}>
+          <Typography variant="h6" fontWeight="bold" color="primary.main">
+            ガツガツグルメ
+          </Typography>
+        </Box>
         <Typography
           variant="subtitle2"
           fontWeight="bold"
@@ -224,7 +219,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
         </Box>
 
         {/* 路線選択 */}
-        <Box sx={{ mb: 3 }}>
+        <Box sx={{ mb: 2 }}>
           <FormControl
             fullWidth
             variant="filled"
@@ -249,18 +244,16 @@ export default function Sidebar({ onClose }: SidebarProps) {
               onChange={(e) => handleChangeLine(String(e.target.value))}
               displayEmpty
               renderValue={(selected) => {
-                if (loadingLines) {
+                if (loadingLines)
                   return (
                     <Typography color="text.secondary">
-                      路線を読み込み中...
+                      読み込み中...
                     </Typography>
                   );
-                }
-                if (!selected) {
+                if (!selected)
                   return (
                     <Typography color="text.disabled">路線を選択</Typography>
                   );
-                }
                 return selected;
               }}
               sx={{
@@ -275,14 +268,6 @@ export default function Sidebar({ onClose }: SidebarProps) {
                   sx: { maxHeight: 300, borderRadius: 2, boxShadow: 3 },
                 },
               }}
-              endAdornment={
-                loadingLines ? (
-                  <CircularProgress
-                    size={16}
-                    sx={{ mr: 2, position: "absolute", right: 24 }}
-                  />
-                ) : null
-              }
             >
               {rosenList.map((v) => (
                 <MenuItem key={v.id} value={v.id}>
@@ -292,10 +277,18 @@ export default function Sidebar({ onClose }: SidebarProps) {
             </Select>
           </FormControl>
         </Box>
+        <Divider sx={{ mb: 1, borderColor: "rgba(0,0,0,0.05)" }} />
+      </Box>
 
-        <Divider sx={{ my: 2, borderColor: "rgba(0,0,0,0.05)" }} />
-
-        {/* 駅一覧（アコーディオン） */}
+      {/* 2. スクロールセクション（駅一覧） */}
+      <Box
+        sx={{
+          flex: 1, // 余ったスペースをすべて使い、
+          overflowY: "auto", // ここだけスクロールさせる
+          px: 3,
+          scrollbarGutter: "stable",
+        }}
+      >
         {(selectedLineName || loadingStations) && (
           <Box
             sx={{
@@ -303,6 +296,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
               borderColor: "grey.200",
               borderRadius: 2,
               overflow: "hidden",
+              mb: 2,
             }}
           >
             <ListItemButton
@@ -322,9 +316,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 }
                 primaryTypographyProps={{ variant: "body2", fontWeight: 600 }}
               />
-              {loadingStations ? (
-                <CircularProgress size={16} />
-              ) : isStationListOpen ? (
+              {isStationListOpen ? (
                 <ExpandLess fontSize="small" />
               ) : (
                 <ExpandMore fontSize="small" />
@@ -332,91 +324,77 @@ export default function Sidebar({ onClose }: SidebarProps) {
             </ListItemButton>
 
             <Collapse in={isStationListOpen} timeout="auto" unmountOnExit>
-              {loadingStations ? (
-                <Box sx={{ display: "flex", justifyContent: "center", p: 4 }} />
-              ) : (
-                <List
-                  component="div"
-                  disablePadding
-                  sx={{ bgcolor: "#fff", maxHeight: "40vh", overflowY: "auto" }}
-                >
-                  {stationList.map((v) => (
-                    <ListItemButton
-                      key={v.name}
-                      dense
-                      onClick={() => handleChangeChecked(v.name)}
-                      sx={{
-                        pl: 2,
-                        borderBottom: "1px solid",
-                        borderColor: "grey.50",
-                      }}
-                    >
-                      <Checkbox
+              <List component="div" disablePadding sx={{ bgcolor: "#fff" }}>
+                {stationList.map((v) => (
+                  <ListItemButton
+                    key={v.name}
+                    dense
+                    onClick={() => handleChangeChecked(v.name)}
+                    sx={{
+                      pl: 2,
+                      borderBottom: "1px solid",
+                      borderColor: "grey.50",
+                    }}
+                  >
+                    <Checkbox
+                      size="small"
+                      checked={v.check}
+                      disableRipple
+                      sx={{ "&.Mui-checked": { color: "primary.main" } }}
+                    />
+                    <ListItemText
+                      primary={v.name}
+                      primaryTypographyProps={{ variant: "body2" }}
+                    />
+                    {v.count > 0 && (
+                      <Chip
+                        label={v.count}
                         size="small"
-                        edge="start"
-                        checked={v.check}
-                        tabIndex={-1}
-                        disableRipple
-                        sx={{
-                          color: "grey.300",
-                          "&.Mui-checked": { color: "primary.main" },
-                        }}
+                        sx={{ height: 20, fontSize: "0.7rem" }}
                       />
-                      <ListItemText
-                        primary={v.name}
-                        primaryTypographyProps={{ variant: "body2" }}
-                      />
-                      {v.count > 0 && (
-                        <Chip
-                          label={v.count}
-                          size="small"
-                          sx={{
-                            height: 20,
-                            fontSize: "0.7rem",
-                            bgcolor: "grey.100",
-                          }}
-                        />
-                      )}
-                    </ListItemButton>
-                  ))}
-                </List>
-              )}
+                    )}
+                  </ListItemButton>
+                ))}
+              </List>
             </Collapse>
           </Box>
         )}
+      </Box>
 
-        <Box sx={{ mt: 4, px: 1, pb: 6 }}>
-          <Button
-            variant="contained"
-            fullWidth
-            size="large"
-            startIcon={<SearchIcon />}
-            disabled={!stationList.some((s) => s.check)}
-            onClick={handleSearch}
-            sx={{
-              borderRadius: "50px",
-              fontWeight: "bold",
-              fontSize: "1rem",
-              textTransform: "none",
-              py: 1.5,
-              boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-              background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
-              "&:hover": {
-                background: "linear-gradient(45deg, #1976D2 30%, #00BCD4 90%)",
-                boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-                transform: "translateY(-2px)",
-              },
-              "&:disabled": {
-                background: "#e0e0e0",
-                boxShadow: "none",
-                transform: "none",
-              },
-            }}
-          >
-            検索する
-          </Button>
-        </Box>
-      </List>
+      {/* 3. フッターセクション（常に最下部に表示） */}
+      <Box
+        sx={{
+          p: 3,
+          pt: 2,
+          borderTop: "1px solid",
+          borderColor: "grey.100",
+          bgcolor: "#ffffff", // リストが裏に回り込んでも見やすいよう背景色を指定
+        }}
+      >
+        <Button
+          variant="contained"
+          fullWidth
+          size="large"
+          startIcon={<SearchIcon />}
+          disabled={!stationList.some((s) => s.check)}
+          onClick={handleSearch}
+          sx={{
+            borderRadius: "50px",
+            fontWeight: "bold",
+            fontSize: "1rem",
+            textTransform: "none",
+            py: 1.5,
+            boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
+            background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+            "&:hover": {
+              background: "linear-gradient(45deg, #1976D2 30%, #00BCD4 90%)",
+              transform: "translateY(-2px)",
+            },
+          }}
+        >
+          検索する
+        </Button>
+      </Box>
     </Box>
   );
 }
