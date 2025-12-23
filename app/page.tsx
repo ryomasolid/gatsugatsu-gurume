@@ -11,17 +11,14 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import RestaurantCard, { RestaurantInfoDTO } from "./components/RestaurantCard";
 
-// 実際のコンテンツを表示するコンポーネント
 function RestaurantList() {
   const searchParams = useSearchParams();
   const stationParam = searchParams.get("station") || "周辺";
 
-  // カンマ区切りのパラメータを配列に変換
   const stationNames = stationParam.split(",");
   const stationLats = (searchParams.get("lat") || "").split(",").map(Number);
   const stationLngs = (searchParams.get("lng") || "").split(",").map(Number);
 
-  // 表示タイトル用（長い場合は省略）
   const displayTitle =
     stationNames.length > 2
       ? `${stationNames[0]}...他${stationNames.length - 1}駅`
@@ -30,14 +27,14 @@ function RestaurantList() {
   const [restaurants, setRestaurants] = useState<RestaurantInfoDTO[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // 2点間の距離計算 (Haversine formula)
+  // 2点間の距離計算
   const calculateDistance = (
     lat1: number,
     lng1: number,
     lat2: number,
     lng2: number
   ) => {
-    const R = 6371e3; // 地球の半径
+    const R = 6371e3;
     const φ1 = (lat1 * Math.PI) / 180;
     const φ2 = (lat2 * Math.PI) / 180;
     const Δφ = ((lat2 - lat1) * Math.PI) / 180;
@@ -63,7 +60,13 @@ function RestaurantList() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/restaurants?station=${stationParam}`);
+        const query = new URLSearchParams({
+          station: stationParam,
+          lat: searchParams.get("lat") || "",
+          lng: searchParams.get("lng") || "",
+        });
+
+        const res = await fetch(`/api/restaurants?${query.toString()}`);
         const data = await res.json();
 
         if (!data.results) {
@@ -180,7 +183,6 @@ function RestaurantList() {
   );
 }
 
-// メインのPageコンポーネント。ここでSuspenseを使ってラップする。
 export default function Home() {
   return (
     <Suspense
