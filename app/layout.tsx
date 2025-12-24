@@ -3,6 +3,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 import AppLayout from "./components/AppLayout";
 import ThemeRegistry from "./components/ThemeRegistry";
 import "./globals.css";
@@ -55,6 +56,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <head>
+        {/* ▼▼▼ Google AdSense コードの追加 ▼▼▼ */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3362493734697220"
+          crossOrigin="anonymous"
+          strategy="afterInteractive" // ページ読み込み後に実行する設定
+        />
+      </head>
       <body className={notoSansJP.className}>
         <ThemeRegistry>
           <AppLayout>
