@@ -20,6 +20,7 @@ import {
   Select,
   Typography,
 } from "@mui/material";
+import { sendGAEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { todofuken } from "../constants";
@@ -130,6 +131,11 @@ export default function Sidebar({ onClose }: SidebarProps) {
       const names = checkedStations.map((s) => s.name).join(",");
       const lats = checkedStations.map((s) => s.y).join(",");
       const lngs = checkedStations.map((s) => s.x).join(",");
+
+      sendGAEvent({
+        event: "search",
+        search_term: names,
+      });
 
       const query = new URLSearchParams({
         station: names,
