@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Typography } from "@mui/material";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
@@ -14,7 +16,6 @@ const notoSansJP = Noto_Sans_JP({
   display: "swap",
 });
 
-// ▼▼▼ SEO・認証設定 ▼▼▼
 export const metadata: Metadata = {
   title: {
     template: "%s | ガツガツグルメ",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     "大盛り",
   ],
   verification: {
-    google: "ここにSearch Consoleでコピーした文字列を貼り付け",
+    google: "0SxWC71HO88CspxL9j_u52VvAKMuFKoaCwP8vPO5gDs",
   },
   openGraph: {
     title: "ガツガツグルメ",
@@ -57,21 +58,18 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        {/* ▼▼▼ Google AdSense コードの追加 ▼▼▼ */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3362493734697220"
           crossOrigin="anonymous"
-          strategy="afterInteractive" // ページ読み込み後に実行する設定
+          strategy="afterInteractive"
         />
       </head>
       <body className={notoSansJP.className}>
         <ThemeRegistry>
           <AppLayout>
-            {/* メインコンテンツエリア */}
             <Box sx={{ minHeight: "calc(100vh - 250px)" }}>{children}</Box>
 
-            {/* ▼▼▼ 共通フッター ▼▼▼ */}
             <Box
               component="footer"
               sx={{
@@ -82,12 +80,11 @@ export default function RootLayout({
                 textAlign: "center",
               }}
             >
-              {/* リンク集を横並びに配置 */}
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "center",
-                  gap: 3, // リンク間の余白
+                  gap: 3,
                   mb: 1,
                 }}
               >
@@ -99,6 +96,7 @@ export default function RootLayout({
                     variant="body2"
                     sx={{
                       color: "text.secondary",
+                      cursor: "pointer",
                       "&:hover": {
                         textDecoration: "underline",
                         color: "primary.main",
@@ -117,6 +115,7 @@ export default function RootLayout({
                     variant="body2"
                     sx={{
                       color: "text.secondary",
+                      cursor: "pointer",
                       "&:hover": {
                         textDecoration: "underline",
                         color: "primary.main",
