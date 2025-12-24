@@ -2,8 +2,8 @@ import { Box, Container, Divider, Paper, Typography } from "@mui/material";
 
 export default function PrivacyPolicy() {
   return (
-    <Container maxWidth="md">
-      <Paper elevation={0} sx={{ bgcolor: "transparent" }}>
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Paper elevation={0} sx={{ p: 4, bgcolor: "transparent" }}>
         <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
           プライバシーポリシー
         </Typography>
@@ -36,13 +36,22 @@ export default function PrivacyPolicy() {
 
         <Section title="2. アクセス解析ツールについて">
           <Typography variant="body2" paragraph>
-            当アプリでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています（または利用を予定しています）。
+            当アプリでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。
             このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。
             この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。
           </Typography>
         </Section>
 
-        <Section title="3. 免責事項">
+        <Section title="3. 個人情報の利用目的">
+          <Typography variant="body2" paragraph>
+            当アプリでは、お問い合わせフォームの利用時に、お名前やメールアドレス等の個人情報をご登録いただく場合があります。
+          </Typography>
+          <Typography variant="body2" paragraph>
+            これらの個人情報は、質問に対する回答や必要な情報を電子メールなどでご連絡する場合に利用するものであり、個人情報をご提供いただく際の目的以外では利用いたしません。
+          </Typography>
+        </Section>
+
+        <Section title="4. 免責事項">
           <Typography variant="body2" paragraph>
             当アプリに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
             また、当アプリからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。
@@ -50,7 +59,7 @@ export default function PrivacyPolicy() {
           </Typography>
         </Section>
 
-        <Section title="4. 本ポリシーの変更">
+        <Section title="5. 本ポリシーの変更">
           <Typography variant="body2" paragraph>
             当アプリは、必要に応じて本ポリシーを変更します。変更後のプライバシーポリシーは、当アプリ内に掲載したときから効力を生じるものとします。
           </Typography>
@@ -64,7 +73,8 @@ export default function PrivacyPolicy() {
           </Typography>
           <Typography variant="caption" display="block" color="text.secondary">
             <strong>お問い合わせ：</strong>
-            ryomasolid@yahoo.co.jp までご連絡ください。
+            ryomasolid@yahoo.co.jp
+            またはお問い合わせフォームよりご連絡ください。
           </Typography>
         </Box>
       </Paper>
