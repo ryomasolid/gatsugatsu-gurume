@@ -16,13 +16,21 @@ const notoSansJP = Noto_Sans_JP({
 
 // テーマ設定
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF6B00", // 鮮やかなオレンジ
+    },
+    secondary: {
+      main: "#1A1A1A", // 深い黒
+    },
+    background: {
+      default: "#F8F9FA", // 少しグレーがかった背景でカードを際立たせる
+    },
+  },
   typography: {
     fontFamily: notoSansJP.style.fontFamily,
-  },
-  palette: {
-    background: {
-      default: "#f4f6f8",
-    },
+    h1: { fontWeight: 900 },
+    h4: { fontWeight: 900 },
   },
 });
 

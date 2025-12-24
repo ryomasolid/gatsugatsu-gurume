@@ -142,12 +142,21 @@ function RestaurantList() {
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
       <Typography
-        variant="h4"
+        variant="h3"
         component="h1"
         gutterBottom
-        sx={{ mb: 4, fontWeight: "bold" }}
+        sx={{
+          mb: 6,
+          fontWeight: 900,
+          textAlign: "center",
+          background: "linear-gradient(45deg, #FF6B00 30%, #FF2E00 90%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          letterSpacing: "-0.02em",
+          textShadow: "0 10px 20px rgba(0,0,0,0.05)",
+        }}
       >
-        {displayTitle}のがっつりグルメ
+        {displayTitle}のガツガツグルメ
       </Typography>
 
       {loading ? (
@@ -159,6 +168,7 @@ function RestaurantList() {
           {restaurants.map((restaurant) => (
             <Grid key={restaurant.id} size={{ xs: 12, sm: 6, lg: 4 }}>
               <RestaurantCard
+                id={restaurant.id} // ★ここを追加！
                 name={restaurant.name}
                 genre={restaurant.genre}
                 address={restaurant.address}
@@ -168,7 +178,7 @@ function RestaurantList() {
                 imageUrl={restaurant.imageUrl}
                 onClick={() => {
                   window.open(
-                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    `https://www.google.com/maps/search/?api=1&query=$${encodeURIComponent(
                       restaurant.name + " " + restaurant.address
                     )}`,
                     "_blank"
