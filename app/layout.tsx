@@ -1,7 +1,8 @@
-import { Box, Typography } from "@mui/material"; // 追加
+import { Box, Typography } from "@mui/material";
+import { GoogleAnalytics } from "@next/third-parties/google"; // ★追加
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
-import Link from "next/link"; // 追加
+import Link from "next/link";
 import AppLayout from "./components/AppLayout";
 import ThemeRegistry from "./components/ThemeRegistry";
 import "./globals.css";
@@ -12,17 +13,30 @@ const notoSansJP = Noto_Sans_JP({
   display: "swap",
 });
 
+// ▼▼▼ SEO・認証設定 ▼▼▼
 export const metadata: Metadata = {
   title: {
     template: "%s | ガツガツグルメ",
     default: "ガツガツグルメ | 駅周辺のラーメン・牛丼・定食検索",
   },
-  verification: {
-    google: "XqwYNokzN4vHqTo5eWt5ocKZw6XoxJ9O0XAqUuDeyJY",
-  },
   description:
-    "駅周辺のがっつり食べられるお店をワンタップで検索できるアプリです。口コミ順に並び替えて、本当においしいお店を探せます。",
-  keywords: ["グルメ", "ラーメン", "ランチ", "駅近", "ガッツリ"],
+    "「ガツガツグルメ」は、駅周辺のラーメン、牛丼、定食など、がっつり食べられるお店をワンタップで検索できるアプリです。口コミ順に並び替えて、本当においしいお店を探せます。",
+  keywords: [
+    "グルメ",
+    "ラーメン",
+    "牛丼",
+    "定食",
+    "ランチ",
+    "駅近",
+    "ガッツリ",
+    "大盛り",
+  ],
+
+  // Google Search Consoleの認証用
+  verification: {
+    google: "ここにSearch Consoleでコピーした文字列を貼り付け",
+  },
+
   openGraph: {
     title: "ガツガツグルメ",
     description: "駅周辺のがっつり飯を最速検索！口コミ順で失敗しないお店選び。",
@@ -47,9 +61,10 @@ export default function RootLayout({
       <body className={notoSansJP.className}>
         <ThemeRegistry>
           <AppLayout>
-            {/* メインコンテンツ */}
-            <Box sx={{ minHeight: "calc(100vh - 200px)" }}>{children}</Box>
+            {/* メインコンテンツエリア：フッターを下に押しやるため最小高さを設定 */}
+            <Box sx={{ minHeight: "calc(100vh - 250px)" }}>{children}</Box>
 
+            {/* ▼▼▼ 共通フッター（プライバシーポリシー） ▼▼▼ */}
             <Box
               component="footer"
               sx={{
@@ -67,6 +82,7 @@ export default function RootLayout({
                 <Typography
                   variant="body2"
                   sx={{
+                    color: "text.secondary",
                     "&:hover": {
                       textDecoration: "underline",
                       color: "primary.main",
@@ -86,6 +102,9 @@ export default function RootLayout({
             </Box>
           </AppLayout>
         </ThemeRegistry>
+
+        {/* ▼▼▼ Google Analytics 測定IDをここに貼り付け ▼▼▼ */}
+        <GoogleAnalytics gaId="G-3776BLEK73" />
       </body>
     </html>
   );
