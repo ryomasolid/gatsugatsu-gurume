@@ -220,7 +220,10 @@ export default function Sidebar({ onClose }: SidebarProps) {
               sx={{
                 borderRadius: 2,
                 bgcolor: "grey.50",
-                "&:before, &:after": { border: "none" },
+                "&:before, &:after": { borderBottom: "none !important" },
+                "&:hover:not(.Mui-disabled):before": {
+                  borderBottom: "none !important",
+                },
                 "&:hover": { bgcolor: "grey.100" },
                 ".MuiSelect-select": { py: 1.5, px: 2 },
               }}

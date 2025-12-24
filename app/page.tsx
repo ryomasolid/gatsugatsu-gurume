@@ -143,6 +143,10 @@ function RestaurantList() {
           textAlign: "center",
           fontWeight: 900,
           mb: { xs: 3, md: 6 },
+          fontSize: { xs: "1.25rem", sm: "2rem", md: "3rem" },
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
           color: (theme) =>
             theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A",
           textShadow: (theme) =>
