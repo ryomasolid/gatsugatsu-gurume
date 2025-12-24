@@ -280,7 +280,9 @@ export default function Sidebar({ onClose }: SidebarProps) {
               sx={{
                 borderRadius: 2,
                 bgcolor: "grey.50",
-                "&:before, &:after": { border: "none" },
+                "&:before": { borderBottom: "none !important" }, // 通常時の下線を消す
+                "&:after": { borderBottom: "none !important" }, // フォーカス時の下線を消す
+                "&.Mui-disabled:before": { borderBottom: "none !important" }, // 無効時の点線を消す
                 "&:hover": { bgcolor: "grey.100" },
                 ".MuiSelect-select": { py: 1.5, px: 2 },
               }}

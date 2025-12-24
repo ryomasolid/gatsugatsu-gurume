@@ -2,8 +2,8 @@ import { Box, Container, Divider, Paper, Typography } from "@mui/material";
 
 export default function PrivacyPolicy() {
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Paper elevation={0} sx={{ p: 4, bgcolor: "transparent" }}>
+    <Container maxWidth="md">
+      <Paper elevation={0} sx={{ bgcolor: "transparent" }}>
         <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
           プライバシーポリシー
         </Typography>

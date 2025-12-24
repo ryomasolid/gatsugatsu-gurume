@@ -8,26 +8,24 @@ import {
   Typography,
 } from "@mui/material";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import RestaurantCard, { RestaurantInfoDTO } from "./components/RestaurantCard";
 
 function RestaurantList() {
   const searchParams = useSearchParams();
-  const stationParam = searchParams.get("station") || "周辺";
 
-  const stationNames = stationParam.split(",");
-  const stationLats = (searchParams.get("lat") || "").split(",").map(Number);
-  const stationLngs = (searchParams.get("lng") || "").split(",").map(Number);
-
-  const displayTitle =
-    stationNames.length > 2
-      ? `${stationNames[0]}...他${stationNames.length - 1}駅`
-      : stationNames.join("・");
+  // useMemoで値を固定し、不要なuseEffectの実行を防ぐ
+  const stationParam = useMemo(
+    () => searchParams.get("station") || "周辺",
+    [searchParams]
+  );
+  const latParam = useMemo(() => searchParams.get("lat") || "", [searchParams]);
+  const lngParam = useMemo(() => searchParams.get("lng") || "", [searchParams]);
 
   const [restaurants, setRestaurants] = useState<RestaurantInfoDTO[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  // 2点間の距離計算
+  // 距離計算ロジック
   const calculateDistance = (
     lat1: number,
     lng1: number,
@@ -39,33 +37,33 @@ function RestaurantList() {
     const φ2 = (lat2 * Math.PI) / 180;
     const Δφ = ((lat2 - lat1) * Math.PI) / 180;
     const Δλ = ((lng2 - lng1) * Math.PI) / 180;
-
     const a =
       Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
       Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-    return R * c;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   };
 
   const getGooglePhotoUrl = (photoName: string | undefined) => {
     if (!photoName) return "/images/no_image.jpg";
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
     if (!apiKey) return "/images/no_image.jpg";
-
     return `https://places.googleapis.com/v1/${photoName}/media?key=${apiKey}&maxWidthPx=400&maxHeightPx=400`;
   };
 
   useEffect(() => {
+    if (stationParam === "周辺") {
+      setLoading(false);
+      return;
+    }
+
     const fetchData = async () => {
       setLoading(true);
       try {
         const query = new URLSearchParams({
           station: stationParam,
-          lat: searchParams.get("lat") || "",
-          lng: searchParams.get("lng") || "",
+          lat: latParam,
+          lng: lngParam,
         });
-
         const res = await fetch(`/api/restaurants?${query.toString()}`);
         const data = await res.json();
 
@@ -74,13 +72,12 @@ function RestaurantList() {
           return;
         }
 
-        const formattedData: RestaurantInfoDTO[] = data.results
-          .map((place: any) => {
-            const genreText =
-              place.types && place.types.length > 0
-                ? place.types[0].replace(/_/g, " ")
-                : "飲食店";
+        const stationNames = stationParam.split(",");
+        const stationLats = latParam.split(",").map(Number);
+        const stationLngs = lngParam.split(",").map(Number);
 
+        const formattedData: RestaurantInfoDTO[] = data.results.map(
+          (place: any) => {
             let minWalkMinutes = 999;
             let nearestStationName = "駅";
 
@@ -88,7 +85,6 @@ function RestaurantList() {
               stationLats.forEach((lat, index) => {
                 const lng = stationLngs[index];
                 if (!lat || !lng) return;
-
                 const distance = calculateDistance(
                   lat,
                   lng,
@@ -96,7 +92,6 @@ function RestaurantList() {
                   place.location.longitude
                 );
                 const minutes = Math.ceil(distance / 80);
-
                 if (minutes < minWalkMinutes) {
                   minWalkMinutes = minutes;
                   nearestStationName = stationNames[index];
@@ -104,40 +99,39 @@ function RestaurantList() {
               });
             }
 
-            const displayStation =
-              stationNames.length > 1
-                ? `${nearestStationName}駅(近)`
-                : `${nearestStationName}駅`;
-
             return {
               id: place.id,
               name: place.name,
-              genre: genreText,
+              genre: place.types?.[0]?.replace(/_/g, " ") || "飲食店",
               address: place.address,
-              station: displayStation,
+              station:
+                stationNames.length > 1
+                  ? `${nearestStationName}駅(近)`
+                  : `${nearestStationName}駅`,
               walkMinutes: minWalkMinutes === 999 ? 0 : minWalkMinutes,
               description: `評価: ★${place.rating} (${place.reviewCount}件の口コミ)`,
               imageUrl: getGooglePhotoUrl(place.photoReference),
             };
-          })
-          .filter(
-            (restaurant: RestaurantInfoDTO) => restaurant.walkMinutes <= 10
-          );
+          }
+        );
 
         setRestaurants(formattedData);
       } catch (error) {
-        console.error(error);
+        console.error("Fetch error:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    if (stationParam !== "周辺") {
-      fetchData();
-    } else {
-      setLoading(false);
-    }
-  }, [searchParams, stationParam]);
+    fetchData();
+  }, [stationParam, latParam, lngParam]);
+
+  const displayTitle =
+    stationParam.split(",").length > 2
+      ? `${stationParam.split(",")[0]}...他${
+          stationParam.split(",").length - 1
+        }駅`
+      : stationParam.split(",").join("・");
 
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
@@ -146,22 +140,15 @@ function RestaurantList() {
         component="h1"
         gutterBottom
         sx={{
-          whiteSpace: "nowrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          width: "100%",
-          fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" },
-          mb: { xs: 3, md: 6 },
-          fontWeight: 900,
           textAlign: "center",
-          letterSpacing: "0.05em",
-          lineHeight: 1.2,
+          fontWeight: 900,
+          mb: { xs: 3, md: 6 },
           color: (theme) =>
-            theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A", // ダークは白、ライトは黒
+            theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A",
           textShadow: (theme) =>
             theme.palette.mode === "dark"
-              ? "0 0 10px #FF6B00, 0 0 20px #FF2E00" // ダーク：オレンジのネオン発光
-              : "3px 3px 0px rgba(255, 107, 0, 0.2)", // ライト：オレンジの「ズレ」影で立体感を出す
+              ? "0 0 10px #FF6B00"
+              : "3px 3px 0px rgba(255, 107, 0, 0.2)",
         }}
       >
         {displayTitle}のガツガツグルメ
@@ -173,25 +160,18 @@ function RestaurantList() {
         </Box>
       ) : (
         <Grid container spacing={3}>
-          {restaurants.map((restaurant) => (
-            <Grid key={restaurant.id} size={{ xs: 12, sm: 6, lg: 4 }}>
+          {restaurants.map((r) => (
+            <Grid key={r.id} size={{ xs: 12, sm: 6, lg: 4 }}>
               <RestaurantCard
-                id={restaurant.id} // ★ここを追加！
-                name={restaurant.name}
-                genre={restaurant.genre}
-                address={restaurant.address}
-                station={restaurant.station}
-                walkMinutes={restaurant.walkMinutes}
-                description={restaurant.description}
-                imageUrl={restaurant.imageUrl}
-                onClick={() => {
+                {...r}
+                onClick={() =>
                   window.open(
-                    `https://www.google.com/maps/search/?api=1&query=$${encodeURIComponent(
-                      restaurant.name + " " + restaurant.address
+                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      r.name + " " + r.address
                     )}`,
                     "_blank"
-                  );
-                }}
+                  )
+                }
               />
             </Grid>
           ))}

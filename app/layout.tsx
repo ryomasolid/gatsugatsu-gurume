@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { GoogleAnalytics } from "@next/third-parties/google"; // ★追加
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import Link from "next/link";
@@ -31,12 +31,9 @@ export const metadata: Metadata = {
     "ガッツリ",
     "大盛り",
   ],
-
-  // Google Search Consoleの認証用
   verification: {
     google: "ここにSearch Consoleでコピーした文字列を貼り付け",
   },
-
   openGraph: {
     title: "ガツガツグルメ",
     description: "駅周辺のがっつり飯を最速検索！口コミ順で失敗しないお店選び。",
@@ -61,41 +58,70 @@ export default function RootLayout({
       <body className={notoSansJP.className}>
         <ThemeRegistry>
           <AppLayout>
-            {/* メインコンテンツエリア：フッターを下に押しやるため最小高さを設定 */}
+            {/* メインコンテンツエリア */}
             <Box sx={{ minHeight: "calc(100vh - 250px)" }}>{children}</Box>
 
-            {/* ▼▼▼ 共通フッター（プライバシーポリシー） ▼▼▼ */}
+            {/* ▼▼▼ 共通フッター ▼▼▼ */}
             <Box
               component="footer"
               sx={{
-                mt: 8,
-                py: 4,
+                mt: 4,
+                py: 3,
                 borderTop: "1px solid",
                 borderColor: "divider",
                 textAlign: "center",
               }}
             >
-              <Link
-                href="/privacy"
-                style={{ textDecoration: "none", color: "inherit" }}
+              {/* リンク集を横並びに配置 */}
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 3, // リンク間の余白
+                  mb: 1,
+                }}
               >
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": {
-                      textDecoration: "underline",
-                      color: "primary.main",
-                    },
-                  }}
+                <Link
+                  href="/privacy"
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  プライバシーポリシー
-                </Typography>
-              </Link>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "text.secondary",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "primary.main",
+                      },
+                    }}
+                  >
+                    プライバシーポリシー
+                  </Typography>
+                </Link>
+
+                <Link
+                  href="/contact"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "text.secondary",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "primary.main",
+                      },
+                    }}
+                  >
+                    お問い合わせ
+                  </Typography>
+                </Link>
+              </Box>
+
               <Typography
                 variant="caption"
                 color="text.disabled"
-                sx={{ mt: 1, display: "block" }}
+                sx={{ display: "block" }}
               >
                 © 2025 ガツガツグルメ
               </Typography>
@@ -103,7 +129,6 @@ export default function RootLayout({
           </AppLayout>
         </ThemeRegistry>
 
-        {/* ▼▼▼ Google Analytics 測定IDをここに貼り付け ▼▼▼ */}
         <GoogleAnalytics gaId="G-3776BLEK73" />
       </body>
     </html>
