@@ -18,7 +18,6 @@ const DRAWER_WIDTH = 300;
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
-  // md(900px)以下の時はスマホ/タブレットモード
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -28,7 +27,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <Box sx={{ display: "flex", minHeight: "100vh" }}>
-      {/* スマホ用ヘッダー (PCでは非表示) */}
+      {/* スマホ用ヘッダー */}
       <AppBar
         position="fixed"
         sx={{
@@ -56,15 +55,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             sx={{
               fontWeight: 900,
               letterSpacing: "0.02em",
-              background: "none",
-              WebkitBackgroundClip: "initial",
-              WebkitTextFillColor: "initial",
-              color: (theme) =>
-                theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A",
-              textShadow: (theme) =>
-                theme.palette.mode === "dark"
-                  ? "0 0 8px rgba(255, 107, 0, 0.8)" // ダーク：高級感のある発光
-                  : "1.5px 1.5px 0px #FF6B00", // ライト：クッキリしたオレンジの立体感
+              color: "#1A1A1A",
+              textShadow: "1.5px 1.5px 0px #FF6B00",
             }}
           >
             ガツガツグルメ
@@ -77,25 +69,23 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         component="nav"
         sx={{ width: { md: DRAWER_WIDTH }, flexShrink: { md: 0 } }}
       >
-        {/* スマホ用: Temporary Drawer */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{ keepMounted: true }} // スマホでのパフォーマンス向上
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: DRAWER_WIDTH,
+              bgcolor: "white", // ★背景を白に固定
             },
           }}
         >
-          {/* ドロワーの中身（スマホなら閉じる機能付き） */}
           <Sidebar onClose={handleDrawerToggle} />
         </Drawer>
 
-        {/* PC用: Permanent Drawer */}
         <Drawer
           variant="permanent"
           sx={{
@@ -104,6 +94,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               boxSizing: "border-box",
               width: DRAWER_WIDTH,
               borderRight: "1px solid rgba(0,0,0,0.08)",
+              bgcolor: "white", // ★背景を白に固定
             },
           }}
           open
@@ -119,9 +110,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           flexGrow: 1,
           p: 3,
           width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
-          bgcolor: "background.default",
+          bgcolor: "#F8F9FA",
           minHeight: "100vh",
-          mt: { xs: 7, md: 0 }, // スマホはヘッダー分下げる
+          mt: { xs: 7, md: 0 },
         }}
       >
         {children}

@@ -147,12 +147,8 @@ function RestaurantList() {
           whiteSpace: "nowrap",
           overflow: "hidden",
           textOverflow: "ellipsis",
-          color: (theme) =>
-            theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A",
-          textShadow: (theme) =>
-            theme.palette.mode === "dark"
-              ? "0 0 10px #FF6B00"
-              : "3px 3px 0px rgba(255, 107, 0, 0.2)",
+          color: "#1A1A1A",
+          textShadow: "1.5px 1.5px 0px #FF6B00",
         }}
       >
         {displayTitle}のガツガツグルメ

@@ -167,15 +167,8 @@ export default function Sidebar({ onClose }: SidebarProps) {
             sx={{
               fontWeight: 900,
               letterSpacing: "0.02em",
-              background: "none",
-              WebkitBackgroundClip: "initial",
-              WebkitTextFillColor: "initial",
-              color: (theme) =>
-                theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A",
-              textShadow: (theme) =>
-                theme.palette.mode === "dark"
-                  ? "0 0 8px rgba(255, 107, 0, 0.8)" // ダーク：発光
-                  : "1.5px 1.5px 0px #FF6B00", // ライト：クッキリした影
+              color: "#1A1A1A",
+              textShadow: "1.5px 1.5px 0px #FF6B00",
             }}
           >
             ガツガツグルメ
