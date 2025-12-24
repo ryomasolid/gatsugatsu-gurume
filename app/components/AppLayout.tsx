@@ -53,7 +53,19 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             variant="h6"
             noWrap
             component="div"
-            sx={{ fontWeight: "bold", color: "primary.main" }}
+            sx={{
+              fontWeight: 900,
+              letterSpacing: "0.02em",
+              background: "none",
+              WebkitBackgroundClip: "initial",
+              WebkitTextFillColor: "initial",
+              color: (theme) =>
+                theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A",
+              textShadow: (theme) =>
+                theme.palette.mode === "dark"
+                  ? "0 0 8px rgba(255, 107, 0, 0.8)" // ダーク：高級感のある発光
+                  : "1.5px 1.5px 0px #FF6B00", // ライト：クッキリしたオレンジの立体感
+            }}
           >
             ガツガツグルメ
           </Typography>

@@ -156,13 +156,28 @@ export default function Sidebar({ onClose }: SidebarProps) {
         height: "100%", // 親（Drawer等）の高さに合わせる
         display: "flex",
         flexDirection: "column", // 縦並びのレイアウト
-        bgcolor: "#ffffff",
+        bgcolor: "background.paper",
       }}
     >
       {/* 1. ヘッダーセクション（固定） */}
       <Box sx={{ p: 3, pb: 1 }}>
         <Box sx={{ mb: 1, px: 1 }}>
-          <Typography variant="h6" fontWeight="bold" color="primary.main">
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 900,
+              letterSpacing: "0.02em",
+              background: "none",
+              WebkitBackgroundClip: "initial",
+              WebkitTextFillColor: "initial",
+              color: (theme) =>
+                theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A",
+              textShadow: (theme) =>
+                theme.palette.mode === "dark"
+                  ? "0 0 8px rgba(255, 107, 0, 0.8)" // ダーク：発光
+                  : "1.5px 1.5px 0px #FF6B00", // ライト：クッキリした影
+            }}
+          >
             ガツガツグルメ
           </Typography>
         </Box>

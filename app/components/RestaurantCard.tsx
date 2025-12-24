@@ -40,7 +40,10 @@ export default function RestaurantCard(props: Props) {
         transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
         "&:hover": {
           transform: "translateY(-8px)",
-          boxShadow: "0 12px 30px rgba(255, 107, 0, 0.2)", // オレンジの影
+          boxShadow: (theme) =>
+            theme.palette.mode === "dark"
+              ? "0 12px 30px rgba(255, 107, 0, 0.4)" // ダーク時はオレンジの光を強く
+              : "0 12px 30px rgba(0, 0, 0, 0.15)", // ライト時は通常の影
         },
       }}
     >

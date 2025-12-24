@@ -1,51 +1,55 @@
-// app/components/ThemeRegistry.tsx
 "use client";
 
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Noto_Sans_JP } from "next/font/google";
-import React from "react";
-
-// フォント設定
-const notoSansJP = Noto_Sans_JP({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-// テーマ設定
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#FF6B00", // 鮮やかなオレンジ
-    },
-    secondary: {
-      main: "#1A1A1A", // 深い黒
-    },
-    background: {
-      default: "#F8F9FA", // 少しグレーがかった背景でカードを際立たせる
-    },
-  },
-  typography: {
-    fontFamily: notoSansJP.style.fontFamily,
-    h1: { fontWeight: 900 },
-    h4: { fontWeight: 900 },
-  },
-});
+import {
+  createTheme,
+  CssBaseline,
+  ThemeProvider,
+  useMediaQuery,
+} from "@mui/material";
+import { useMemo } from "react";
 
 export default function ThemeRegistry({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // OSのダークモード設定を検知
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? "dark" : "light",
+          primary: {
+            main: "#FF6B00", // ガツガツオレンジ
+          },
+          background: {
+            // ダークモード時は漆黒、ライトモード時は薄いグレー
+            default: prefersDarkMode ? "#0A0A0A" : "#F8F9FA",
+            paper: prefersDarkMode ? "#1A1A1A" : "#FFFFFF",
+          },
+          text: {
+            primary: prefersDarkMode ? "#FFFFFF" : "#1A1A1A",
+          },
+        },
+        typography: {
+          fontFamily: "var(--font-noto-sans-jp)",
+          h4: { fontWeight: 900 },
+          h5: { fontWeight: 900 },
+          h6: { fontWeight: 900 },
+        },
+        shape: {
+          borderRadius: 12,
+        },
+      }),
+    [prefersDarkMode]
+  );
+
   return (
-    <AppRouterCacheProvider>
-      <ThemeProvider theme={theme}>
-        {/* CssBaselineでブラウザごとのスタイル差異をリセット */}
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </AppRouterCacheProvider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* これが背景色やテキスト色を自動調整してくれます */}
+      {children}
+    </ThemeProvider>
   );
 }

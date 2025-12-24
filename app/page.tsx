@@ -146,14 +146,22 @@ function RestaurantList() {
         component="h1"
         gutterBottom
         sx={{
-          mb: 6,
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          width: "100%",
+          fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" },
+          mb: { xs: 3, md: 6 },
           fontWeight: 900,
           textAlign: "center",
-          background: "linear-gradient(45deg, #FF6B00 30%, #FF2E00 90%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          letterSpacing: "-0.02em",
-          textShadow: "0 10px 20px rgba(0,0,0,0.05)",
+          letterSpacing: "0.05em",
+          lineHeight: 1.2,
+          color: (theme) =>
+            theme.palette.mode === "dark" ? "#FFFFFF" : "#1A1A1A", // ダークは白、ライトは黒
+          textShadow: (theme) =>
+            theme.palette.mode === "dark"
+              ? "0 0 10px #FF6B00, 0 0 20px #FF2E00" // ダーク：オレンジのネオン発光
+              : "3px 3px 0px rgba(255, 107, 0, 0.2)", // ライト：オレンジの「ズレ」影で立体感を出す
         }}
       >
         {displayTitle}のガツガツグルメ
