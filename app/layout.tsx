@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Typography } from "@mui/material";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
