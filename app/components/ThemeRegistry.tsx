@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  createTheme,
-  CssBaseline,
-  ThemeProvider,
-  useMediaQuery,
-} from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { useMemo } from "react";
 
 export default function ThemeRegistry({
@@ -13,24 +8,20 @@ export default function ThemeRegistry({
 }: {
   children: React.ReactNode;
 }) {
-  // OSのダークモード設定を検知
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? "dark" : "light",
+          mode: "light",
           primary: {
-            main: "#FF6B00", // ガツガツオレンジ
+            main: "#FF6B00",
           },
           background: {
-            // ダークモード時は漆黒、ライトモード時は薄いグレー
-            default: prefersDarkMode ? "#0A0A0A" : "#F8F9FA",
-            paper: prefersDarkMode ? "#1A1A1A" : "#FFFFFF",
+            default: "#F8F9FA",
+            paper: "#FFFFFF",
           },
           text: {
-            primary: prefersDarkMode ? "#FFFFFF" : "#1A1A1A",
+            primary: "#1A1A1A",
           },
         },
         typography: {
@@ -43,12 +34,12 @@ export default function ThemeRegistry({
           borderRadius: 12,
         },
       }),
-    [prefersDarkMode]
+    []
   );
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* これが背景色やテキスト色を自動調整してくれます */}
+      <CssBaseline />
       {children}
     </ThemeProvider>
   );
