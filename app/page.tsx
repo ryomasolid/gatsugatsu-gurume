@@ -4,7 +4,9 @@ import {
   Box,
   CircularProgress,
   Container,
+  Divider,
   Grid,
+  Paper,
   Typography,
 } from "@mui/material";
 import { useSearchParams } from "next/navigation";
@@ -134,7 +136,7 @@ function RestaurantList() {
       : stationParam.split(",").join("・");
 
   return (
-    <Container maxWidth="xl" sx={{ py: 4 }}>
+    <Container maxWidth="xl" sx={{ py: 1 }}>
       <Typography
         variant="h3"
         component="h1"
@@ -158,7 +160,7 @@ function RestaurantList() {
         <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
           <CircularProgress />
         </Box>
-      ) : (
+      ) : restaurants.length > 0 ? (
         <Grid container spacing={3}>
           {restaurants.map((r) => (
             <Grid key={r.id} size={{ xs: 12, sm: 6, lg: 4 }}>
@@ -176,6 +178,159 @@ function RestaurantList() {
             </Grid>
           ))}
         </Grid>
+      ) : (
+        <Box sx={{ mt: 2, pb: 10 }}>
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 3, md: 8 },
+              borderRadius: 4,
+              bgcolor: "#fff",
+              border: "1px solid",
+              borderColor: "grey.200",
+            }}
+          >
+            <Typography
+              variant="h4"
+              gutterBottom
+              sx={{
+                fontWeight: 900,
+                color: "#FF6B00",
+                mb: 3,
+                fontSize: {
+                  xs: "0.85rem",
+                  sm: "1.2rem",
+                  md: "1.6rem",
+                  lg: "1.6rem",
+                },
+              }}
+            >
+              ガツガツグルメ：駅近「がっつり飯」の最強検索ガイド
+            </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                mb: 6,
+                lineHeight: 2,
+                color: "text.primary",
+                fontSize: "1.1rem",
+              }}
+            >
+              「ガツガツグルメ」へようこそ。当サイトは、日々を全力で生きる人々のために、
+              <b>
+                駅から徒歩圏内で、満足感抜群の「がっつり飯」を最速で見つけること
+              </b>
+              を目的に開発されました。
+              巷に溢れるおしゃれなカフェ情報ではなく、私たちが本当に求めている「ラーメン・牛丼・定食」という黄金の3大ジャンルに特化しています。
+            </Typography>
+
+            <Divider sx={{ my: 6 }} />
+
+            {/* コラムセクション1: ジャンル別こだわり */}
+            <Grid container spacing={6}>
+              <Grid size={{ xs: 12, sm: 6 }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 900,
+                    mb: 2,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  🍜 ラーメンの美学
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ lineHeight: 1.8, color: "text.secondary" }}
+                >
+                  「駅を降りて5分以内に、あの一杯を啜りたい。」そんな切実な願いに応えます。
+                  濃厚な豚骨醤油から、背脂たっぷりのチャッチャ系、そして二郎インスパイアまで。
+                  ガツガツグルメでは、ただのラーメン屋ではなく、食べた後に「戦える」元気が湧くお店をピックアップしています。
+                </Typography>
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6 }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 900,
+                    mb: 2,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  🍚 牛丼・丼物の信頼
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ lineHeight: 1.8, color: "text.secondary" }}
+                >
+                  日本が誇る究極のファストフード。大手チェーンの安定感はもちろん、その街にしかない「肉の盛り」が自慢の個人店まで網羅。
+                  「安く、早く、そして大量に肉を食らいたい」という本能に忠実な検索結果をお届けします。
+                </Typography>
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6 }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 900,
+                    mb: 2,
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  🍱 定食・おかわり自由の聖地
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ lineHeight: 1.8, color: "text.secondary" }}
+                >
+                  白米との真剣勝負。唐揚げ、生姜焼き、ハンバーグ。
+                  ガツガツグルメの定食カテゴリーは、特にお腹を空かせた学生やビジネスマンに支持される、ボリューム自慢のお店を中心に抽出しています。
+                </Typography>
+              </Grid>
+            </Grid>
+
+            {/* 特集：2025年のがっつり飯トレンド（ここにテキストを増やす） */}
+            <Box sx={{ mt: 8, p: 4, bgcolor: "grey.50", borderRadius: 3 }}>
+              <Typography variant="h6" sx={{ fontWeight: 900, mb: 2 }}>
+                💡 2025年「駅近グルメ」の賢い探し方
+              </Typography>
+              <Typography variant="body2" sx={{ lineHeight: 2 }}>
+                近年のグルメトレンドは、より「特化型」へと進化しています。
+                ガツガツグルメが採用しているGoogle Places
+                APIの最新データ（2025年版）を活用すれば、
+                営業時間の変更や、新規開店したばかりの「隠れた名店」も逃さずチェック可能です。
+                特に口コミ評価の数は、そのお店の「勢い」を示すバロメーター。私たちは常に最新の評価を反映させることで、
+                あなたのランチ・ディナーでの「失敗」をゼロにすることを目指しています。
+              </Typography>
+            </Box>
+
+            {/* 使い方ガイド（UIの説明） */}
+            <Box sx={{ mt: 6 }}>
+              <Typography variant="h6" sx={{ fontWeight: 900, mb: 2 }}>
+                🚀 検索の始め方
+              </Typography>
+              <Typography
+                variant="body2"
+                component="div"
+                sx={{ color: "text.secondary" }}
+              >
+                1. 画面左上（スマホは三本線アイコン）のメニューを開く
+                <br />
+                2.
+                「都道府県」と「路線」を選択し、目的の「駅」にチェックを入れる
+                <br />
+                3. 下部の「検索する」ボタンをタップ！
+                <br />
+                たったこれだけで、あなたの周囲は「がっつり飯のパラダイス」に変わります。
+              </Typography>
+            </Box>
+          </Paper>
+        </Box>
       )}
     </Container>
   );
