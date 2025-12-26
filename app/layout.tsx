@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     template: "%s | ガツガツグルメ",
     default: "ガツガツグルメ | 駅周辺のラーメン・牛丼・定食検索",
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   description:
     "「ガツガツグルメ」は、駅周辺のラーメン、牛丼、定食など、がっつり食べられるお店をワンタップで検索できるアプリです。口コミ順に並び替えて、本当においしいお店を探せます。",
   keywords: [
