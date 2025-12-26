@@ -309,6 +309,107 @@ function RestaurantList() {
               </Typography>
             </Box>
 
+            {/* --- 追加セクション：選定基準と楽しみ方 --- */}
+            <Divider sx={{ my: 6 }} />
+
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: 900, mb: 4, textAlign: "center" }}
+            >
+              ガツガツグルメ流・お店選びの3か条
+            </Typography>
+
+            <Grid container spacing={3} sx={{ mb: 6 }}>
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, height: "100%", borderRadius: 3 }}
+                >
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontWeight: "bold", mb: 1, color: "#FF6B00" }}
+                  >
+                    01. 圧倒的な「満腹度」
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                  >
+                    当サイトが紹介するのは、小腹を満たすためのお店ではありません。
+                    「大盛り無料」「おかわり自由」「肉厚」など、食べた後に明日への活力が湧いてくるような、ボリューム自慢のお店を厳選しています。
+                  </Typography>
+                </Paper>
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, height: "100%", borderRadius: 3 }}
+                >
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontWeight: "bold", mb: 1, color: "#FF6B00" }}
+                  >
+                    02. 駅から「迷わず」行ける
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                  >
+                    空腹の限界で街を彷徨う時間はもったいない。
+                    駅の改札を出てから数分以内に辿り着ける、アクセス抜群の立地条件を重視しています。
+                    仕事の合間の短いランチタイムでも、最高のパフォーマンスを発揮できます。
+                  </Typography>
+                </Paper>
+              </Grid>
+
+              <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                <Paper
+                  variant="outlined"
+                  sx={{ p: 3, height: "100%", borderRadius: 3 }}
+                >
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontWeight: "bold", mb: 1, color: "#FF6B00" }}
+                  >
+                    03. 「生の声」を重視
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ lineHeight: 1.6 }}
+                  >
+                    広告費による順位操作ではなく、実際にその店を訪れたユーザーの口コミと評価（Google
+                    Places APIデータ）をベースにしています。
+                    本当においしい「がっつり飯」の真実をそのままお届けします。
+                  </Typography>
+                </Paper>
+              </Grid>
+            </Grid>
+
+            <Box
+              sx={{
+                p: 4,
+                bgcolor: "orange.50",
+                borderRadius: 3,
+                mb: 6,
+                border: "1px solid #FFE0B2",
+              }}
+            >
+              <Typography variant="h6" sx={{ fontWeight: 900, mb: 2 }}>
+                🔍 賢いガツガツ検索のテクニック
+              </Typography>
+              <Typography variant="body2" sx={{ lineHeight: 2 }}>
+                当サイトの最大の特徴は、<b>「複数の駅を一度に選択できる」</b>
+                点にあります。
+                例えば、東急東横線の「武蔵小杉駅」と「元住吉駅」の両方にチェックを入れて検索すれば、その中間エリアにある隠れた名店も逃さずリストアップ可能です。
+                この複数駅検索を駆使して、あなただけの「がっつり飯ルート」を開拓してみてください。
+                最新の口コミスコアとリアルタイムな位置情報を組み合わせれば、もうお店選びで迷うことはありません。
+              </Typography>
+            </Box>
+
             {/* 使い方ガイド（UIの説明） */}
             <Box sx={{ mt: 6 }}>
               <Typography variant="h6" sx={{ fontWeight: 900, mb: 2 }}>
@@ -329,6 +430,39 @@ function RestaurantList() {
                 たったこれだけで、あなたの周囲は「がっつり飯のパラダイス」に変わります。
               </Typography>
             </Box>
+
+            <Divider sx={{ my: 6 }} />
+
+            <Typography variant="h5" sx={{ fontWeight: 900, mb: 4 }}>
+              よくあるご質問（FAQ）
+            </Typography>
+
+            <Grid container spacing={3}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{ fontWeight: "bold", color: "#FF6B00" }}
+                >
+                  Q. 掲載されているお店のジャンルは？
+                </Typography>
+                <Typography variant="body2" color="text.secondary" paragraph>
+                  A.
+                  ラーメン、牛丼、カレー、定食屋など、満足感の高い「がっつり飯」を中心に独自の抽出を行っています。
+                </Typography>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Typography
+                  variant="subtitle1"
+                  sx={{ fontWeight: "bold", color: "#FF6B00" }}
+                >
+                  Q. 複数の駅を同時に選ぶメリットは？
+                </Typography>
+                <Typography variant="body2" color="text.secondary" paragraph>
+                  A.
+                  徒歩や自転車で移動可能な範囲にある、隣接する駅の店舗をまとめて比較できるため、より選択肢が広がります。
+                </Typography>
+              </Grid>
+            </Grid>
           </Paper>
         </Box>
       )}
