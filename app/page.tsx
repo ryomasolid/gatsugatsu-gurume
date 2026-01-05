@@ -109,7 +109,7 @@ function RestaurantList() {
           }
         );
 
-        setRestaurants(formattedData);
+        setRestaurants(formattedData.filter((v) => v.walkMinutes < 15));
       } catch (error) {
         console.error("Fetch error:", error);
       } finally {
