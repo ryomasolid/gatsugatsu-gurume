@@ -25,7 +25,7 @@ function RestaurantList() {
   const lngParam = useMemo(() => searchParams.get("lng") || "", [searchParams]);
 
   const [restaurants, setRestaurants] = useState<RestaurantInfoDTO[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // 距離計算ロジック
   const calculateDistance = (
@@ -43,13 +43,6 @@ function RestaurantList() {
       Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
       Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  };
-
-  const getGooglePhotoUrl = (photoName: string | undefined) => {
-    if (!photoName) return "/images/no_image.jpg";
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
-    if (!apiKey) return "/images/no_image.jpg";
-    return `https://places.googleapis.com/v1/${photoName}/media?key=${apiKey}&maxWidthPx=400&maxHeightPx=400`;
   };
 
   useEffect(() => {
@@ -104,7 +97,7 @@ function RestaurantList() {
             return {
               id: place.id,
               name: place.name,
-              genre: place.types?.[0]?.replace(/_/g, " ") || "飲食店",
+              genre: place.genre,
               address: place.address,
               station:
                 stationNames.length > 1
@@ -112,7 +105,6 @@ function RestaurantList() {
                   : `${nearestStationName}駅`,
               walkMinutes: minWalkMinutes === 999 ? 0 : minWalkMinutes,
               description: `評価: ★${place.rating} (${place.reviewCount}件の口コミ)`,
-              imageUrl: getGooglePhotoUrl(place.photoReference),
             };
           }
         );
@@ -127,13 +119,6 @@ function RestaurantList() {
 
     fetchData();
   }, [stationParam, latParam, lngParam]);
-
-  const displayTitle =
-    stationParam.split(",").length > 2
-      ? `${stationParam.split(",")[0]}...他${
-          stationParam.split(",").length - 1
-        }駅`
-      : stationParam.split(",").join("・");
 
   return (
     <Container maxWidth="xl" sx={{ py: 1 }}>
@@ -153,7 +138,12 @@ function RestaurantList() {
           textShadow: "1.5px 1.5px 0px #FF6B00",
         }}
       >
-        {displayTitle}のガツガツグルメ
+        {stationParam.split(",").length > 2
+          ? `${stationParam.split(",")[0]}...他${
+              stationParam.split(",").length - 1
+            }駅`
+          : stationParam.split(",").join("・")}
+        のガツガツグルメ
       </Typography>
 
       {loading ? (

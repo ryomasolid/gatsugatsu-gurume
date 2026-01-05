@@ -20,21 +20,35 @@ export type RestaurantInfoDTO = {
   station: string;
   walkMinutes: number;
   description: string;
-  imageUrl: string;
 };
 
 type Props = RestaurantInfoDTO & {
   onClick: () => void;
 };
 
+const GENRE_IMAGES: Record<string, string> = {
+  ラーメン: "/images/ramen.png",
+  油そば: "/images/aburasoba.png",
+  牛丼: "/images/gyudon.png",
+  定食: "/images/teishoku.png",
+  カツ丼: "/images/katsudon.png",
+  中華料理: "/images/chinese.png",
+  スタミナ料理: "/images/stamina.png",
+  カレー: "/images/curry.png",
+  スープカレー: "/images/soupcurry.png",
+  その他: "/images/default.png",
+};
+
 export default function RestaurantCard(props: Props) {
+  const imagePath = GENRE_IMAGES[props.genre] || GENRE_IMAGES["その他"];
+
   return (
     <Card
       sx={{
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        borderRadius: 4, // 角を少し丸くしてモダンに
+        borderRadius: 4,
         overflow: "hidden",
         boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
         transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
@@ -42,8 +56,8 @@ export default function RestaurantCard(props: Props) {
           transform: "translateY(-8px)",
           boxShadow: (theme) =>
             theme.palette.mode === "dark"
-              ? "0 12px 30px rgba(255, 107, 0, 0.4)" // ダーク時はオレンジの光を強く
-              : "0 12px 30px rgba(0, 0, 0, 0.15)", // ライト時は通常の影
+              ? "0 12px 30px rgba(255, 107, 0, 0.4)"
+              : "0 12px 30px rgba(0, 0, 0, 0.15)",
         },
       }}
     >
@@ -51,7 +65,7 @@ export default function RestaurantCard(props: Props) {
         <CardMedia
           component="img"
           height="220"
-          image={props.imageUrl}
+          image={imagePath}
           alt={props.name}
           sx={{ objectFit: "cover" }}
         />
@@ -64,7 +78,7 @@ export default function RestaurantCard(props: Props) {
             top: 12,
             left: 12,
             fontWeight: "bold",
-            bgcolor: "#FF6B00", // 強めのオレンジ
+            bgcolor: "#FF6B00",
             boxShadow: 2,
           }}
         />
