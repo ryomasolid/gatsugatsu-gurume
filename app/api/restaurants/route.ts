@@ -5,7 +5,7 @@ const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const BASE_URL = "https://places.googleapis.com/v1/places:searchText";
 
 // --- 【設定】APIを停止している間はここを true にする ---
-const IS_MOCK_MODE = true;
+const IS_MOCK_MODE = false;
 
 // テスト用の疑似データ（API無料枠を消費せず、AdSense審査時の「コンテンツ不足」を防ぐ）
 const MOCK_RESTAURANTS = [
@@ -117,7 +117,8 @@ const getCachedPlaces = unstable_cache(
         "Content-Type": "application/json",
         "X-Goog-Api-Key": GOOGLE_API_KEY,
         "X-Goog-FieldMask":
-          "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.photos,places.location,places.types",
+          "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.location,places.types",
+        // "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.photos,places.location,places.types",
       },
       body: JSON.stringify({
         textQuery: combinedQuery,
