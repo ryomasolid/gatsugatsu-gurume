@@ -15,6 +15,10 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gatsugatsu-gurume.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     template: "%s | ガツガツグルメ",
     default: "ガツガツグルメ | 駅周辺のラーメン・牛丼・定食検索",
