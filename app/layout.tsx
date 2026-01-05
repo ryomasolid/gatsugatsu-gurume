@@ -138,7 +138,7 @@ export default function RootLayout({
                 color="text.disabled"
                 sx={{ display: "block" }}
               >
-                © 2025 ガツガツグルメ
+                © 2025–{new Date().getFullYear()} ガツガツグルメ
               </Typography>
             </Box>
           </AppLayout>
