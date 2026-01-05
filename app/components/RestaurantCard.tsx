@@ -11,6 +11,7 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
+import NextImage from "next/image";
 
 export type RestaurantInfoDTO = {
   id: string;
@@ -62,13 +63,14 @@ export default function RestaurantCard(props: Props) {
       }}
     >
       <Box sx={{ position: "relative" }}>
-        <CardMedia
-          component="img"
-          height="220"
-          image={imagePath}
-          alt={props.name}
-          sx={{ objectFit: "cover" }}
-        />
+        <CardMedia sx={{ position: "relative", height: 220, width: "100%" }}>
+          <NextImage
+            src={imagePath}
+            alt={props.name}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </CardMedia>
         {/* ジャンルバッジを画像の上に浮かせる */}
         <Chip
           label={props.genre}
