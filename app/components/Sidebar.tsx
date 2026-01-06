@@ -2,6 +2,7 @@
 
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import MapIcon from "@mui/icons-material/Map";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
 import SearchIcon from "@mui/icons-material/Search";
 import TrainIcon from "@mui/icons-material/Train";
 import {
@@ -9,20 +10,22 @@ import {
   Button,
   Checkbox,
   Chip,
+  CircularProgress,
   Collapse,
-  Divider,
   FormControl,
+  InputBase,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   MenuItem,
+  Paper,
   Select,
   Typography,
 } from "@mui/material";
 import { sendGAEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { todofuken } from "../constants";
 
 export type StationDto = {
@@ -51,6 +54,69 @@ export default function Sidebar({ onClose }: SidebarProps) {
   const [stationList, setStationList] = useState<StationDto[]>([]);
   const [loadingLines, setLoadingLines] = useState(false);
   const [loadingStations, setLoadingStations] = useState(false);
+  const [loadingLocation, setLoadingLocation] = useState(false);
+  const [stationSearchText, setStationSearchText] = useState("");
+
+  const dropdownMenuProps = {
+    disableScrollLock: true,
+    anchorOrigin: { vertical: "bottom" as const, horizontal: "left" as const },
+    transformOrigin: { vertical: "top" as const, horizontal: "left" as const },
+    PaperProps: {
+      sx: {
+        maxHeight: 250,
+        mt: 0.5,
+        boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+        borderRadius: "8px",
+      },
+    },
+  };
+
+  const filteredStations = useMemo(() => {
+    return stationList.filter((s) => s.name.includes(stationSearchText));
+  }, [stationList, stationSearchText]);
+
+  const handleCurrentLocationSearch = () => {
+    if (!navigator.geolocation) {
+      alert("お使いのブラウザは位置情報に対応していません。");
+      return;
+    }
+    setLoadingLocation(true);
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          const res = await fetch(
+            `https://express.heartrails.com/api/json?method=getStations&x=${longitude}&y=${latitude}`
+          );
+          const data = await res.json();
+          if (data.response?.station?.length > 0) {
+            const s = data.response.station[0];
+            sendGAEvent({
+              event: "search_current_location",
+              search_term: s.name,
+            });
+            const query = new URLSearchParams({
+              station: s.name,
+              lat: String(s.y),
+              lng: String(s.x),
+            }).toString();
+            router.push(`/?${query}`);
+            if (onClose) onClose();
+          } else {
+            alert("近くに駅が見つかりませんでした。");
+          }
+        } catch (e) {
+          alert("駅情報の取得に失敗しました。");
+        } finally {
+          setLoadingLocation(false);
+        }
+      },
+      () => {
+        setLoadingLocation(false);
+        alert("位置情報の取得を許可してください。");
+      }
+    );
+  };
 
   const handleChangePrefectures = async (prefId: string) => {
     setSelectedPrefId(prefId);
@@ -58,10 +124,9 @@ export default function Sidebar({ onClose }: SidebarProps) {
     setRosenList([]);
     setStationList([]);
     setIsStationListOpen(false);
-
+    setStationSearchText("");
     const targetPref = todofuken.find((v) => String(v.id) === String(prefId));
     if (!targetPref) return;
-
     setLoadingLines(true);
     try {
       const res = await fetch(
@@ -70,7 +135,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
         )}`
       );
       const data = await res.json();
-      if (data.response && data.response.line) {
+      if (data.response?.line) {
         setRosenList(
           data.response.line.map((l: string) => ({ id: l, line: l }))
         );
@@ -78,17 +143,16 @@ export default function Sidebar({ onClose }: SidebarProps) {
     } catch (e) {
       console.error(e);
     } finally {
-      setLoadingLines(false); // ロード終了
+      setLoadingLines(false);
     }
   };
 
   const handleChangeLine = async (lineName: string) => {
     setSelectedLineName(lineName);
     setStationList([]);
-
     setIsStationListOpen(true);
     setLoadingStations(true);
-
+    setStationSearchText("");
     try {
       const res = await fetch(
         `https://express.heartrails.com/api/json?method=getStations&line=${encodeURIComponent(
@@ -96,7 +160,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
         )}`
       );
       const data = await res.json();
-      if (data.response && data.response.station) {
+      if (data.response?.station) {
         setStationList(
           data.response.station.map((s: any) => ({
             name: s.name,
@@ -116,35 +180,23 @@ export default function Sidebar({ onClose }: SidebarProps) {
 
   const handleChangeChecked = (targetStationName: string) => {
     setStationList((prev) =>
-      prev.map((station) =>
-        station.name !== targetStationName
-          ? station
-          : { ...station, check: !station.check }
+      prev.map((s) =>
+        s.name !== targetStationName ? s : { ...s, check: !s.check }
       )
     );
   };
 
   const handleSearch = () => {
-    const checkedStations = stationList.filter((s) => s.check);
-
-    if (checkedStations.length > 0) {
-      const names = checkedStations.map((s) => s.name).join(",");
-      const lats = checkedStations.map((s) => s.y).join(",");
-      const lngs = checkedStations.map((s) => s.x).join(",");
-
-      sendGAEvent({
-        event: "search",
-        search_term: names,
-      });
-
+    const checked = stationList.filter((s) => s.check);
+    if (checked.length > 0) {
+      const names = checked.map((s) => s.name).join(",");
+      sendGAEvent({ event: "search", search_term: names });
       const query = new URLSearchParams({
         station: names,
-        lat: lats,
-        lng: lngs,
+        lat: checked.map((s) => s.y).join(","),
+        lng: checked.map((s) => s.x).join(","),
       }).toString();
-
       router.push(`/?${query}`);
-
       if (onClose) onClose();
     }
   };
@@ -153,45 +205,72 @@ export default function Sidebar({ onClose }: SidebarProps) {
     <Box
       sx={{
         width: "100%",
-        height: "100%", // 親（Drawer等）の高さに合わせる
+        height: "100%",
         display: "flex",
-        flexDirection: "column", // 縦並びのレイアウト
+        flexDirection: "column",
         bgcolor: "background.paper",
       }}
     >
-      {/* 1. ヘッダーセクション（固定） */}
-      <Box sx={{ p: 3, pb: 1 }}>
-        <Box sx={{ mb: 1, px: 1 }}>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 900,
-              letterSpacing: "0.02em",
-              color: "#1A1A1A",
-              textShadow: "1.5px 1.5px 0px #FF6B00",
-            }}
-          >
-            ガツガツグルメ
-          </Typography>
-        </Box>
+      {/* 1. ヘッダー（上部のパディングを増やして余裕を持たせる） */}
+      <Box sx={{ pt: 4, px: 2, pb: 1 }}>
         <Typography
-          variant="subtitle2"
-          fontWeight="bold"
-          sx={{ mb: 2, px: 1, color: "text.secondary", fontSize: "0.75rem" }}
+          variant="h6"
+          sx={{
+            fontWeight: 900,
+            fontSize: "1.1rem",
+            color: "#1A1A1A",
+            textShadow: "1px 1px 0px #FF6B00",
+            mb: 2,
+            px: 1,
+          }}
         >
-          エリア選択
+          ガツガツグルメ
         </Typography>
 
-        {/* 都道府県 */}
-        <Box sx={{ mb: 2 }}>
-          <FormControl fullWidth variant="filled" size="small" hiddenLabel>
-            <Box sx={{ display: "flex", alignItems: "center", mb: 0.5, px: 1 }}>
-              <MapIcon
-                sx={{ fontSize: 16, mr: 0.5, color: "text.secondary" }}
-              />
+        <Button
+          fullWidth
+          variant="outlined"
+          startIcon={
+            loadingLocation ? (
+              <CircularProgress size={14} />
+            ) : (
+              <MyLocationIcon sx={{ fontSize: 18 }} />
+            )
+          }
+          onClick={handleCurrentLocationSearch}
+          disabled={loadingLocation}
+          sx={{
+            borderRadius: "10px",
+            textTransform: "none",
+            fontWeight: 700,
+            fontSize: "0.85rem",
+            borderColor: "grey.200",
+            color: "text.primary",
+            py: 1.2,
+            mt: 1, // タイトルとの間隔
+            mb: 2.5,
+            bgcolor: "grey.50",
+            "&:hover": { borderColor: "primary.main", bgcolor: "primary.50" },
+          }}
+        >
+          {loadingLocation ? "取得中..." : "現在地から探す"}
+        </Button>
+
+        <Box
+          sx={{
+            bgcolor: "#f8f9fa",
+            p: 1.5,
+            borderRadius: "12px",
+            border: "1px solid",
+            borderColor: "grey.100",
+          }}
+        >
+          <FormControl fullWidth sx={{ mb: 1.5 }}>
+            <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
+              <MapIcon sx={{ fontSize: 14, mr: 0.5, color: "primary.main" }} />
               <Typography
                 variant="caption"
-                fontWeight="bold"
+                fontWeight={700}
                 color="text.secondary"
               >
                 都道府県
@@ -201,139 +280,119 @@ export default function Sidebar({ onClose }: SidebarProps) {
               value={selectedPrefId}
               onChange={(e) => handleChangePrefectures(String(e.target.value))}
               displayEmpty
+              MenuProps={dropdownMenuProps}
+              size="small"
               renderValue={(selected) => {
                 if (!selected)
                   return (
-                    <Typography color="text.disabled">
-                      選択してください
+                    <Typography variant="body2" color="text.disabled">
+                      未選択
                     </Typography>
                   );
-                return todofuken.find((p) => String(p.id) === selected)?.name;
+                return (
+                  <Typography variant="body2" fontWeight={600}>
+                    {todofuken.find((p) => String(p.id) === selected)?.name}
+                  </Typography>
+                );
               }}
               sx={{
-                borderRadius: 2,
-                bgcolor: "grey.50",
-                "&:before, &:after": { borderBottom: "none !important" },
-                "&:hover:not(.Mui-disabled):before": {
-                  borderBottom: "none !important",
-                },
-                "&:hover": { bgcolor: "grey.100" },
-                ".MuiSelect-select": { py: 1.5, px: 2 },
-              }}
-              MenuProps={{
-                PaperProps: {
-                  sx: { maxHeight: 300, borderRadius: 2, boxShadow: 3 },
-                },
+                bgcolor: "#fff",
+                borderRadius: "8px",
+                ".MuiOutlinedInput-notchedOutline": { borderColor: "grey.200" },
               }}
             >
               {todofuken.map((v) => (
-                <MenuItem key={v.id} value={String(v.id)}>
+                <MenuItem
+                  key={v.id}
+                  value={String(v.id)}
+                  sx={{ fontSize: "0.9rem" }}
+                >
                   {v.name}
                 </MenuItem>
               ))}
             </Select>
           </FormControl>
-        </Box>
 
-        {/* 路線選択 */}
-        <Box sx={{ mb: 2 }}>
-          <FormControl
-            fullWidth
-            variant="filled"
-            size="small"
-            disabled={!selectedPrefId || loadingLines}
-            hiddenLabel
-          >
-            <Box sx={{ display: "flex", alignItems: "center", mb: 0.5, px: 1 }}>
+          <FormControl fullWidth disabled={!selectedPrefId || loadingLines}>
+            <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
               <TrainIcon
-                sx={{ fontSize: 16, mr: 0.5, color: "text.secondary" }}
+                sx={{ fontSize: 14, mr: 0.5, color: "primary.main" }}
               />
               <Typography
                 variant="caption"
-                fontWeight="bold"
+                fontWeight={700}
                 color="text.secondary"
               >
-                路線
+                路線名
               </Typography>
             </Box>
             <Select
               value={selectedLineName}
               onChange={(e) => handleChangeLine(String(e.target.value))}
               displayEmpty
+              MenuProps={dropdownMenuProps}
+              size="small"
               renderValue={(selected) => {
                 if (loadingLines)
                   return (
-                    <Typography color="text.secondary">
-                      読み込み中...
+                    <Typography variant="body2" color="text.secondary">
+                      読込中...
                     </Typography>
                   );
                 if (!selected)
                   return (
-                    <Typography color="text.disabled">路線を選択</Typography>
+                    <Typography variant="body2" color="text.disabled">
+                      路線を選択
+                    </Typography>
                   );
-                return selected;
+                return (
+                  <Typography variant="body2" fontWeight={600} noWrap>
+                    {selected}
+                  </Typography>
+                );
               }}
               sx={{
-                borderRadius: 2,
-                bgcolor: "grey.50",
-                "&:before": { borderBottom: "none !important" }, // 通常時の下線を消す
-                "&:after": { borderBottom: "none !important" }, // フォーカス時の下線を消す
-                "&.Mui-disabled:before": { borderBottom: "none !important" }, // 無効時の点線を消す
-                "&:hover": { bgcolor: "grey.100" },
-                ".MuiSelect-select": { py: 1.5, px: 2 },
-              }}
-              MenuProps={{
-                PaperProps: {
-                  sx: { maxHeight: 300, borderRadius: 2, boxShadow: 3 },
-                },
+                bgcolor: "#fff",
+                borderRadius: "8px",
+                ".MuiOutlinedInput-notchedOutline": { borderColor: "grey.200" },
               }}
             >
               {rosenList.map((v) => (
-                <MenuItem key={v.id} value={v.id}>
+                <MenuItem key={v.id} value={v.id} sx={{ fontSize: "0.9rem" }}>
                   {v.line}
                 </MenuItem>
               ))}
             </Select>
           </FormControl>
         </Box>
-        <Divider sx={{ mb: 1, borderColor: "rgba(0,0,0,0.05)" }} />
       </Box>
 
-      {/* 2. スクロールセクション（駅一覧） */}
-      <Box
-        sx={{
-          flex: 1, // 余ったスペースをすべて使い、
-          overflowY: "auto", // ここだけスクロールさせる
-          px: 3,
-          scrollbarGutter: "stable",
-        }}
-      >
+      {/* 2. 駅一覧 */}
+      <Box sx={{ flex: 1, overflowY: "auto", px: 2, py: 1 }}>
         {(selectedLineName || loadingStations) && (
           <Box
             sx={{
               border: "1px solid",
-              borderColor: "grey.200",
-              borderRadius: 2,
+              borderColor: "grey.100",
+              borderRadius: "12px",
               overflow: "hidden",
-              mb: 2,
             }}
           >
             <ListItemButton
               disabled={loadingStations}
               onClick={() => setIsStationListOpen(!isStationListOpen)}
-              sx={{ bgcolor: isStationListOpen ? "grey.50" : "transparent" }}
+              sx={{ py: 1, bgcolor: "grey.50" }}
             >
-              <ListItemIcon sx={{ minWidth: 36 }}>
-                <TrainIcon
-                  fontSize="small"
-                  color={isStationListOpen ? "primary" : "action"}
-                />
+              <ListItemIcon sx={{ minWidth: 32 }}>
+                <TrainIcon fontSize="small" color="primary" />
               </ListItemIcon>
               <ListItemText
-                primary={
-                  loadingStations ? "駅を読み込み中..." : selectedLineName
-                }
-                primaryTypographyProps={{ variant: "body2", fontWeight: 600 }}
+                primary={loadingStations ? "読み込み中..." : selectedLineName}
+                primaryTypographyProps={{
+                  variant: "body2",
+                  fontWeight: 700,
+                  noWrap: true,
+                }}
               />
               {isStationListOpen ? (
                 <ExpandLess fontSize="small" />
@@ -343,24 +402,48 @@ export default function Sidebar({ onClose }: SidebarProps) {
             </ListItemButton>
 
             <Collapse in={isStationListOpen} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding sx={{ bgcolor: "#fff" }}>
-                {stationList.map((v) => (
+              <Box
+                sx={{
+                  p: 1,
+                  bgcolor: "#fff",
+                  borderBottom: "1px solid #f0f0f0",
+                }}
+              >
+                <Paper
+                  component="form"
+                  sx={{
+                    p: "2px 8px",
+                    display: "flex",
+                    alignItems: "center",
+                    bgcolor: "grey.50",
+                    boxShadow: "none",
+                    border: "1px solid #e0e0e0",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <SearchIcon
+                    sx={{ p: "4px", color: "text.secondary", fontSize: 20 }}
+                  />
+                  <InputBase
+                    sx={{ ml: 1, flex: 1, fontSize: "0.85rem" }}
+                    placeholder="駅名を絞り込む"
+                    value={stationSearchText}
+                    onChange={(e) => setStationSearchText(e.target.value)}
+                  />
+                </Paper>
+              </Box>
+              <List
+                disablePadding
+                sx={{ bgcolor: "#fff", maxHeight: 300, overflowY: "auto" }}
+              >
+                {filteredStations.map((v) => (
                   <ListItemButton
                     key={v.name}
                     dense
                     onClick={() => handleChangeChecked(v.name)}
-                    sx={{
-                      pl: 2,
-                      borderBottom: "1px solid",
-                      borderColor: "grey.50",
-                    }}
+                    sx={{ borderBottom: "1px solid #f8f8f8" }}
                   >
-                    <Checkbox
-                      size="small"
-                      checked={v.check}
-                      disableRipple
-                      sx={{ "&.Mui-checked": { color: "primary.main" } }}
-                    />
+                    <Checkbox size="small" checked={v.check} sx={{ p: 0.5 }} />
                     <ListItemText
                       primary={v.name}
                       primaryTypographyProps={{ variant: "body2" }}
@@ -369,49 +452,61 @@ export default function Sidebar({ onClose }: SidebarProps) {
                       <Chip
                         label={v.count}
                         size="small"
-                        sx={{ height: 20, fontSize: "0.7rem" }}
+                        sx={{ height: 18, fontSize: "0.65rem" }}
                       />
                     )}
                   </ListItemButton>
                 ))}
+                {filteredStations.length === 0 && !loadingStations && (
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      display: "block",
+                      p: 2,
+                      textAlign: "center",
+                      color: "text.disabled",
+                    }}
+                  >
+                    見つかりませんでした
+                  </Typography>
+                )}
               </List>
             </Collapse>
           </Box>
         )}
       </Box>
 
-      {/* 3. フッターセクション（常に最下部に表示） */}
+      {/* 3. フッター */}
       <Box
         sx={{
-          p: 3,
-          pt: 2,
+          p: 2,
+          bgcolor: "#fff",
           borderTop: "1px solid",
           borderColor: "grey.100",
-          bgcolor: "#ffffff", // リストが裏に回り込んでも見やすいよう背景色を指定
         }}
       >
         <Button
           variant="contained"
           fullWidth
-          size="large"
           startIcon={<SearchIcon />}
           disabled={!stationList.some((s) => s.check)}
           onClick={handleSearch}
           sx={{
-            borderRadius: "50px",
-            fontWeight: "bold",
-            fontSize: "1rem",
+            borderRadius: "12px",
+            fontWeight: 800,
+            fontSize: "0.95rem",
             textTransform: "none",
             py: 1.5,
-            boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-            background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+            boxShadow: "none",
+            background: "linear-gradient(45deg, #FF6B00 30%, #FF8E53 90%)",
             "&:hover": {
-              background: "linear-gradient(45deg, #1976D2 30%, #00BCD4 90%)",
-              transform: "translateY(-2px)",
+              background: "linear-gradient(45deg, #E65100 30%, #F57C00 90%)",
             },
           }}
         >
-          検索する
+          {stationList.filter((s) => s.check).length > 0
+            ? `${stationList.filter((s) => s.check).length}件の駅で検索`
+            : "駅を選択して検索"}
         </Button>
       </Box>
     </Box>
