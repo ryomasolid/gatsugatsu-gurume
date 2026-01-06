@@ -1,18 +1,25 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://gatsugatsu-gurume.vercel.app";
+  const baseUrl = "https://gatsugatsu-gurume.com";
+  const now = new Date();
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "daily",
       priority: 1,
     },
     {
+      url: `${baseUrl}/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.3,
     },
