@@ -191,12 +191,23 @@ export default function Sidebar({ onClose }: SidebarProps) {
     if (checked.length > 0) {
       const names = checked.map((s) => s.name).join(",");
       sendGAEvent({ event: "search", search_term: names });
-      const query = new URLSearchParams({
-        station: names,
-        lat: checked.map((s) => s.y).join(","),
-        lng: checked.map((s) => s.x).join(","),
-      }).toString();
-      router.push(`/?${query}`);
+
+      // 1つの駅だけ選んでいる場合は、SEOに強いURLへ飛ばす
+      if (checked.length === 1) {
+        const s = checked[0];
+        router.push(
+          `/station/${encodeURIComponent(s.name)}?lat=${s.y}&lng=${s.x}`
+        );
+      } else {
+        // 複数駅の場合は、既存のクエリパラメータ形式を維持
+        const query = new URLSearchParams({
+          station: names,
+          lat: checked.map((s) => s.y).join(","),
+          lng: checked.map((s) => s.x).join(","),
+        }).toString();
+        router.push(`/?${query}`);
+      }
+
       if (onClose) onClose();
     }
   };
