@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"; // 追加
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
@@ -72,77 +73,80 @@ export default function RootLayout({
         />
       </head>
       <body className={notoSansJP.className}>
-        <ThemeRegistry>
-          <AppLayout>
-            <Box sx={{ minHeight: "calc(100vh - 250px)" }}>{children}</Box>
+        {/* AppRouterCacheProvider で全体を囲むことで、ハイドレーションエラーを防止します */}
+        <AppRouterCacheProvider>
+          <ThemeRegistry>
+            <AppLayout>
+              <Box sx={{ minHeight: "calc(100vh - 250px)" }}>{children}</Box>
 
-            <Box
-              component="footer"
-              sx={{
-                mt: 4,
-                py: 3,
-                borderTop: "1px solid",
-                borderColor: "divider",
-                textAlign: "center",
-              }}
-            >
               <Box
+                component="footer"
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: 3,
-                  mb: 1,
+                  mt: 4,
+                  py: 3,
+                  borderTop: "1px solid",
+                  borderColor: "divider",
+                  textAlign: "center",
                 }}
               >
-                <Link
-                  href="/privacy"
-                  style={{ textDecoration: "none", color: "inherit" }}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: 3,
+                    mb: 1,
+                  }}
                 >
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: "text.secondary",
-                      cursor: "pointer",
-                      "&:hover": {
-                        textDecoration: "underline",
-                        color: "primary.main",
-                      },
-                    }}
+                  <Link
+                    href="/privacy"
+                    style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    プライバシーポリシー
-                  </Typography>
-                </Link>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        cursor: "pointer",
+                        "&:hover": {
+                          textDecoration: "underline",
+                          color: "primary.main",
+                        },
+                      }}
+                    >
+                      プライバシーポリシー
+                    </Typography>
+                  </Link>
 
-                <Link
-                  href="/contact"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: "text.secondary",
-                      cursor: "pointer",
-                      "&:hover": {
-                        textDecoration: "underline",
-                        color: "primary.main",
-                      },
-                    }}
+                  <Link
+                    href="/contact"
+                    style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    お問い合わせ
-                  </Typography>
-                </Link>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        cursor: "pointer",
+                        "&:hover": {
+                          textDecoration: "underline",
+                          color: "primary.main",
+                        },
+                      }}
+                    >
+                      お問い合わせ
+                    </Typography>
+                  </Link>
+                </Box>
+
+                <Typography
+                  variant="caption"
+                  color="text.disabled"
+                  sx={{ display: "block" }}
+                >
+                  © 2025–{new Date().getFullYear()} ガツガツグルメ
+                </Typography>
               </Box>
-
-              <Typography
-                variant="caption"
-                color="text.disabled"
-                sx={{ display: "block" }}
-              >
-                © 2025–{new Date().getFullYear()} ガツガツグルメ
-              </Typography>
-            </Box>
-          </AppLayout>
-        </ThemeRegistry>
+            </AppLayout>
+          </ThemeRegistry>
+        </AppRouterCacheProvider>
 
         <GoogleAnalytics gaId="G-3776BLEK73" />
       </body>
