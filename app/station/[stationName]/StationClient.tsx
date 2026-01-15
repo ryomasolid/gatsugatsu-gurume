@@ -86,7 +86,7 @@ export default function StationClient({
           textShadow: "1.5px 1.5px 0px #FF6B00",
         }}
       >
-        {stationName} のガツガツグルメ
+        {stationName}駅周辺の「がっつり飯」・デカ盛りグルメ検索
       </Typography>
 
       {/* coordsが確定するまでローディングを表示することで、サーバーとの不一致を防ぐ */}
