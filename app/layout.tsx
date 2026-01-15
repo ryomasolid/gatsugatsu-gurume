@@ -6,6 +6,7 @@ import { Noto_Sans_JP } from "next/font/google";
 import Link from "next/link";
 import Script from "next/script";
 import AppLayout from "./components/AppLayout";
+import PopularStations from "./components/PopularStations";
 import ThemeRegistry from "./components/ThemeRegistry";
 import "./globals.css";
 
@@ -89,6 +90,8 @@ export default function RootLayout({
                   textAlign: "center",
                 }}
               >
+                <PopularStations />
+
                 <Box
                   sx={{
                     display: "flex",
