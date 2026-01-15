@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react"; // useEffect, useState を追加
-import PopularStations from "./components/PopularStations";
 import RestaurantCard from "./components/RestaurantCard";
 import { WelcomeSection } from "./components/WelcomeSection";
 import { useRestaurants } from "./hooks/useRestaurants";
@@ -102,7 +101,6 @@ function RestaurantList() {
       ) : (
         <Box>
           <WelcomeSection />
-          <PopularStations />
         </Box>
       )}
     </Container>
