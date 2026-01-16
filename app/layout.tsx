@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: "ガツガツグルメ | 駅周辺のラーメン・牛丼・定食検索",
   },
   icons: {
-    icon: "/icon.png",
+    icon: "/favicon.ico",
     apple: "/apple-icon.png",
   },
   description:
