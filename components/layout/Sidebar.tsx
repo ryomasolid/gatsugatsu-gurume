@@ -97,6 +97,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
     );
   };
 
+  // 都道府県検索
   const handleChangePrefectures = async (prefId: string) => {
     setSelectedPrefId(prefId);
     setSelectedLineName("");
@@ -106,12 +107,13 @@ export default function Sidebar({ onClose }: SidebarProps) {
     if (!targetPref) return;
     setLoadingLines(true);
     try {
-      const res = await fetch(
-        `https://express.heartrails.com/api/json?method=getLines&prefecture=${encodeURIComponent(
-          targetPref.name
-        )}`
-      );
+      const params = new URLSearchParams({
+        method: 'getLines',
+        prefecture: targetPref.name
+      })
+      const res = await fetch(`/api/prefectures?${params}`);
       const data = await res.json();
+
       if (data.response?.line) {
         setRosenList(
           data.response.line.map((l: string) => ({ id: l, line: l }))

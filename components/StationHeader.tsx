@@ -10,31 +10,28 @@ export default function StationHeader({
 }: {
   stationName: string;
 }) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [stationInfo, setStationInfo] = useState<{ line: string } | null>(null);
+  const [imageUrl, setImageUrl] = useState<string>('');
 
-  useEffect(() => {
-    // Wikipedia APIを使って駅の画像を取得
-    const fetchStationImage = async () => {
-      try {
-        const res = await fetch(
-          `https://ja.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(
-            stationName + "駅"
-          )}&prop=pageimages&format=json&pithumbsize=1000&origin=*`
-        );
-        const data = await res.json();
-        const pages = data.query.pages;
-        const pageId = Object.keys(pages)[0];
-        if (pages[pageId].thumbnail) {
-          setImageUrl(pages[pageId].thumbnail.source);
-        }
-      } catch (e) {
-        console.error("画像取得エラー", e);
+useEffect(() => {
+  const fetchStationImage = async () => {
+    try {
+      const res = await fetch(`/api/station-image?station=${encodeURIComponent(stationName)}`);
+      const data = await res.json();
+      
+      if (data.imageUrl) {
+        setImageUrl(data.imageUrl);
+      } else {
+        setImageUrl('');
       }
-    };
+    } catch (e) {
+      console.error("駅画像取得エラー", e);
+    }
+  };
 
+  if (stationName) {
     fetchStationImage();
-  }, [stationName]);
+  }
+}, [stationName]);
 
   return (
     <Paper
