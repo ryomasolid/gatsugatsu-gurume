@@ -22,7 +22,7 @@ import {
 import { sendGAEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { todofuken } from "../../constants"; // パスに注意
+import { TODOFUKEN } from "../../constants/todofukenData";
 
 export type StationDto = {
   name: string;
@@ -103,7 +103,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
     setSelectedLineName("");
     setRosenList([]);
     setStationList([]);
-    const targetPref = todofuken.find((v) => String(v.id) === String(prefId));
+    const targetPref = TODOFUKEN.find((v) => String(v.id) === String(prefId));
     if (!targetPref) return;
     setLoadingLines(true);
     try {
@@ -171,12 +171,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
 
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      {/* ★スマホ版のみ表示されるスペーサー：これでヘッダーとの被りを防ぐ */}
-      <Box sx={{ display: { xs: "block", md: "none" } }}>
-        <Toolbar />
-      </Box>
-
-      <Box sx={{ pt: { xs: 2, md: 4 }, px: 3, pb: 2 }}>
+      <Box sx={{ px: 3, py: 2 }}>
         <Typography
           variant="h6"
           sx={{
@@ -247,7 +242,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
               <MenuItem value="" disabled>
                 都道府県を選択
               </MenuItem>
-              {todofuken.map((v) => (
+              {TODOFUKEN.map((v) => (
                 <MenuItem key={v.id} value={String(v.id)}>
                   {v.name}
                 </MenuItem>
