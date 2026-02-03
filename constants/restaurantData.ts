@@ -81,6 +81,22 @@ export const STATIC_PREDEFINED_DATA: Record<string, any[]> = {
     { id: 'kosugi_003', name: 'しぶそば 武蔵小杉店', genre: 'その他', address: '神奈川県川崎市中原区小杉町3-472', rating: 3.7, reviewCount: 706, location: { latitude: 35.5757462, longitude: 139.659818 } },
     { id: 'kosugi_004', name: '農家ごはん つかだ食堂 武蔵小杉店', genre: '定食', address: '神奈川県川崎市中原区小杉町3-430-6', rating: 3.9, reviewCount: 677, location: { latitude: 35.5746127, longitude: 139.6585265 } },
     { id: 'kosugi_005', name: 'ラーメン豚山 武蔵小杉店', genre: 'ラーメン', address: '神奈川県川崎市中原区小杉町3-492', rating: 3.6, reviewCount: 499, location: { latitude: 35.5768492, longitude: 139.6593283 } }
+  ],
+  "元住吉": [
+    { id: 'motosumiyoshi_001', name: '豚星。', genre: 'スタミナ料理', address: '神奈川県川崎市中原区木月4-5-20', rating: 4.1, reviewCount: 1850, location: { latitude: 35.5601, longitude: 139.6502 } },
+    { id: 'motosumiyoshi_002', name: 'ラーメン豚山 元住吉店', genre: 'ラーメン', address: '神奈川県川崎市中原区木月2-5-2', rating: 3.8, reviewCount: 420, location: { latitude: 35.5642, longitude: 139.6545 } },
+    { id: 'motosumiyoshi_003', name: 'カレー専門店 パピー 元住吉店', genre: 'カレー', address: '神奈川県川崎市中原区木月2-10-1', rating: 3.9, reviewCount: 310, location: { latitude: 35.5648, longitude: 139.6538 } },
+    { id: 'motosumiyoshi_004', name: '台湾小吃 美', genre: '中華料理', address: '神奈川県川崎市中原区木月2-4-1', rating: 4.0, reviewCount: 120, location: { latitude: 35.5645, longitude: 139.6548 } },
+    { id: 'motosumiyoshi_005', name: '野方ホープ 川崎元住吉店', genre: 'ラーメン', address: '神奈川県川崎市中原区木月2-10-3', rating: 3.7, reviewCount: 280, location: { latitude: 35.5650, longitude: 139.6535 } },
+    { id: 'motosumiyoshi_006', name: '焼肉らあめん 不二', genre: 'スタミナ料理', address: '神奈川県川崎市中原区木月2-4-10', rating: 3.6, reviewCount: 95, location: { latitude: 35.5640, longitude: 139.6550 } },
+    { id: 'motosumiyoshi_007', name: '中華料理 菜華', genre: '中華料理', address: '神奈川県川崎市中原区木月1-31-1', rating: 3.8, reviewCount: 65, location: { latitude: 35.5635, longitude: 139.6542 } },
+    { id: 'motosumiyoshi_008', name: '中華料理 赤尾飯店', genre: '中華料理', address: '神奈川県川崎市中原区木月2-3-11', rating: 3.7, reviewCount: 88, location: { latitude: 35.5641, longitude: 139.6552 } },
+    { id: 'motosumiyoshi_009', name: '太陽のトマト麺 元住吉支店', genre: 'ラーメン', address: '神奈川県川崎市中原区木月1-31-1', rating: 3.9, reviewCount: 150, location: { latitude: 35.5632, longitude: 139.6540 } },
+    { id: 'motosumiyoshi_010', name: '名代 富士そば 元住吉店', genre: 'その他', address: '神奈川県川崎市中原区木月2-5-14', rating: 3.5, reviewCount: 210, location: { latitude: 35.5644, longitude: 139.6541 } },
+    { id: 'motosumiyoshi_011', name: 'サパナマハル', genre: 'その他', address: '神奈川県川崎市中原区木月2-3-15', rating: 4.1, reviewCount: 130, location: { latitude: 35.5646, longitude: 139.6555 } },
+    { id: 'motosumiyoshi_012', name: '博多ラーメン 長浜や 元住吉店', genre: 'ラーメン', address: '神奈川県川崎市中原区木月1-32-1', rating: 3.4, reviewCount: 180, location: { latitude: 35.5638, longitude: 139.6535 } },
+    { id: 'motosumiyoshi_013', name: '中国料理 天龍', genre: '中華料理', address: '神奈川県川崎市中原区木月2-4-7', rating: 3.6, reviewCount: 75, location: { latitude: 35.5643, longitude: 139.6549 } },
+    { id: 'motosumiyoshi_014', name: '日高屋 元住吉駅前店', genre: '中華料理', address: '神奈川県川崎市中原区木月2-4-5', rating: 3.3, reviewCount: 320, location: { latitude: 35.5645, longitude: 139.6543 } }
   ]
 };
 
@@ -163,6 +179,22 @@ export const STATIC_PREDEFINED_IMAGES: Record<string, string> = {
   "しぶそば 武蔵小杉店 武蔵小杉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/209975/58f2b188a80526c16454942662c3ae46.jpg",
   "農家ごはん つかだ食堂 武蔵小杉店 武蔵小杉駅 料理": "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/313706/138b2e478233c5a9e116e20723632ba7.jpg?token=c735d18&api=v2",
   "ラーメン豚山 武蔵小杉店 武蔵小杉駅 料理": "https://meocloud-image.s3.ap-northeast-1.amazonaws.com/images/cms/edited/companies/757/stores/34903/20230202180619112209_%E8%B1%9A%E5%B1%B1%20%E6%AD%A6%E8%94%B5%E5%B0%8F%E6%9D%89%E5%BA%97.webp",
+
+  // 元住吉エリア
+  "豚星。 元住吉駅 料理": "https://ramendiet.net/wp-content/uploads/2024/12/IMG_3560-scaled.jpeg",
+  "ラーメン豚山 元住吉店 元住吉駅 料理": "https://shirataki.me/wordpress/wp-content/uploads/2020/07/DSC_4537.jpg",
+  "カレー専門店 パピー 元住吉店 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/55321/640x640_rect_55321357.jpg",
+  "台湾小吃 美 元住吉駅 料理": "https://mai-dokuzetsu.com/wp-content/uploads/2023/07/mei_9.jpg",
+  "野方ホープ 川崎元住吉店 元住吉駅 料理": "https://imgfp.hotp.jp/IMGH/43/91/P019394391/P019394391_480.jpg",
+  "焼肉らあめん 不二 元住吉駅 料理": "https://shirataki.me/wordpress/wp-content/uploads/2021/07/DSC_2610.jpg",
+  "中華料理 菜華 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/270607/640x640_rect_fd2415f0d949cb62298a998e6217afcf.jpg",
+  "中華料理 赤尾飯店 元住吉駅 料理": "https://shirataki.me/wordpress/wp-content/uploads/2022/10/DSC_2979.jpg",
+  "太陽のトマト麺 元住吉支店 元住吉駅 料理": "https://s3-media0.fl.yelpcdn.com/bphoto/H0XstiO20Yh-F8VePoaYvw/348s.jpg",
+  "名代 富士そば 元住吉店 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/251048/5e655494cd4b46e8051d52ebd64f2c72.jpg",
+  "サパナマハル 元住吉駅 料理": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3685675293789855537",
+  "博多ラーメン 長浜や 元住吉店 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/282071/6486c9d752ae6c9bc1bd8769c2c8f75f.jpg",
+  "中国料理 天龍 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/298399/640x640_rect_132d09b29a442e9100ec92b7c6d5b66a.jpg",
+  "日高屋 元住吉駅前店 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/113302/113302378.jpg",
 };
 
 // --- 検索キーワード ---
