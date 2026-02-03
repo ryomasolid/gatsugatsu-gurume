@@ -1,5 +1,6 @@
 "use client";
 
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import StationHeader from "@/components/StationHeader";
 import { useRestaurants } from "@/hooks/useRestaurants";
 import { detectGatsuTags } from "@/utils/tagDetector";
@@ -106,6 +107,7 @@ export default function StationClient({
     <Box sx={{ bgcolor: "#F8F9FA", minHeight: "100vh", pb: 6 }}>
       <StationHeader stationName={stationName} />
       <Container maxWidth="xl">
+        <Breadcrumbs stationName={stationName} />
         {/* API制限時のエラー表示 */}
         {errorType === "quota" && (
           <Alert severity="error" sx={{ mb: 4, fontWeight: "bold" }}>
