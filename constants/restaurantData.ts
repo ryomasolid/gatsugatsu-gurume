@@ -118,6 +118,27 @@ export const STATIC_PREDEFINED_DATA: Record<string, any[]> = {
     { id: 'okurayama_017', name: 'ヒマラヤ 大倉山店', genre: 'その他', address: '神奈川県横浜市港北区大倉山3-2-1', rating: 4.0, reviewCount: 112, location: { latitude: 35.5220, longitude: 139.6291 } },
     { id: 'okurayama_018', name: '蕎麦処 とみ田', genre: 'その他', address: '神奈川県横浜市港北区大倉山1-18-1', rating: 3.7, reviewCount: 65, location: { latitude: 35.5215, longitude: 139.6299 } },
     { id: 'okurayama_019', name: 'すき家 大倉山駅前店', genre: '牛丼', address: '神奈川県横浜市港北区大倉山1-17-1', rating: 3.4, reviewCount: 155, location: { latitude: 35.5215, longitude: 139.6294 } }
+  ],
+  "日吉": [
+    { id: 'hiyoshi_001', name: '麺屋 あびすけ 日吉店', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉2-1-8', rating: 3.7, reviewCount: 450, location: { latitude: 35.5545, longitude: 139.6465 } },
+    { id: 'hiyoshi_002', name: '極楽汁麺 らすた', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-5-41', rating: 3.9, reviewCount: 820, location: { latitude: 35.5535, longitude: 139.6455 } },
+    { id: 'hiyoshi_003', name: '横浜らーめん 武蔵家 日吉店', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉2-2-5', rating: 4.1, reviewCount: 1250, location: { latitude: 35.5548, longitude: 139.6468 } },
+    { id: 'hiyoshi_004', name: 'がっとん 日吉店', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-3-14', rating: 3.6, reviewCount: 310, location: { latitude: 35.5538, longitude: 139.6458 } },
+    { id: 'hiyoshi_005', name: '油そば屋 明日から本気出す 日吉店', genre: '油そば', address: '神奈川県横浜市港北区日吉本町1-2-1', rating: 3.8, reviewCount: 185, location: { latitude: 35.5542, longitude: 139.6460 } },
+    { id: 'hiyoshi_006', name: 'ラーメン どん', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉2-1-5', rating: 3.7, reviewCount: 520, location: { latitude: 35.5546, longitude: 139.6463 } },
+    { id: 'hiyoshi_007', name: '麺場 ハマトラ 日吉店', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-6-21', rating: 4.0, reviewCount: 680, location: { latitude: 35.5532, longitude: 139.6452 } },
+    { id: 'hiyoshi_008', name: 'そば処 たつ吉', genre: 'その他', address: '神奈川県横浜市港北区日吉本町1-2-6', rating: 3.8, reviewCount: 155, location: { latitude: 35.5540, longitude: 139.6461 } },
+    { id: 'hiyoshi_009', name: '中国名菜 龍華', genre: '中華料理', address: '神奈川県横浜市港北区日吉2-4-15', rating: 3.9, reviewCount: 140, location: { latitude: 35.5555, longitude: 139.6472 } },
+    { id: 'hiyoshi_010', name: '食事さとう', genre: '定食', address: '神奈川県横浜市港北区日吉本町1-19-18', rating: 4.2, reviewCount: 95, location: { latitude: 35.5528, longitude: 139.6445 } },
+    { id: 'hiyoshi_011', name: '飯場 松の葉', genre: '定食', address: '神奈川県横浜市港北区日吉2-2-4', rating: 3.7, reviewCount: 85, location: { latitude: 35.5547, longitude: 139.6469 } },
+    { id: 'hiyoshi_012', name: 'とらの息子', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-1-9', rating: 3.5, reviewCount: 210, location: { latitude: 35.5543, longitude: 139.6457 } },
+    { id: 'hiyoshi_013', name: '中華麺・飯 太楼 日吉店', genre: '中華料理', address: '神奈川県横浜市港北区日吉2-2-5', rating: 3.6, reviewCount: 130, location: { latitude: 35.5549, longitude: 139.6467 } },
+    { id: 'hiyoshi_014', name: '銀家 日吉本店', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-3-18', rating: 3.8, reviewCount: 420, location: { latitude: 35.5539, longitude: 139.6456 } },
+    { id: 'hiyoshi_015', name: '日吉 大勝軒', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-1-9', rating: 4.0, reviewCount: 280, location: { latitude: 35.5541, longitude: 139.6459 } },
+    { id: 'hiyoshi_016', name: '麺屋こころ日吉店', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉2-1-5', rating: 3.9, reviewCount: 350, location: { latitude: 35.5545, longitude: 139.6462 } },
+    { id: 'hiyoshi_017', name: 'ひよし家', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉2-2-15', rating: 3.5, reviewCount: 65, location: { latitude: 35.5552, longitude: 139.6470 } },
+    { id: 'hiyoshi_018', name: '日高屋 日吉西口店', genre: '中華料理', address: '神奈川県横浜市港北区日吉本町1-2-1', rating: 3.3, reviewCount: 320, location: { latitude: 35.5544, longitude: 139.6461 } },
+    { id: 'hiyoshi_019', name: '中華そば どんぐり', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-20-4', rating: 3.7, reviewCount: 110, location: { latitude: 35.5525, longitude: 139.6450 } }
   ]
 };
 
@@ -237,6 +258,27 @@ export const STATIC_PREDEFINED_IMAGES: Record<string, string> = {
   "ヒマラヤ 大倉山店 大倉山駅 料理": "https://yokohama-life.th-yokohama.com/wp-content/uploads/2025/09/6-9.jpg",
   "すき家 大倉山駅前店 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/207095/640x640_rect_f2904725e39d317f22e5ed1a3c7573ae.jpg",
   "蕎麦処 とみ田 大倉山駅 料理": "https://blog.oishii-ouchi.com/wp-content/uploads/2023/07/1-8.jpg",
+
+  // 日吉エリア
+  "麺屋 あびすけ 日吉店 日吉駅 料理": "https://ramendiet.net/wp-content/uploads/2025/05/IMG_2100-scaled.jpeg",
+  "極楽汁麺 らすた 日吉駅 料理": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3819022602766262781",
+  "横浜らーめん 武蔵家 日吉店 日吉駅 料理": "https://ramenshugyo.com/wp-content/uploads/IMG_5422.jpg",
+  "がっとん 日吉店 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/215959/836843bcc21b265a3e2c77c33f881dc5.jpg",
+  "油そば屋 明日から本気出す 日吉店 日吉駅 料理": "https://blog-imgs-163.fc2.com/r/y/u/ryuryuryuseijinn/IMG_0433.jpg",
+  "ラーメン どん 日吉駅 料理": "https://imgfp.hotp.jp/IMGH/25/10/P014072510/P014072510_480.jpg",
+  "麺場 ハマトラ 日吉店 日吉駅 料理": "https://images.miil.me/j/6d4610d8-e838-11eb-b7a5-06fa1153b511.orig.jpg",
+  "そば処 たつ吉 日吉駅 料理": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1311949527602858",
+  "中国名菜 龍華 日吉駅 料理": "https://shirataki.me/wordpress/wp-content/uploads/2024/01/DSC_4504-1024x768.jpg",
+  "食事さとう 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/250438/640x640_rect_a8d1e839864392b7691a133816fd86fc.jpg",
+  "飯場 松の葉 日吉駅 料理": "http://cdn.goope.jp/63073/171220014503mzf4_l..jpg",
+  "とらの息子 日吉駅 料理": "https://juushin.com/img/page_photo/3131/c7gwwwr12y.jpg",
+  "中華麺・飯 太楼 日吉店 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/215433/b778368ef75012c109687eba5e0d348a.jpg",
+  "銀家 日吉本店 日吉駅 料理": "https://cdn-ak.f.st-hatena.com/images/fotolife/i/iekei_ramenman/20201029/20201029215746.jpg",
+  "日吉 大勝軒 日吉駅 料理": "https://pbs.twimg.com/profile_images/1273494584648036352/GLWAuTR3_400x400.jpg",
+  "麺屋こころ日吉店 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/144195/144195301.jpg",
+  "ひよし家 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/338506/640x640_rect_95279076557a9f80f6834838c907be74.jpg",
+  "日高屋 日吉西口店 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/204857/271bbb6ab181516db455e59270069197.jpg",
+  "中華そば どんぐり 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/229226/640x640_rect_d27335c5c81b9a5ae85e6224ba08bee3.jpg",
 };
 
 // --- 検索キーワード ---
