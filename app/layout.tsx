@@ -113,6 +113,7 @@ export default function RootLayout({
                       alignItems="center"
                     >
                       {[
+                        { label: "ガツガツグルメとは", href: "/about" },
                         { label: "プライバシーポリシー", href: "/privacy" },
                         { label: "お問い合わせ", href: "/contact" },
                       ].map((link) => (
