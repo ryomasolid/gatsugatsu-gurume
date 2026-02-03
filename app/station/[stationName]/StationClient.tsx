@@ -3,7 +3,7 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import StationHeader from "@/components/StationHeader";
 import { useRestaurants } from "@/hooks/useRestaurants";
-import { detectGatsuTags } from "@/utils/tagDetector";
+import { calculateGatsuIndex, detectGatsuTags } from "@/utils/tagDetector";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import {
@@ -197,6 +197,8 @@ function RestaurantCard(props: RestaurantCardProps) {
   const gatsuTags = detectGatsuTags(props.description);
   const rating = parseFloat(props.description.match(/★(\d+(\.\d+)?)/)?.[1] || "0");
 
+  const gatsuScore = calculateGatsuIndex(props);
+
   useEffect(() => {
     if (displayImageUrl.startsWith("http") || imgError) return;
     const fetchCustomImage = async () => {
@@ -246,6 +248,28 @@ function RestaurantCard(props: RestaurantCardProps) {
         {isApiLoading && (
           <Skeleton variant="rectangular" width="100%" height="100%" sx={{ position: "absolute", zIndex: 1 }} />
         )}
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: -15,
+            right: 15,
+            bgcolor: "#1A1A1A",
+            color: "#fff",
+            p: "8px 12px",
+            borderRadius: "10px",
+            border: `2px solid ${"#FF6B00"}`,
+            zIndex: 3,
+            textAlign: "center",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
+          }}
+        >
+          <Typography variant="caption" sx={{ display: "block", fontSize: "0.6rem", fontWeight: 900, mb: -0.5 }}>
+            GATSU-INDEX
+          </Typography>
+          <Typography variant="h6" sx={{ fontWeight: 900, color: "#FF6B00" }}>
+            {gatsuScore}<span style={{ fontSize: "0.8rem", marginLeft: "2px" }}>pt</span>
+          </Typography>
+        </Box>
         <NextImage
           src={displayImageUrl}
           alt={props.name}

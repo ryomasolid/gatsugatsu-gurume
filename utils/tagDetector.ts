@@ -81,3 +81,34 @@ export function detectGatsuTags(description: string = ""): string[] {
     item.keywords.some((keyword) => description.includes(keyword))
   ).map((item) => item.label);
 }
+
+export const calculateGatsuIndex = (restaurant: any): number => {
+  let score = 0;
+
+  // 1. ジャンルによる基礎点（genreが空の場合も考慮）
+  const heavyGenres = ["ラーメン", "牛丼", "カツ丼", "定食", "カレー", "中華料理"];
+  
+  // restaurant.genre が undefined や null の場合は空文字 "" として扱う
+  const genre = restaurant.genre || ""; 
+  
+  if (heavyGenres.some(g => genre.includes(g))) {
+    score += 50;
+  } else {
+    score += 20;
+  }
+
+  // 2. 満足度の重み付け（rating, reviewCountが空の場合も考慮）
+  const rating = restaurant.rating || 0;
+  const reviewCount = restaurant.reviewCount || 0;
+
+  // レビュー数が多いほど信頼性が高いので加点
+  const popularityBonus = rating * (Math.min(reviewCount, 100) / 10);
+  score += popularityBonus;
+
+  // 3. 徒歩ボーナス（walkMinutesがない場合は加点なし）
+  const walkMinutes = restaurant.walkMinutes || 99;
+  if (walkMinutes <= 2) score += 20;
+  else if (walkMinutes <= 5) score += 10;
+
+  return Math.floor(Math.min(score, 99));
+};
