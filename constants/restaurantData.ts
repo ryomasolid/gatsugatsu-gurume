@@ -139,6 +139,28 @@ export const STATIC_PREDEFINED_DATA: Record<string, any[]> = {
     { id: 'hiyoshi_017', name: 'ひよし家', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉2-2-15', rating: 3.5, reviewCount: 65, location: { latitude: 35.5552, longitude: 139.6470 } },
     { id: 'hiyoshi_018', name: '日高屋 日吉西口店', genre: '中華料理', address: '神奈川県横浜市港北区日吉本町1-2-1', rating: 3.3, reviewCount: 320, location: { latitude: 35.5544, longitude: 139.6461 } },
     { id: 'hiyoshi_019', name: '中華そば どんぐり', genre: 'ラーメン', address: '神奈川県横浜市港北区日吉本町1-20-4', rating: 3.7, reviewCount: 110, location: { latitude: 35.5525, longitude: 139.6450 } }
+  ],
+  "学芸大学": [
+    { id: 'gakugeidai_001', name: '東京油組総本店学芸大組', genre: '油そば', address: '東京都目黒区鷹番3-3-2', rating: 3.8, reviewCount: 210, location: { latitude: 35.6285, longitude: 139.6851 } },
+    { id: 'gakugeidai_002', name: 'まぜそば ちゅるる', genre: '油そば', address: '東京都目黒区鷹番3-14-5', rating: 4.0, reviewCount: 150, location: { latitude: 35.6292, longitude: 139.6845 } },
+    { id: 'gakugeidai_003', name: 'つけ麺すする', genre: 'ラーメン', address: '東京都目黒区鷹番2-15-14', rating: 4.2, reviewCount: 580, location: { latitude: 35.6281, longitude: 139.6860 } },
+    { id: 'gakugeidai_004', name: '味之郷', genre: '中華料理', address: '東京都目黒区鷹番2-8-25', rating: 3.7, reviewCount: 95, location: { latitude: 35.6275, longitude: 139.6858 } },
+    { id: 'gakugeidai_005', name: '麺也時しらず学芸大学店', genre: 'ラーメン', address: '東京都目黒区鷹番3-6-8', rating: 3.9, reviewCount: 120, location: { latitude: 35.6289, longitude: 139.6849 } },
+    { id: 'gakugeidai_006', name: 'アジアンダイニング＆バーSITA 学芸大学店', genre: 'その他', address: '東京都目黒区鷹番3-7-4', rating: 4.1, reviewCount: 110, location: { latitude: 35.6291, longitude: 139.6855 } },
+    { id: 'gakugeidai_007', name: 'ダルマ飯店', genre: '中華料理', address: '東京都目黒区鷹番3-14-14', rating: 3.8, reviewCount: 85, location: { latitude: 35.6295, longitude: 139.6842 } },
+    { id: 'gakugeidai_008', name: '泰雅(たいが)', genre: 'ラーメン', address: '東京都目黒区中央町1-11-13', rating: 4.1, reviewCount: 240, location: { latitude: 35.6272, longitude: 139.6885 } },
+    { id: 'gakugeidai_009', name: '国田屋', genre: '定食', address: '東京都目黒区鷹番3-1-10', rating: 3.9, reviewCount: 130, location: { latitude: 35.6284, longitude: 139.6847 } },
+    { id: 'gakugeidai_010', name: '松月庵', genre: 'その他', address: '東京都目黒区鷹番2-20-4', rating: 3.7, reviewCount: 75, location: { latitude: 35.6282, longitude: 139.6865 } },
+    { id: 'gakugeidai_011', name: '香氣 四川麺条 学芸大学店', genre: 'ラーメン', address: '東京都目黒区中央町1-17-12', rating: 4.0, reviewCount: 180, location: { latitude: 35.6270, longitude: 139.6875 } },
+    { id: 'gakugeidai_012', name: '二葉', genre: '中華料理', address: '東京都目黒区鷹番3-3-17', rating: 4.2, reviewCount: 450, location: { latitude: 35.6287, longitude: 139.6852 } },
+    { id: 'gakugeidai_013', name: '上海菜館', genre: '中華料理', address: '東京都目黒区鷹番3-12-5', rating: 3.6, reviewCount: 110, location: { latitude: 35.6290, longitude: 139.6838 } },
+    { id: 'gakugeidai_014', name: 'VOVOVOLLON 学芸大学駅前店', genre: 'カレー', address: '東京都目黒区鷹番2-21-9', rating: 4.1, reviewCount: 155, location: { latitude: 35.6283, longitude: 139.6862 } },
+    { id: 'gakugeidai_015', name: '居酒屋うぃず', genre: '定食', address: '東京都目黒区鷹番3-14-6', rating: 3.8, reviewCount: 65, location: { latitude: 35.6293, longitude: 139.6844 } },
+    { id: 'gakugeidai_016', name: '中国海鮮料理 華空間', genre: '中華料理', address: '東京都目黒区鷹番2-20-19', rating: 4.0, reviewCount: 140, location: { latitude: 35.6280, longitude: 139.6868 } },
+    { id: 'gakugeidai_017', name: '松屋 学芸大学店', genre: '牛丼', address: '東京都目黒区鷹番3-1-1', rating: 3.4, reviewCount: 190, location: { latitude: 35.6286, longitude: 139.6850 } },
+    { id: 'gakugeidai_018', name: '餃子の王将 学芸大前店', genre: '中華料理', address: '東京都目黒区鷹番3-3-15', rating: 3.5, reviewCount: 310, location: { latitude: 35.6288, longitude: 139.6853 } },
+    { id: 'gakugeidai_019', name: '名代 富士そば 学芸大学駅前店', genre: 'その他', address: '東京都目黒区鷹番3-1-2', rating: 3.4, reviewCount: 220, location: { latitude: 35.6285, longitude: 139.6854 } },
+    { id: 'gakugeidai_020', name: '万豚記 豆金 学芸大学店', genre: '中華料理', address: '東京都目黒区鷹番3-15-23', rating: 3.7, reviewCount: 125, location: { latitude: 35.6296, longitude: 139.6835 } }
   ]
 };
 
@@ -279,6 +301,28 @@ export const STATIC_PREDEFINED_IMAGES: Record<string, string> = {
   "ひよし家 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/338506/640x640_rect_95279076557a9f80f6834838c907be74.jpg",
   "日高屋 日吉西口店 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/204857/271bbb6ab181516db455e59270069197.jpg",
   "中華そば どんぐり 日吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/229226/640x640_rect_d27335c5c81b9a5ae85e6224ba08bee3.jpg",
+
+  // 学芸大学エリア
+  "東京油組総本店学芸大組 学芸大学駅 料理": "https://prcdn.freetls.fastly.net/release_image/31747/469/31747-469-74f6f236008bcde6c0822ff79e8b01ea-750x605.jpg?width=1950&height=1350&quality=85&format=jpeg&auto=webp&fit=bounds&bg-color=fff",
+  "まぜそば ちゅるる 学芸大学駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/298647/640x640_rect_61a2b41215349f3d986adbcb89c39331.jpg",
+  "つけ麺すする 学芸大学駅 料理": "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/272444/88df2eaaf9535b8903a01b8ee231ab71.jpg?token=c3ee426&api=v2",
+  "味之郷 学芸大学駅 料理": "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/216473/83279f0304f82ac2cbec3a8db3056633.jpg?token=bc49ccb&api=v2",
+  "麺也時しらず学芸大学店 学芸大学駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/223382/dfb0deb834619a966336203dae107f78.jpg",
+  "アジアンダイニング＆バーSITA 学芸大学店 学芸大学駅 料理": "https://rimage.gnst.jp/rest/img/39n953k80000/s_0n8t.jpg",
+  "ダルマ飯店 学芸大学駅 料理": "https://imgfp.hotp.jp/IMGH/20/06/P042382006/P042382006_480.jpg",
+  "泰雅(たいが) 学芸大学駅 料理": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1683860193024692",
+  "国田屋 学芸大学駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/202972/640x640_rect_3c556a154762b009dee6af74606fe11c.jpg",
+  "松月庵 学芸大学駅 料理": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3767056881106771173",
+  "香氣 四川麺条 学芸大学店 学芸大学駅 料理": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3800275711836638895",
+  "二葉 学芸大学駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/87101/640x640_rect_87101516.jpg",
+  "上海菜館 学芸大学駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/214852/640x640_rect_5ef7abde55a5e474d4dca9ebd00bb58e.jpg",
+  "VOVOVOLLON 学芸大学駅前店 学芸大学駅 料理": "https://ximg.retty.me/crop/s400x400/q80/das/-/retty/img_repo/2l/01/38012888.jpg",
+  "居酒屋うぃず 学芸大学駅 料理": "https://tblg.k-img.com/resize/640x360c/restaurant/images/Rvw/333080/a2e0fdeb1148a86be03f8fb283b114af.jpg?token=3b04d89&api=v2",
+  "中国海鮮料理 華空間 学芸大学 学芸大学駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/269611/640x640_rect_8058348de9d02f010067a950574ddc6b.jpg",
+  "松屋 学芸大学店 学芸大学駅 料理": "https://m.media-amazon.com/images/I/81Ajjpwb0XL._UF1000,1000_QL80_.jpg",
+  "餃子の王将 学芸大前店 学芸大学駅 料理": "https://rimage.gnst.jp/rest/img/f71xm0fm0000/s_0n5g.jpg",
+  "名代 富士そば 学芸大学駅前店 学芸大学駅 料理": "https://iwashita.co.jp/wp/wp-content/uploads/2020/06/img_1041-720x514.jpg",
+  "万豚記 豆金 学芸大学店 学芸大学駅 料理": "https://kiwa-group.co.jp/wp5/wp-content/uploads/2026/01/wanzhuji_gakugeidai_top_02.jpg",
 };
 
 // --- 検索キーワード ---
