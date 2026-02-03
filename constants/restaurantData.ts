@@ -97,6 +97,27 @@ export const STATIC_PREDEFINED_DATA: Record<string, any[]> = {
     { id: 'motosumiyoshi_012', name: '博多ラーメン 長浜や 元住吉店', genre: 'ラーメン', address: '神奈川県川崎市中原区木月1-32-1', rating: 3.4, reviewCount: 180, location: { latitude: 35.5638, longitude: 139.6535 } },
     { id: 'motosumiyoshi_013', name: '中国料理 天龍', genre: '中華料理', address: '神奈川県川崎市中原区木月2-4-7', rating: 3.6, reviewCount: 75, location: { latitude: 35.5643, longitude: 139.6549 } },
     { id: 'motosumiyoshi_014', name: '日高屋 元住吉駅前店', genre: '中華料理', address: '神奈川県川崎市中原区木月2-4-5', rating: 3.3, reviewCount: 320, location: { latitude: 35.5645, longitude: 139.6543 } }
+  ],
+  "大倉山": [
+    { id: 'okurayama_001', name: '横浜家系ラーメン 極味家 大倉山店', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山3-1-3', rating: 3.5, reviewCount: 180, location: { latitude: 35.5218, longitude: 139.6295 } },
+    { id: 'okurayama_002', name: 'マイカリー食堂 大倉山店', genre: 'カレー', address: '神奈川県横浜市港北区大倉山1-17-4', rating: 3.8, reviewCount: 95, location: { latitude: 35.5214, longitude: 139.6291 } },
+    { id: 'okurayama_003', name: 'らーめん野々家', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山3-1-24', rating: 4.1, reviewCount: 220, location: { latitude: 35.5219, longitude: 139.6298 } },
+    { id: 'okurayama_004', name: '汁なし担担麺 武蔵坊 横浜大倉山店', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山3-1-2', rating: 4.0, reviewCount: 130, location: { latitude: 35.5216, longitude: 139.6293 } },
+    { id: 'okurayama_005', name: '肉汁餃子のダンダダン 大倉山店', genre: '中華料理', address: '神奈川県横浜市港北区大倉山2-1-11', rating: 3.8, reviewCount: 310, location: { latitude: 35.5212, longitude: 139.6288 } },
+    { id: 'okurayama_006', name: 'ラーメン ホルモン焼き 大衆酒場', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山1-18-6', rating: 3.6, reviewCount: 75, location: { latitude: 35.5213, longitude: 139.6296 } },
+    { id: 'okurayama_007', name: 'どん亭', genre: '定食', address: '神奈川県横浜市港北区大倉山3-1-1', rating: 3.7, reviewCount: 55, location: { latitude: 35.5217, longitude: 139.6292 } },
+    { id: 'okurayama_008', name: '七志 大倉山店', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山3-1-1', rating: 3.9, reviewCount: 205, location: { latitude: 35.5217, longitude: 139.6294 } },
+    { id: 'okurayama_009', name: '古式ラーメン鶴亀', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山3-1-2', rating: 4.2, reviewCount: 140, location: { latitude: 35.5215, longitude: 139.6292 } },
+    { id: 'okurayama_010', name: '楽宴', genre: '中華料理', address: '神奈川県横浜市港北区大倉山1-17-4', rating: 3.7, reviewCount: 110, location: { latitude: 35.5214, longitude: 139.6290 } },
+    { id: 'okurayama_011', name: 'らーめん Shigetomi', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山1-2-16', rating: 4.3, reviewCount: 320, location: { latitude: 35.5225, longitude: 139.6295 } },
+    { id: 'okurayama_012', name: '鴨屋 そば香 大倉山店', genre: 'その他', address: '神奈川県横浜市港北区大倉山1-17-12', rating: 4.1, reviewCount: 346, location: { latitude: 35.5212, longitude: 139.6293 } },
+    { id: 'okurayama_013', name: '味奈登庵 大倉山店', genre: 'その他', address: '神奈川県横浜市港北区大倉山3-3-3', rating: 3.8, reviewCount: 195, location: { latitude: 35.5221, longitude: 139.6302 } },
+    { id: 'okurayama_014', name: '麺屋 ゆるり。', genre: 'ラーメン', address: '神奈川県横浜市港北区大倉山3-1-1', rating: 4.0, reviewCount: 155, location: { latitude: 35.5216, longitude: 139.6295 } },
+    { id: 'okurayama_015', name: '新栄福楼', genre: '中華料理', address: '神奈川県横浜市港北区大倉山1-18-6', rating: 3.5, reviewCount: 145, location: { latitude: 35.5214, longitude: 139.6298 } },
+    { id: 'okurayama_016', name: '大倉山もつ肉店', genre: 'スタミナ料理', address: '神奈川県横浜市港北区大倉山2-1-20', rating: 4.1, reviewCount: 85, location: { latitude: 35.5211, longitude: 139.6285 } },
+    { id: 'okurayama_017', name: 'ヒマラヤ 大倉山店', genre: 'その他', address: '神奈川県横浜市港北区大倉山3-2-1', rating: 4.0, reviewCount: 112, location: { latitude: 35.5220, longitude: 139.6291 } },
+    { id: 'okurayama_018', name: '蕎麦処 とみ田', genre: 'その他', address: '神奈川県横浜市港北区大倉山1-18-1', rating: 3.7, reviewCount: 65, location: { latitude: 35.5215, longitude: 139.6299 } },
+    { id: 'okurayama_019', name: 'すき家 大倉山駅前店', genre: '牛丼', address: '神奈川県横浜市港北区大倉山1-17-1', rating: 3.4, reviewCount: 155, location: { latitude: 35.5215, longitude: 139.6294 } }
   ]
 };
 
@@ -195,6 +216,27 @@ export const STATIC_PREDEFINED_IMAGES: Record<string, string> = {
   "博多ラーメン 長浜や 元住吉店 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/282071/6486c9d752ae6c9bc1bd8769c2c8f75f.jpg",
   "中国料理 天龍 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/298399/640x640_rect_132d09b29a442e9100ec92b7c6d5b66a.jpg",
   "日高屋 元住吉駅前店 元住吉駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/113302/113302378.jpg",
+
+  // 大倉山エリア
+  "横浜家系ラーメン 極味家 大倉山店 大倉山駅 料理": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3806741543960796831",
+  "マイカリー食堂 大倉山店 大倉山駅 料理": "https://lookaside.fbsbx.com/lookaside/crawler/threads/DTDjc-Jk1JF/0/image.jpg",
+  "らーめん野々家 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/184566/01604d0c75d066856489df480ce11702.jpg",
+  "汁なし担担麺 武蔵坊 横浜大倉山店 大倉山駅 料理": "https://images.keizai.biz/kohoku_keizai/photonews/1707354807_b.jpg",
+  "肉汁餃子のダンダダン 大倉山店 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/294540/640x640_rect_e05b159d958856b40bfe21251fd7dd9a.jpg",
+  "ラーメン ホルモン焼き 大衆酒場 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/252154/640x640_rect_19a34064f212e00130565d9224b91701.jpg",
+  "どん亭 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/316132/640x640_rect_959446eee1e398e32a1c9833d034e939.jpg",
+  "七志 大倉山店 大倉山駅 料理": "http://magazine.vacan.com/wp-content/uploads/2021/08/VZ8A9639-1024x645.webp",
+  "古式ラーメン鶴亀 大倉山駅 料理": "https://yokohama-life.th-yokohama.com/wp-content/uploads/2023/09/3-9.jpg",
+  "楽宴 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/333399/640x640_rect_ecfdf9a751bb9e3613e141b51f2fdcb2.jpg",
+  "らーめん Shigetomi 大倉山駅 料理": "https://media-cdn.tripadvisor.com/media/photo-s/10/98/c1/4d/shigetomi-30-soba-1050.jpg",
+  "味奈登庵 大倉山店 大倉山駅 料理": "https://s3-media0.fl.yelpcdn.com/bphoto/GC4WyKsSaL0dkqUNA7L0Ug/348s.jpg",
+  "鴨屋 そば香 大倉山店 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/196742/bbdfdaa219879e33956a41141653e638.jpg",
+  "麺屋 ゆるり。 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/298986/640x640_rect_7053f061fed169b3c3f8a63321f1942e.jpg",
+  "新栄福楼 大倉山駅 料理": "https://blog.oishii-ouchi.com/wp-content/uploads/2022/11/2-1.jpg",
+  "大倉山もつ肉店 大倉山駅 料理": "https://hamarepo.com/writer/story/images/images/hamarepo/kinoshita/2014/201402/2702/DSCN6142.jpg",
+  "ヒマラヤ 大倉山店 大倉山駅 料理": "https://yokohama-life.th-yokohama.com/wp-content/uploads/2025/09/6-9.jpg",
+  "すき家 大倉山駅前店 大倉山駅 料理": "https://tblg.k-img.com/restaurant/images/Rvw/207095/640x640_rect_f2904725e39d317f22e5ed1a3c7573ae.jpg",
+  "蕎麦処 とみ田 大倉山駅 料理": "https://blog.oishii-ouchi.com/wp-content/uploads/2023/07/1-8.jpg",
 };
 
 // --- 検索キーワード ---
