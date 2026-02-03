@@ -10,6 +10,7 @@ import {
   FormControl,
   IconButton,
   InputBase,
+  Link,
   List,
   ListItemButton,
   ListItemText,
@@ -172,17 +173,23 @@ export default function Sidebar({ onClose }: SidebarProps) {
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <Box sx={{ px: 3, py: 2 }}>
-        <Typography
-          variant="h6"
-          sx={{
-            fontWeight: 900,
-            color: "#1A1A1A",
-            textShadow: "1px 1px 0px #FF6B00",
-            mb: 3,
-          }}
-        >
-          ガツガツグルメ
-        </Typography>
+        <Link href="/" style={{ textDecoration: "none", display: "block" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 900,
+              color: "#1A1A1A",
+              textShadow: "1px 1px 0px #FF6B00",
+              mb: 3,
+              cursor: "pointer",
+              "&:hover": {
+                opacity: 0.8,
+              },
+            }}
+          >
+            ガツガツグルメ
+          </Typography>
+        </Link>
 
         <Button
           fullWidth
