@@ -66,12 +66,10 @@ export default function StationClient({ stationName }: { stationName: string }) 
     const lat = searchParams.get("lat");
     const lng = searchParams.get("lng");
 
-    // 1. URLに座標がある場合はまずそれをセット（表示を速めるため）
     if (lat && lng) {
       setCoords({ lat, lng });
     }
 
-    // 2. 路線情報の取得（URLに座標があってもなくても、駅名から路線リストを取得する）
     const fetchStationData = async () => {
       try {
         const res = await fetch(
@@ -80,11 +78,9 @@ export default function StationClient({ stationName }: { stationName: string }) 
         const data = await res.json();
         
         if (data.response?.station) {
-          // 路線リストの抽出
           const uniqueLines = Array.from(new Set(data.response.station.map((st: any) => st.line))) as string[];
           setLines(uniqueLines);
 
-          // URLに座標がなかった場合のフォールバック（最初の候補の座標を使う）
           if (!lat || !lng) {
             const s = data.response.station[0];
             setCoords({ lat: String(s.y), lng: String(s.x) });
@@ -104,14 +100,44 @@ export default function StationClient({ stationName }: { stationName: string }) 
     lng: coords?.lng || "",
   });
 
+  // --- 構造化データ (JSON-LD) の作成 ---
+  // これにより、Googleのクローラーが「このページには何があるか」を瞬時に理解できます
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": `${stationName}駅周辺のがっつり飯・デカ盛り店リスト`,
+    "description": `${stationName}駅から徒歩圏内のデカ盛り、高コスパな飲食店を厳選して紹介します。`,
+    "itemListElement": restaurants.map((r, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Restaurant",
+        "name": r.name,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": r.address,
+          "addressLocality": r.station,
+          "addressCountry": "JP"
+        },
+        "servesCuisine": r.genre,
+        "description": r.description
+      }
+    }))
+  };
+
   return (
     <Box sx={{ bgcolor: "#F8F9FA", minHeight: "100vh", pb: 8 }}>
+      {/* 構造化データを埋め込み (画面には見えません) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <StationHeader stationName={stationName} />
       
       <Container maxWidth="xl">
         <Breadcrumbs stationName={stationName} />
 
-        {/* SEO強化セクション */}
         <Paper 
           elevation={0} 
           sx={{ 
@@ -187,6 +213,7 @@ function RestaurantResultList({ restaurants, loading }: { restaurants: Restauran
 }
 
 function RestaurantCard(props: RestaurantCardProps) {
+  const BRAND_COLOR = "#FF6B00";
   const defaultImg = GENRE_IMAGES[props.genre] || GENRE_IMAGES["その他"];
   const [displayImageUrl, setDisplayImageUrl] = useState<string>(() => {
     return localStorage.getItem(`${IMG_CACHE_PREFIX}${props.id}`) || defaultImg;
@@ -196,7 +223,8 @@ function RestaurantCard(props: RestaurantCardProps) {
 
   const gatsuTags = detectGatsuTags(props.description);
   const rating = parseFloat(props.description.match(/★(\d+(\.\d+)?)/)?.[1] || "0");
-
+  
+  // 独自ロジックで算出したガツガツ指数
   const gatsuScore = calculateGatsuIndex(props);
 
   useEffect(() => {
@@ -240,7 +268,7 @@ function RestaurantCard(props: RestaurantCardProps) {
         "&:hover": {
           transform: "translateY(-8px)",
           boxShadow: "0 12px 30px rgba(0,0,0,0.15)",
-          borderColor: "#FF6B00",
+          borderColor: BRAND_COLOR,
         },
       }}
     >
@@ -248,6 +276,8 @@ function RestaurantCard(props: RestaurantCardProps) {
         {isApiLoading && (
           <Skeleton variant="rectangular" width="100%" height="100%" sx={{ position: "absolute", zIndex: 1 }} />
         )}
+        
+        {/* ガツガツ指数バッジ (独自コンテンツとしての表示) */}
         <Box
           sx={{
             position: "absolute",
@@ -257,7 +287,7 @@ function RestaurantCard(props: RestaurantCardProps) {
             color: "#fff",
             p: "8px 12px",
             borderRadius: "10px",
-            border: `2px solid ${"#FF6B00"}`,
+            border: `2px solid ${BRAND_COLOR}`,
             zIndex: 3,
             textAlign: "center",
             boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
@@ -266,10 +296,11 @@ function RestaurantCard(props: RestaurantCardProps) {
           <Typography variant="caption" sx={{ display: "block", fontSize: "0.6rem", fontWeight: 900, mb: -0.5 }}>
             GATSU-INDEX
           </Typography>
-          <Typography variant="h6" sx={{ fontWeight: 900, color: "#FF6B00" }}>
+          <Typography variant="h6" sx={{ fontWeight: 900, color: BRAND_COLOR }}>
             {gatsuScore}<span style={{ fontSize: "0.8rem", marginLeft: "2px" }}>pt</span>
           </Typography>
         </Box>
+
         <NextImage
           src={displayImageUrl}
           alt={props.name}
@@ -288,7 +319,7 @@ function RestaurantCard(props: RestaurantCardProps) {
             top: 12,
             left: 12,
             fontWeight: "900",
-            bgcolor: "#FF6B00",
+            bgcolor: BRAND_COLOR,
             color: "white",
             zIndex: 2,
             boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
@@ -305,7 +336,7 @@ function RestaurantCard(props: RestaurantCardProps) {
               key={tag}
               label={tag}
               size="small"
-              sx={{ bgcolor: "#FFF5ED", color: "#FF6B00", fontWeight: "900", border: "1px solid #FF6B00" }}
+              sx={{ bgcolor: "#FFF5ED", color: BRAND_COLOR, fontWeight: "900", border: `1px solid ${BRAND_COLOR}` }}
             />
           ))}
         </Stack>
