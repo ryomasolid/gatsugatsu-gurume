@@ -72,17 +72,18 @@ useEffect(() => {
         </Box>
 
         <Typography
-          variant="h2"
-          component="h1"
+          variant="body1"
           sx={{
-            fontWeight: 900,
-            fontSize: { xs: "2rem", md: "3.5rem" },
-            textShadow: "2px 2px 10px rgba(0,0,0,0.8)",
-            lineHeight: 1.2,
+            fontWeight: "bold",
+            fontSize: { xs: "1rem", md: "1.2rem" },
+            textShadow: "1px 1px 5px rgba(0,0,0,0.5)",
+            mt: 1,
+            color: "#eee"
           }}
         >
-          {stationName}の<br />
-          <span style={{ color: "#FF6B00" }}>がっつり飯</span> 検索
+          ⚡️ {stationName}駅周辺のデカ盛り・高コスパ店を厳選！<br />
+          総重量1kg超の爆盛りメニューから、サラリーマンに愛されるがっつり定食まで徹底紹介。<br />
+          駅徒歩5分圏内の人気店を中心に、ガッツリ食べたい時の最強リストをお届けします。
         </Typography>
 
         <Box

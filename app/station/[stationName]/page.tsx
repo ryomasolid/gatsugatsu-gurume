@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { stationName } = await params;
   const decodedName = decodeURIComponent(stationName);
   return {
-    title: `【${decodedName}駅】周辺のがっつりグルメ！ラーメン・定食・デカ盛り検索 | ガツガツグルメ`,
-    description: `${decodedName}駅周辺で「がっつり」食べられるお店を最速検索！口コミ順で紹介します。`,
+    title: `【2026最新】${decodedName}駅のデカ盛り・がっつりランチ聖地巡礼！腹ペコ必見の厳選店`,
+    description: `${decodedName}駅周辺で、胃袋がはち切れるほどの「デカ盛り・がっつり飯」を探しているあなたへ。ラーメン、定食、カレーなど、地元で愛される高コスパな聖地を、実際の口コミをもとに厳選してご紹介。今日のランチはここで決まり！`,
     keywords: [decodedName, "がっつり", "デカ盛り", "ランチ", "グルメ"],
   };
 }
@@ -24,7 +24,7 @@ export default async function Page({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: `${decodedName}駅周辺のがっつりグルメ検索結果`,
-    description: `${decodedName}駅周辺でボリューム満点のお店リスト`,
+    description: `${decodedName}駅周辺で「今日はお腹いっぱい食べたい」方必見！1kg超えのデカ盛り店から、コスパ最強のがっつりランチまで地元で人気の聖地を厳選。ラーメン・定食・カレーなど、腹ペコも唸る名店を最速検索。今日のガッツリ飯はここで決まり！`,
     url: `https://gatsugatsu-gurume.com/station/${stationName}`,
   };
 
