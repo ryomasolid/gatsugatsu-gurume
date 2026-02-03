@@ -295,42 +295,17 @@ export default function Sidebar({ onClose }: SidebarProps) {
               >
                 駅を選択 ({checkedStations.length})
               </Typography>
-              {checkedStations.length > 0 && (
-                <IconButton
-                  size="small"
-                  onClick={() =>
-                    setStationList((prev) =>
-                      prev.map((s) => ({ ...s, check: false }))
-                    )
-                  }
-                >
-                  <DeleteSweepIcon fontSize="small" />
-                </IconButton>
-              )}
             </Box>
+
             <Paper
               variant="outlined"
               sx={{ borderRadius: "12px", overflow: "hidden" }}
             >
-              <Box sx={{ p: 1, bgcolor: "#EEE" }}>
-                <InputBase
-                  fullWidth
-                  placeholder="駅名で絞り込み..."
-                  value={stationSearchText}
-                  onChange={(e) => setStationSearchText(e.target.value)}
-                  sx={{
-                    bgcolor: "white",
-                    px: 1,
-                    borderRadius: "4px",
-                    fontSize: "0.8rem",
-                  }}
-                />
-              </Box>
               <List
                 dense
                 sx={{ maxHeight: 300, overflowY: "auto", bgcolor: "white" }}
               >
-                {filteredStations.map((s) => (
+                {stationList.map((s) => (
                   <ListItemButton
                     key={s.name}
                     onClick={() =>
@@ -346,7 +321,12 @@ export default function Sidebar({ onClose }: SidebarProps) {
                     <Checkbox
                       checked={s.check}
                       size="small"
-                      sx={{ p: 0, mr: 1 }}
+                      sx={{ 
+                        p: 0, 
+                        mr: 1,
+                        color: "#FF6B00",
+                        "&.Mui-checked": { color: "#FF6B00" } 
+                      }}
                     />
                     <ListItemText
                       primary={s.name}

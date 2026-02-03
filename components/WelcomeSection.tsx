@@ -3,269 +3,217 @@
 import BoltIcon from "@mui/icons-material/Bolt";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
-import WhatshotIcon from "@mui/icons-material/Whatshot"; // 炎アイコン
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import PlaceIcon from "@mui/icons-material/Place";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import {
   Box,
-  Divider,
-  Grid,
-  Paper,
   Typography,
   keyframes,
+  Paper,
+  Grid,
+  ButtonBase,
 } from "@mui/material";
+import Link from "next/link";
 
-const flicker = keyframes`
-  0% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-  100% { opacity: 0.8; transform: scale(1); }
+const pulse = keyframes`
+  0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,107,0,0)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 12px rgba(255,107,0,0.5)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,107,0,0)); }
 `;
+
+const BRAND_COLOR = "#FF6B00";
+const DARK_COLOR = "#1A1A1A";
+
+const noiseEffect = {
+  position: "relative",
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    inset: 0,
+    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`,
+    pointerEvents: "none",
+    zIndex: 1,
+  }
+};
+
+const POPULAR_STATIONS = [
+  { name: "新宿", lat: "35.690921", lng: "139.700258" },
+  { name: "渋谷", lat: "35.658034", lng: "139.701636" },
+  { name: "池袋", lat: "35.728926", lng: "139.71038" },
+  { name: "秋葉原", lat: "35.698383", lng: "139.773071" },
+  { name: "横浜", lat: "35.465786", lng: "139.622313" },
+  { name: "大阪", lat: "34.702485", lng: "135.495951" },
+];
 
 export const WelcomeSection = () => {
   return (
-    <Box sx={{ mt: 0 }}>
+    <Box component="section" sx={{ mt: { xs: 1, md: 3 }, mb: 6 }}>
       <Paper
         elevation={0}
         sx={{
-          p: { xs: 2.5, sm: 5, md: 6, lg: 8 },
-          borderRadius: { xs: 4, md: 6 },
+          ...noiseEffect,
+          p: { xs: 3, md: 8 },
+          borderRadius: { xs: 6, md: 10 },
           bgcolor: "#fff",
-          border: "1px solid",
-          borderColor: "grey.100",
-          boxShadow: "0 10px 40px rgba(0,0,0,0.03)",
+          border: `3px solid ${DARK_COLOR}`,
+          boxShadow: {
+            xs: `6px 6px 0px ${DARK_COLOR}`,
+            md: `12px 12px 0px ${DARK_COLOR}`,
+          },
+          overflow: "hidden",
         }}
       >
-        <Box sx={{ mb: { xs: 3, md: 6 } }}>
-          <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-            <WhatshotIcon
-              sx={{
-                color: "#FF6B00",
-                fontSize: { xs: "1.5rem", md: "2.2rem" },
-                mr: 1,
-                animation: `${flicker} 1.5s infinite ease-in-out`,
-              }}
-            />
-            <Typography
-              variant="h4"
-              component="h1"
-              sx={{
-                fontWeight: 900,
-                color: "#FF6B00",
-                fontSize: {
-                  xs: "1.2rem",
-                  sm: "1.6rem",
-                  md: "1.8rem",
-                  lg: "2.0rem",
-                  xl: "2.4rem",
-                },
-                lineHeight: 1.3,
-                textAlign: "left",
-              }}
-            >
-              ガツガツグルメ
-              <Box
-                component="span"
+        <Box sx={{ position: "relative", zIndex: 2 }}>
+          
+          <Box sx={{ mb: { xs: 5, md: 8 }, textAlign: { xs: "center", md: "left" } }}>
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "flex-start" }, mb: 2 }}>
+              <WhatshotIcon
                 sx={{
-                  display: "block",
-                  color: "text.primary",
-                  fontSize: "0.7em",
-                  mt: 1,
-                  fontWeight: 700,
+                  color: BRAND_COLOR,
+                  fontSize: { xs: "2.5rem", md: "4rem" },
+                  animation: `${pulse} 2s infinite ease-in-out`,
+                  mr: 1.5
+                }}
+              />
+              <Typography
+                variant="h2"
+                component="h1"
+                sx={{
+                  fontWeight: 900,
+                  fontSize: { xs: "2.2rem", md: "4.5rem" },
+                  lineHeight: 1,
+                  letterSpacing: "-0.04em",
+                  color: DARK_COLOR,
                 }}
               >
-                駅近「がっつり飯」の最強検索ガイド
-              </Box>
+                GATSU<Box component="span" sx={{ color: BRAND_COLOR }}>GATSU</Box>
+              </Typography>
+            </Box>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 800, color: "#444", fontSize: { xs: "0.95rem", md: "1.4rem" }, maxWidth: "600px" }}
+            >
+              駅近「がっつり飯」専用。
+              <Box component="span" sx={{ display: { xs: "block", sm: "inline" }, color: DARK_COLOR }}>最速で、腹を満たせ。</Box>
             </Typography>
           </Box>
 
-          <Typography
-            variant="body1"
-            sx={{
-              lineHeight: 1.8,
-              color: "text.secondary",
-              fontSize: { xs: "0.85rem", md: "1.05rem" },
-              textAlign: "left",
-              maxWidth: "900px",
-            }}
-          >
-            「ガツガツグルメ」へようこそ。当サイトは、日々を全力で生きる人々のために、
-            <Box
-              component="span"
-              sx={{
-                fontWeight: "bold",
-                color: "text.primary",
-                borderBottom: "2px solid #FF6B00",
-              }}
-            >
-              駅から徒歩圏内で満足感抜群の「がっつり飯」を最速で見つけること
-            </Box>
-            を目標に開発。
-            黄金の3大ジャンル「ラーメン・牛丼・定食」に特化しています。
-          </Typography>
+          <Box sx={{ mb: { xs: 6, md: 10 } }}>
+            <Typography variant="overline" sx={{ fontWeight: 900, color: BRAND_COLOR, fontSize: "0.8rem", letterSpacing: "0.2em", mb: 2, display: "block" }}>
+              POPULAR AREAS
+            </Typography>
+            <Grid container spacing={1.5}>
+              {POPULAR_STATIONS.map((station) => (
+                <Grid size={{ xs: 6, sm: 4, md: 2 }} key={station.name}>
+                  <Link
+                    href={`/station/${encodeURIComponent(station.name)}?lat=${station.lat}&lng=${station.lng}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <ButtonBase
+                      sx={{
+                        width: "100%",
+                        py: 2,
+                        borderRadius: 3,
+                        border: `2px solid ${DARK_COLOR}`,
+                        bgcolor: "#fff",
+                        fontWeight: 900,
+                        transition: "0.1s",
+                        boxShadow: `3px 3px 0px ${DARK_COLOR}`,
+                        "&:active": {
+                          transform: "translate(2px, 2px)",
+                          boxShadow: "0px 0px 0px #000",
+                        }
+                      }}
+                    >
+                      <PlaceIcon sx={{ fontSize: "1rem", mr: 0.5, color: BRAND_COLOR }} />
+                      {station.name}
+                    </ButtonBase>
+                  </Link>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+
+          <Grid container spacing={{ xs: 4, md: 6 }}>
+            <Grid size={{ xs: 12, md: 7 }}>
+              <Typography variant="h6" sx={{ fontWeight: 900, mb: 3, display: "flex", alignItems: "center", gap: 1 }}>
+                <RestaurantIcon sx={{ color: BRAND_COLOR }} /> 3大ジャンルの美学
+              </Typography>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <GenreRow emoji="🍜" title="濃厚ラーメン" desc="二郎系・家系・ドロ豚骨。戦う前のガソリン。" />
+                <GenreRow emoji="🍚" title="漢の肉丼" desc="米が見えない肉の山。本能で喰らう一杯。" />
+                <GenreRow emoji="🍱" title="爆盛り定食" desc="おかわり自由は正義。白飯泥棒な名店。" />
+              </Box>
+            </Grid>
+
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Box 
+                sx={{ 
+                  bgcolor: "#fff",
+                  p: 3, 
+                  borderRadius: 5, 
+                  color: DARK_COLOR, 
+                  border: `3px solid ${BRAND_COLOR}`,
+                  boxShadow: `6px 6px 0px ${BRAND_COLOR}`,
+                }}
+              >
+                <Typography 
+                  variant="subtitle1" 
+                  sx={{ 
+                    fontWeight: 900, 
+                    mb: 3, 
+                    textAlign: "center", 
+                    borderBottom: `2px dashed ${BRAND_COLOR}`,
+                    pb: 1,
+                    color: BRAND_COLOR 
+                  }}
+                >
+                  ガツガツの流儀
+                </Typography>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                  <PolicyItem icon={<BoltIcon />} title="圧倒的「満腹」" />
+                  <PolicyItem icon={<PlaceIcon />} title="駅から「爆速」" />
+                  <PolicyItem icon={<RecordVoiceOverIcon />} title="ガチの「生声」" />
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
-
-        <Divider sx={{ my: { xs: 3, md: 6 } }} />
-
-        <Typography
-          variant="h6"
-          component="h2"
-          sx={{
-            fontWeight: 900,
-            mb: { xs: 2, md: 4 },
-            fontSize: { xs: "1rem", md: "1.2rem" },
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-          }}
-        >
-          <RestaurantIcon
-            sx={{ color: "#FF6B00", fontSize: { xs: 20, md: 24 } }}
-          />
-          追求する3大ジャンルの美学
-        </Typography>
-
-        <Grid container spacing={{ xs: 2, sm: 3, md: 6 }}>
-          <GenreItem
-            emoji="🍜"
-            title="ラーメン"
-            description="二郎系から濃厚豚骨まで、食べた後に「戦える」元気が湧く一杯を厳選。"
-          />
-          <GenreItem
-            emoji="🍚"
-            title="牛丼・丼物"
-            description="チェーンから、肉盛自慢の個人店まで、本能に忠実な結果を。"
-          />
-          <GenreItem
-            emoji="🍱"
-            title="定食・おかわり"
-            description="唐揚げ、生姜焼き。腹ペコ層に支持される名店を抽出。"
-          />
-        </Grid>
-
-        <Divider sx={{ my: { xs: 4, md: 8 } }} />
-
-        <Typography
-          variant="subtitle1"
-          component="h2"
-          sx={{
-            fontWeight: 900,
-            mb: 3,
-            textAlign: "center",
-            fontSize: { xs: "1rem", md: "1.4rem" },
-          }}
-        >
-          お店選びの3か条
-        </Typography>
-
-        <Grid container spacing={2}>
-          <PolicyCard
-            icon={<BoltIcon sx={{ fontSize: 24 }} />}
-            number="01"
-            title="圧倒的な「満腹度」"
-            description="大盛り、おかわり。明日への活力が湧くボリューム。"
-          />
-          <PolicyCard
-            icon={<RestaurantIcon sx={{ fontSize: 24 }} />}
-            number="02"
-            title="駅から「迷わず」"
-            description="数分以内に辿り着ける立地。短い休憩でも最高の体験。"
-          />
-          <PolicyCard
-            icon={<RecordVoiceOverIcon sx={{ fontSize: 24 }} />}
-            number="03"
-            title="「生の声」を重視"
-            description="実際の口コミをベースにした真実をお届け。"
-          />
-        </Grid>
       </Paper>
     </Box>
   );
 };
 
-const GenreItem = ({
-  emoji,
-  title,
-  description,
-}: {
-  emoji: string;
-  title: string;
-  description: string;
-}) => (
-  <Grid size={{ xs: 12, sm: 4 }}>
-    <Box sx={{ mb: { xs: 1, sm: 0 } }}>
-      <Typography
-        variant="subtitle1"
-        component="h3"
-        sx={{
-          fontWeight: 900,
-          mb: 0.5,
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-          fontSize: { xs: "0.9rem", md: "1.05rem" },
-        }}
-      >
-        <Box component="span">{emoji}</Box> {title}
-      </Typography>
-      <Typography
-        variant="body2"
-        sx={{
-          lineHeight: 1.5,
-          color: "text.secondary",
-          fontSize: { xs: "0.75rem", md: "0.8rem" },
-        }}
-      >
-        {description}
-      </Typography>
+const GenreRow = ({ emoji, title, desc }: any) => (
+  <ButtonBase
+    sx={{
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      p: 2,
+      bgcolor: "#FFF9F5",
+      borderRadius: 4,
+      border: `2px solid transparent`,
+      transition: "0.2s",
+      "&:hover, &:active": {
+        borderColor: BRAND_COLOR,
+        bgcolor: "#fff"
+      }
+    }}
+  >
+    <Typography variant="h4" sx={{ mr: 2 }}>{emoji}</Typography>
+    <Box sx={{ textAlign: "left" }}>
+      <Typography variant="subtitle1" sx={{ fontWeight: 900, color: DARK_COLOR, lineHeight: 1.2 }}>{title}</Typography>
+      <Typography variant="caption" sx={{ color: "#666" }}>{desc}</Typography>
     </Box>
-  </Grid>
+    <ArrowForwardIcon sx={{ ml: "auto", fontSize: "1rem", color: BRAND_COLOR, opacity: 0.5 }} />
+  </ButtonBase>
 );
 
-const PolicyCard = ({
-  icon,
-  number,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  number: string;
-  title: string;
-  description: string;
-}) => (
-  <Grid size={{ xs: 12, sm: 4 }}>
-    <Paper
-      variant="outlined"
-      sx={{ p: 2, height: "100%", borderRadius: 3, bgcolor: "#fcfcfc" }}
-    >
-      <Box
-        sx={{
-          color: "#FF6B00",
-          mb: 1,
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-        }}
-      >
-        {icon}
-        <Typography
-          variant="caption"
-          sx={{ fontWeight: 900, color: "grey.500" }}
-        >
-          {number}
-        </Typography>
-      </Box>
-      <Typography
-        variant="body2"
-        component="h3"
-        sx={{ fontWeight: 800, mb: 0.5 }}
-      >
-        {title}
-      </Typography>
-      <Typography
-        variant="caption"
-        color="text.secondary"
-        sx={{ lineHeight: 1.4, display: "block" }}
-      >
-        {description}
-      </Typography>
-    </Paper>
-  </Grid>
+const PolicyItem = ({ icon, title }: any) => (
+  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+    <Box sx={{ bgcolor: BRAND_COLOR, p: 1, borderRadius: 2, color: "#fff", display: "flex" }}>{icon}</Box>
+    <Typography variant="body1" sx={{ fontWeight: 800, color: DARK_COLOR }}>{title}</Typography>
+  </Box>
 );
