@@ -5,7 +5,7 @@ import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import PlaceIcon from "@mui/icons-material/Place";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import SearchIcon from "@mui/icons-material/Search";
 import {
   Box,
   Typography,
@@ -13,6 +13,7 @@ import {
   Paper,
   Grid,
   ButtonBase,
+  Divider,
 } from "@mui/material";
 import Link from "next/link";
 
@@ -24,18 +25,6 @@ const pulse = keyframes`
 
 const BRAND_COLOR = "#FF6B00";
 const DARK_COLOR = "#1A1A1A";
-
-const noiseEffect = {
-  position: "relative",
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    inset: 0,
-    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")`,
-    pointerEvents: "none",
-    zIndex: 1,
-  }
-};
 
 const POPULAR_STATIONS = [
   { name: "新宿", lat: "35.690921", lng: "139.700258" },
@@ -52,7 +41,6 @@ export const WelcomeSection = () => {
       <Paper
         elevation={0}
         sx={{
-          ...noiseEffect,
           p: { xs: 3, md: 8 },
           borderRadius: { xs: 6, md: 10 },
           bgcolor: "#fff",
@@ -66,6 +54,7 @@ export const WelcomeSection = () => {
       >
         <Box sx={{ position: "relative", zIndex: 2 }}>
           
+          {/* ヒーローセクション：専門性をアピール */}
           <Box sx={{ mb: { xs: 5, md: 8 }, textAlign: { xs: "center", md: "left" } }}>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "flex-start" }, mb: 2 }}>
               <WhatshotIcon
@@ -91,21 +80,28 @@ export const WelcomeSection = () => {
               </Typography>
             </Box>
             <Typography
-              variant="h6"
-              sx={{ fontWeight: 800, color: "#444", fontSize: { xs: "0.95rem", md: "1.4rem" }, maxWidth: "600px" }}
+              variant="h5"
+              sx={{ fontWeight: 900, color: DARK_COLOR, mb: 2, fontSize: { xs: "1.2rem", md: "1.8rem" } }}
             >
-              駅近「がっつり飯」専用。
-              <Box component="span" sx={{ display: { xs: "block", sm: "inline" }, color: DARK_COLOR }}>最速で、腹を満たせ。</Box>
+              駅近「がっつり飯」専用検索ガイド
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ fontWeight: 700, color: "#666", lineHeight: 1.8, maxWidth: "700px" }}
+            >
+              ガツガツグルメは、全国の主要駅から【徒歩5分圏内】のデカ盛り・高コスパ店を独自の解析ロジックで抽出。
+              最新の口コミデータに基づき、今すぐ腹を満たしたいあなたに最適な「戦場」を提案します。
             </Typography>
           </Box>
 
+          {/* 人気エリアセクション：sizeプロパティを使用 */}
           <Box sx={{ mb: { xs: 6, md: 10 } }}>
-            <Typography variant="overline" sx={{ fontWeight: 900, color: BRAND_COLOR, fontSize: "0.8rem", letterSpacing: "0.2em", mb: 2, display: "block" }}>
-              POPULAR AREAS
+            <Typography variant="overline" sx={{ fontWeight: 900, color: BRAND_COLOR, fontSize: "0.85rem", letterSpacing: "0.2em", mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+              <SearchIcon fontSize="small" /> POPULAR STATIONS
             </Typography>
-            <Grid container spacing={1.5}>
+            <Grid container spacing={2}>
               {POPULAR_STATIONS.map((station) => (
-                <Grid size={{ xs: 6, sm: 4, md: 2 }} key={station.name}>
+                <Grid key={station.name} size={{ xs: 6, sm: 4, md: 2 }}>
                   <Link
                     href={`/station/${encodeURIComponent(station.name)}?lat=${station.lat}&lng=${station.lng}`}
                     style={{ textDecoration: "none" }}
@@ -118,15 +114,17 @@ export const WelcomeSection = () => {
                         border: `2px solid ${DARK_COLOR}`,
                         bgcolor: "#fff",
                         fontWeight: 900,
-                        transition: "0.1s",
-                        boxShadow: `3px 3px 0px ${DARK_COLOR}`,
-                        "&:active": {
-                          transform: "translate(2px, 2px)",
-                          boxShadow: "0px 0px 0px #000",
+                        transition: "0.2s",
+                        boxShadow: `4px 4px 0px ${DARK_COLOR}`,
+                        "&:hover": {
+                          borderColor: BRAND_COLOR,
+                          color: BRAND_COLOR,
+                          transform: "translate(-2px, -2px)",
+                          boxShadow: `6px 6px 0px ${BRAND_COLOR}`,
                         }
                       }}
                     >
-                      <PlaceIcon sx={{ fontSize: "1rem", mr: 0.5, color: BRAND_COLOR }} />
+                      <PlaceIcon sx={{ fontSize: "1rem", mr: 0.5 }} />
                       {station.name}
                     </ButtonBase>
                   </Link>
@@ -135,46 +133,59 @@ export const WelcomeSection = () => {
             </Grid>
           </Box>
 
+          <Divider sx={{ mb: 6, borderBottomWidth: 2 }} />
+
+          {/* 独自基準の説明：sizeプロパティを使用 */}
           <Grid container spacing={{ xs: 4, md: 6 }}>
             <Grid size={{ xs: 12, md: 7 }}>
               <Typography variant="h6" sx={{ fontWeight: 900, mb: 3, display: "flex", alignItems: "center", gap: 1 }}>
-                <RestaurantIcon sx={{ color: BRAND_COLOR }} /> 3大ジャンルの美学
+                <RestaurantIcon sx={{ color: BRAND_COLOR }} /> 独自の「がっつり」選別基準
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                <GenreRow emoji="🍜" title="濃厚ラーメン" desc="二郎系・家系・ドロ豚骨。戦う前のガソリン。" />
-                <GenreRow emoji="🍚" title="漢の肉丼" desc="米が見えない肉の山。本能で喰らう一杯。" />
-                <GenreRow emoji="🍱" title="爆盛り定食" desc="おかわり自由は正義。白飯泥棒な名店。" />
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
+                <GenreRow emoji="🍜" title="濃厚・爆盛りラーメン" desc="二郎系、家系、濃厚豚骨を網羅。麺量と背脂のインパクトを重視。" />
+                <GenreRow emoji="🍚" title="限界突破の肉丼・カレー" desc="米が見えないほどの肉盛り。1kg超えのチャレンジメニューも補足。" />
+                <GenreRow emoji="🍱" title="おかわり無限の定食" desc="ご飯・味噌汁おかわり自由は当たり前。満腹保証の名店を厳選。" />
               </Box>
             </Grid>
 
             <Grid size={{ xs: 12, md: 5 }}>
               <Box 
                 sx={{ 
-                  bgcolor: "#fff",
-                  p: 3, 
+                  bgcolor: "#F9FAFB",
+                  p: 4, 
                   borderRadius: 5, 
-                  color: DARK_COLOR, 
-                  border: `3px solid ${BRAND_COLOR}`,
-                  boxShadow: `6px 6px 0px ${BRAND_COLOR}`,
+                  border: `3px solid ${DARK_COLOR}`,
+                  boxShadow: `8px 8px 0px ${DARK_COLOR}`,
                 }}
               >
                 <Typography 
                   variant="subtitle1" 
                   sx={{ 
                     fontWeight: 900, 
-                    mb: 3, 
+                    mb: 4, 
                     textAlign: "center", 
-                    borderBottom: `2px dashed ${BRAND_COLOR}`,
-                    pb: 1,
-                    color: BRAND_COLOR 
+                    color: BRAND_COLOR,
+                    fontSize: "1.2rem"
                   }}
                 >
                   ガツガツの流儀
                 </Typography>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                  <PolicyItem icon={<BoltIcon />} title="圧倒的「満腹」" />
-                  <PolicyItem icon={<PlaceIcon />} title="駅から「爆速」" />
-                  <PolicyItem icon={<RecordVoiceOverIcon />} title="ガチの「生声」" />
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                  <PolicyItem 
+                    icon={<BoltIcon />} 
+                    title="圧倒的「満腹」" 
+                    desc="独自のタグ解析により、ボリューム自慢の店のみを掲載。" 
+                  />
+                  <PolicyItem 
+                    icon={<PlaceIcon />} 
+                    title="駅から「爆速」" 
+                    desc="腹ペコでの移動は不要。全店舗駅から徒歩5分圏内を推奨。" 
+                  />
+                  <PolicyItem 
+                    icon={<RecordVoiceOverIcon />} 
+                    title="ガチの「生声」" 
+                    desc="広告ではない、リアルな満足度に基づいた店舗選別。" 
+                  />
                 </Box>
               </Box>
             </Grid>
@@ -186,34 +197,36 @@ export const WelcomeSection = () => {
 };
 
 const GenreRow = ({ emoji, title, desc }: any) => (
-  <ButtonBase
+  <Box
     sx={{
       width: "100%",
       display: "flex",
       alignItems: "center",
-      p: 2,
+      p: 2.5,
       bgcolor: "#FFF9F5",
       borderRadius: 4,
-      border: `2px solid transparent`,
+      border: `2px solid #EEE`,
       transition: "0.2s",
-      "&:hover, &:active": {
+      "&:hover": {
         borderColor: BRAND_COLOR,
         bgcolor: "#fff"
       }
     }}
   >
-    <Typography variant="h4" sx={{ mr: 2 }}>{emoji}</Typography>
+    <Typography variant="h3" sx={{ mr: 2.5 }}>{emoji}</Typography>
     <Box sx={{ textAlign: "left" }}>
-      <Typography variant="subtitle1" sx={{ fontWeight: 900, color: DARK_COLOR, lineHeight: 1.2 }}>{title}</Typography>
-      <Typography variant="caption" sx={{ color: "#666" }}>{desc}</Typography>
+      <Typography variant="subtitle1" sx={{ fontWeight: 900, color: DARK_COLOR, lineHeight: 1.2, mb: 0.5 }}>{title}</Typography>
+      <Typography variant="body2" sx={{ color: "#666", fontWeight: 700 }}>{desc}</Typography>
     </Box>
-    <ArrowForwardIcon sx={{ ml: "auto", fontSize: "1rem", color: BRAND_COLOR, opacity: 0.5 }} />
-  </ButtonBase>
+  </Box>
 );
 
-const PolicyItem = ({ icon, title }: any) => (
-  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+const PolicyItem = ({ icon, title, desc }: any) => (
+  <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
     <Box sx={{ bgcolor: BRAND_COLOR, p: 1, borderRadius: 2, color: "#fff", display: "flex" }}>{icon}</Box>
-    <Typography variant="body1" sx={{ fontWeight: 800, color: DARK_COLOR }}>{title}</Typography>
+    <Box>
+      <Typography variant="body1" sx={{ fontWeight: 900, color: DARK_COLOR, mb: 0.5 }}>{title}</Typography>
+      <Typography variant="caption" sx={{ color: "#666", display: "block", fontWeight: 700, lineHeight: 1.4 }}>{desc}</Typography>
+    </Box>
   </Box>
 );
