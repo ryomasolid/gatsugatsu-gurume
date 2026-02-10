@@ -1,4 +1,3 @@
-import { STATIC_PREDEFINED_IMAGES } from "@/constants/restaurantData";
 import { unstable_cache } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -36,14 +35,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Query is required" }, { status: 400 });
   }
 
-  // 1. 事前定義データ(STATIC_PREDEFINED_IMAGES)をチェック
-  if (STATIC_PREDEFINED_IMAGES[q]) {
-    console.log(`[Static Hit] Image for: ${q}`);
-    return NextResponse.json({ imageUrl: STATIC_PREDEFINED_IMAGES[q] });
-  }
-
   try {
-    // 2. キャッシュまたはAPIから取得
     const imageUrl = await getCachedImage(q);
     console.log(imageUrl);
     return NextResponse.json({ imageUrl });
