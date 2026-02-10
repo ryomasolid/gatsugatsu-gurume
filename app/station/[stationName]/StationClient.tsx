@@ -65,7 +65,6 @@ export default function StationClient({
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // 路線情報の取得のみクライアントサイドで実行
     const fetchLines = async () => {
       try {
         const res = await fetch(
@@ -159,16 +158,22 @@ function RestaurantResultList({ restaurants, loading, stationName }: { restauran
 
 function RestaurantCard(props: RestaurantInfoDTO & { stationName: string }) {
   const BRAND_COLOR = "#FF6B00";
+  // --- 【修正ポイント】安全なアクセス ---
+  const safeDesc = props.description || "";
   const defaultImg = GENRE_IMAGES[props.genre] || GENRE_IMAGES["その他"];
+  
   const [displayImageUrl, setDisplayImageUrl] = useState<string>(defaultImg);
   const [isApiLoading, setIsApiLoading] = useState(false);
 
-  const gatsuTags = detectGatsuTags(props.description);
-  const rating = parseFloat(props.description.match(/★(\d+(\.\d+)?)/)?.[1] || "0");
-  const gatsuScore = calculateGatsuIndex(props);
+  const gatsuTags = detectGatsuTags(safeDesc);
+  
+  // matchの結果を安全に取得
+  const ratingMatch = safeDesc.match(/★(\d+(\.\d+)?)/);
+  const rating = ratingMatch ? parseFloat(ratingMatch[1]) : 0;
+  
+  const gatsuScore = calculateGatsuIndex({ ...props, description: safeDesc });
 
   useEffect(() => {
-    // クライアントサイドでの画像取得
     const cached = localStorage.getItem(`${IMG_CACHE_PREFIX}${props.id}`);
     if (cached) {
       setDisplayImageUrl(cached);
@@ -252,7 +257,7 @@ function RestaurantCard(props: RestaurantInfoDTO & { stationName: string }) {
         <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
           <Rating value={rating} precision={0.1} readOnly size="small" />
           <Typography variant="body2" color="text.secondary" sx={{ ml: 1, fontWeight: "bold" }}>
-            {props.description.substring(0, 50)}...
+            {safeDesc.length > 50 ? safeDesc.substring(0, 50) + "..." : safeDesc}
           </Typography>
         </Box>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3, minHeight: "3em", fontSize: "0.8rem" }}>

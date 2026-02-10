@@ -41,22 +41,30 @@ export default async function Page({ params }: Props) {
   const coords = await getStationCoords(decodedName);
   const baseUrl = getBaseUrl();
 
-  // 2. サーバー側で初期データを取得 (SEOの肝)
+  // サーバー側で初期データを取得
   let initialRestaurants: RestaurantInfoDTO[] = [];
   if (coords) {
     try {
-      const apiUrl = `${baseUrl}/api/restaurants?station=${stationName}&lat=${coords.lat}&lng=${coords.lng}`;
+      const apiUrl = `${baseUrl}/api/restaurants?station=${encodeURIComponent(stationName)}&lat=${coords.lat}&lng=${coords.lng}`;
       const res = await fetch(apiUrl, { next: { revalidate: 86400 } });
       if (res.ok) {
         const data = await res.json();
-        initialRestaurants = data.results || [];
+        
+        // --- 【修正ポイント】データの正規化 ---
+        initialRestaurants = (data.results || []).map((r: any) => ({
+          ...r,
+          // descriptionが空、または文字列でない場合に備える
+          description: r.description || `★${r.rating || 0} (${r.reviewCount || 0}件) ${r.address || ""}`,
+          station: r.station || decodedName,
+          walkMinutes: r.walkMinutes || 5,
+        }));
       }
     } catch (e) {
       console.error("初期データのフェッチ失敗:", e);
     }
   }
 
-  // 3. 構造化データの作成 (サーバーで生成してHTMLに埋め込む)
+  // 構造化データの作成
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
