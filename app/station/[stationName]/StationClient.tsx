@@ -2,7 +2,6 @@
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import StationHeader from "@/components/StationHeader";
-import { useRestaurants } from "@/hooks/useRestaurants";
 import { calculateGatsuIndex, detectGatsuTags } from "@/utils/tagDetector";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
@@ -15,7 +14,6 @@ import {
   Chip,
   CircularProgress,
   Container,
-  Divider,
   Grid,
   Rating,
   Skeleton,
@@ -24,7 +22,6 @@ import {
   Paper,
 } from "@mui/material";
 import NextImage from "next/image";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // --- 型定義 ---
@@ -36,10 +33,7 @@ export type RestaurantInfoDTO = {
   station: string;
   walkMinutes: number;
   description: string;
-};
-
-type RestaurantCardProps = RestaurantInfoDTO & {
-  onClick?: () => void;
+  location: { latitude: number; longitude: number };
 };
 
 const GENRE_IMAGES: Record<string, string> = {
@@ -57,82 +51,40 @@ const GENRE_IMAGES: Record<string, string> = {
 
 const IMG_CACHE_PREFIX = "gatsu_img_";
 
-export default function StationClient({ stationName }: { stationName: string }) {
-  const searchParams = useSearchParams();
-  const [coords, setCoords] = useState<{ lat: string; lng: string } | null>(null);
+export default function StationClient({ 
+  stationName, 
+  initialRestaurants, 
+  initialCoords 
+}: { 
+  stationName: string; 
+  initialRestaurants: RestaurantInfoDTO[]; 
+  initialCoords: { lat: string; lng: string } | null;
+}) {
+  const [restaurants, setRestaurants] = useState<RestaurantInfoDTO[]>(initialRestaurants);
   const [lines, setLines] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const lat = searchParams.get("lat");
-    const lng = searchParams.get("lng");
-
-    if (lat && lng) {
-      setCoords({ lat, lng });
-    }
-
-    const fetchStationData = async () => {
+    // 路線情報の取得のみクライアントサイドで実行
+    const fetchLines = async () => {
       try {
         const res = await fetch(
           `https://express.heartrails.com/api/json?method=getStations&name=${encodeURIComponent(stationName)}`
         );
         const data = await res.json();
-        
         if (data.response?.station) {
           const uniqueLines = Array.from(new Set(data.response.station.map((st: any) => st.line))) as string[];
           setLines(uniqueLines);
-
-          if (!lat || !lng) {
-            const s = data.response.station[0];
-            setCoords({ lat: String(s.y), lng: String(s.x) });
-          }
         }
       } catch (e) {
-        console.error("路線情報の取得に失敗しました:", e);
+        console.error("路線情報の取得に失敗:", e);
       }
     };
-
-    fetchStationData();
-  }, [stationName, searchParams]);
-
-  const { restaurants, loading, errorType } = useRestaurants({
-    station: stationName,
-    lat: coords?.lat || "",
-    lng: coords?.lng || "",
-  });
-
-  // --- 構造化データ (JSON-LD) の作成 ---
-  // これにより、Googleのクローラーが「このページには何があるか」を瞬時に理解できます
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": `${stationName}駅周辺のがっつり飯・デカ盛り店リスト`,
-    "description": `${stationName}駅から徒歩圏内のデカ盛り、高コスパな飲食店を厳選して紹介します。`,
-    "itemListElement": restaurants.map((r, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Restaurant",
-        "name": r.name,
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": r.address,
-          "addressLocality": r.station,
-          "addressCountry": "JP"
-        },
-        "servesCuisine": r.genre,
-        "description": r.description
-      }
-    }))
-  };
+    fetchLines();
+  }, [stationName]);
 
   return (
     <Box sx={{ bgcolor: "#F8F9FA", minHeight: "100vh", pb: 8 }}>
-      {/* 構造化データを埋め込み (画面には見えません) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       <StationHeader stationName={stationName} />
       
       <Container maxWidth="xl">
@@ -152,9 +104,8 @@ export default function StationClient({ stationName }: { stationName: string }) 
             {stationName}駅周辺のがっつり飯・デカ盛り店
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 700, lineHeight: 1.8 }}>
-            {stationName}駅周辺で、お腹いっぱい食べられる「がっつり飯」を厳選紹介。
-            ラーメン、肉丼、定食など、徒歩圏内の高コスパ店を独自の解析ロジックでピックアップしました。
-            今日の空腹を満たす最高の一杯を見つけましょう。
+            {stationName}駅周辺で、お腹いっぱい食べられる名店をピックアップしました。
+            独自ロジックにより、ボリュームと満足度の高い店舗を厳選しています。
           </Typography>
           
           {lines.length > 0 && (
@@ -172,67 +123,62 @@ export default function StationClient({ stationName }: { stationName: string }) 
             <RestaurantIcon sx={{ color: "#FF6B00" }} /> 厳選ショップリスト
           </Typography>
 
-          {errorType === "quota" && (
-            <Alert severity="error" sx={{ mb: 4, fontWeight: "bold", borderRadius: 3 }}>
-              本日の店舗検索上限に達しました。明日またお試しください。
-            </Alert>
-          )}
-
-          <RestaurantResultList restaurants={restaurants} loading={loading} />
-
-          {!loading && errorType === "none" && coords && restaurants.length === 0 && (
-            <Alert severity="info" sx={{ mt: 4, borderRadius: 3, fontWeight: "bold" }}>
-              <Typography variant="body1">
-                {stationName}駅周辺で、私たちの「がっつり基準」を満たすお店が現在見つかりませんでした。
-              </Typography>
-            </Alert>
-          )}
+          <RestaurantResultList restaurants={restaurants} loading={loading} stationName={stationName} />
         </Box>
       </Container>
     </Box>
   );
 }
 
-function RestaurantResultList({ restaurants, loading }: { restaurants: RestaurantInfoDTO[]; loading: boolean }) {
+function RestaurantResultList({ restaurants, loading, stationName }: { restaurants: RestaurantInfoDTO[]; loading: boolean; stationName: string }) {
   if (loading)
     return (
       <Box sx={{ display: "flex", justifyContent: "center", mt: 10 }}>
         <CircularProgress thickness={5} size={60} sx={{ color: "#FF6B00" }} />
       </Box>
     );
-  if (restaurants.length === 0) return null;
+  
+  if (restaurants.length === 0) {
+    return (
+      <Alert severity="info" sx={{ mt: 4, borderRadius: 3, fontWeight: "bold" }}>
+        {stationName}駅周辺で「がっつり基準」を満たすお店が現在見つかりませんでした。
+      </Alert>
+    );
+  }
+
   return (
     <Grid container spacing={3}>
       {restaurants.map((r) => (
         <Grid key={r.id} size={{ xs: 12, sm: 6, lg: 4 }}>
-          <RestaurantCard {...r} />
+          <RestaurantCard {...r} stationName={stationName} />
         </Grid>
       ))}
     </Grid>
   );
 }
 
-function RestaurantCard(props: RestaurantCardProps) {
+function RestaurantCard(props: RestaurantInfoDTO & { stationName: string }) {
   const BRAND_COLOR = "#FF6B00";
   const defaultImg = GENRE_IMAGES[props.genre] || GENRE_IMAGES["その他"];
-  const [displayImageUrl, setDisplayImageUrl] = useState<string>(() => {
-    return localStorage.getItem(`${IMG_CACHE_PREFIX}${props.id}`) || defaultImg;
-  });
+  const [displayImageUrl, setDisplayImageUrl] = useState<string>(defaultImg);
   const [isApiLoading, setIsApiLoading] = useState(false);
-  const [imgError, setImgError] = useState(false);
 
   const gatsuTags = detectGatsuTags(props.description);
   const rating = parseFloat(props.description.match(/★(\d+(\.\d+)?)/)?.[1] || "0");
-  
-  // 独自ロジックで算出したガツガツ指数
   const gatsuScore = calculateGatsuIndex(props);
 
   useEffect(() => {
-    if (displayImageUrl.startsWith("http") || imgError) return;
+    // クライアントサイドでの画像取得
+    const cached = localStorage.getItem(`${IMG_CACHE_PREFIX}${props.id}`);
+    if (cached) {
+      setDisplayImageUrl(cached);
+      return;
+    }
+
     const fetchCustomImage = async () => {
       setIsApiLoading(true);
       try {
-        const query = `${props.name} ${props.station} 料理`;
+        const query = `${props.name} ${props.stationName} 料理`;
         const res = await fetch(`/api/restaurant-image?q=${encodeURIComponent(query)}`);
         const data = await res.json();
         if (data.imageUrl) {
@@ -246,7 +192,7 @@ function RestaurantCard(props: RestaurantCardProps) {
       }
     };
     fetchCustomImage();
-  }, [props.id, props.name, props.station, displayImageUrl, imgError]);
+  }, [props.id, props.name, props.stationName]);
 
   const handleMapOpen = () => {
     const query = encodeURIComponent(`${props.name} ${props.address}`);
@@ -273,32 +219,15 @@ function RestaurantCard(props: RestaurantCardProps) {
       }}
     >
       <Box sx={{ position: "relative", height: 220, width: "100%" }}>
-        {isApiLoading && (
-          <Skeleton variant="rectangular" width="100%" height="100%" sx={{ position: "absolute", zIndex: 1 }} />
-        )}
+        {isApiLoading && <Skeleton variant="rectangular" width="100%" height="100%" sx={{ position: "absolute", zIndex: 1 }} />}
         
-        {/* ガツガツ指数バッジ (独自コンテンツとしての表示) */}
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: -15,
-            right: 15,
-            bgcolor: "#1A1A1A",
-            color: "#fff",
-            p: "8px 12px",
-            borderRadius: "10px",
-            border: `2px solid ${BRAND_COLOR}`,
-            zIndex: 3,
-            textAlign: "center",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
-          }}
-        >
-          <Typography variant="caption" sx={{ display: "block", fontSize: "0.6rem", fontWeight: 900, mb: -0.5 }}>
-            GATSU-INDEX
-          </Typography>
-          <Typography variant="h6" sx={{ fontWeight: 900, color: BRAND_COLOR }}>
-            {gatsuScore}<span style={{ fontSize: "0.8rem", marginLeft: "2px" }}>pt</span>
-          </Typography>
+        <Box sx={{
+          position: "absolute", bottom: -15, right: 15, bgcolor: "#1A1A1A", color: "#fff",
+          p: "8px 12px", borderRadius: "10px", border: `2px solid ${BRAND_COLOR}`, zIndex: 3,
+          textAlign: "center", boxShadow: "0 4px 10px rgba(0,0,0,0.3)"
+        }}>
+          <Typography variant="caption" sx={{ display: "block", fontSize: "0.6rem", fontWeight: 900, mb: -0.5 }}>GATSU-INDEX</Typography>
+          <Typography variant="h6" sx={{ fontWeight: 900, color: BRAND_COLOR }}>{gatsuScore}<span style={{ fontSize: "0.8rem", marginLeft: "2px" }}>pt</span></Typography>
         </Box>
 
         <NextImage
@@ -307,70 +236,29 @@ function RestaurantCard(props: RestaurantCardProps) {
           fill
           unoptimized={displayImageUrl.startsWith("http")}
           style={{ objectFit: "cover" }}
-          onError={() => {
-            setImgError(true);
-            setDisplayImageUrl(defaultImg);
-          }}
         />
-        <Chip
-          label={props.genre}
-          sx={{
-            position: "absolute",
-            top: 12,
-            left: 12,
-            fontWeight: "900",
-            bgcolor: BRAND_COLOR,
-            color: "white",
-            zIndex: 2,
-            boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
-          }}
-        />
+        <Chip label={props.genre} sx={{ position: "absolute", top: 12, left: 12, fontWeight: "900", bgcolor: BRAND_COLOR, color: "white", zIndex: 2 }} />
       </Box>
+
       <CardContent sx={{ flexGrow: 1, p: 3 }}>
         <Typography variant="h5" component="h3" fontWeight="900" gutterBottom sx={{ lineHeight: 1.2, color: "#1A1A1A" }}>
           {props.name}
         </Typography>
         <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 2 }}>
           {gatsuTags.map((tag) => (
-            <Chip
-              key={tag}
-              label={tag}
-              size="small"
-              sx={{ bgcolor: "#FFF5ED", color: BRAND_COLOR, fontWeight: "900", border: `1px solid ${BRAND_COLOR}` }}
-            />
+            <Chip key={tag} label={tag} size="small" sx={{ bgcolor: "#FFF5ED", color: BRAND_COLOR, fontWeight: "900", border: `1px solid ${BRAND_COLOR}` }} />
           ))}
         </Stack>
         <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
           <Rating value={rating} precision={0.1} readOnly size="small" />
           <Typography variant="body2" color="text.secondary" sx={{ ml: 1, fontWeight: "bold" }}>
-            {props.description.length > 50 ? props.description.substring(0, 50) + "..." : props.description}
+            {props.description.substring(0, 50)}...
           </Typography>
-        </Box>
-        <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
-          <Chip
-            icon={<DirectionsWalkIcon />}
-            label={`${props.station} 徒歩${props.walkMinutes}分`}
-            variant="outlined"
-            size="small"
-            sx={{ fontWeight: "900", borderColor: "#DDD" }}
-          />
         </Box>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3, minHeight: "3em", fontSize: "0.8rem" }}>
           {props.address}
         </Typography>
-        <Button
-          fullWidth
-          variant="contained"
-          onClick={handleMapOpen}
-          sx={{
-            bgcolor: "#1A1A1A",
-            color: "#fff",
-            fontWeight: "900",
-            borderRadius: 2,
-            py: 1.5,
-            "&:hover": { bgcolor: "#333" },
-          }}
-        >
+        <Button fullWidth variant="contained" onClick={handleMapOpen} sx={{ bgcolor: "#1A1A1A", color: "#fff", fontWeight: "900", borderRadius: 2, py: 1.5, "&:hover": { bgcolor: "#333" } }}>
           Googleマップで見る
         </Button>
       </CardContent>
