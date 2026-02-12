@@ -261,18 +261,65 @@ export default function Sidebar({ onClose }: SidebarProps) {
         {/* 駅リスト（選択時のみ表示） */}
         {stationList.length > 0 && (
           <Box sx={{ px: 3, mb: 4 }}>
-            <Typography variant="caption" sx={{ fontWeight: 800, color: "text.secondary", mb: 1, display: "block" }}>
+            <Typography
+              variant="caption"
+              sx={{
+                fontWeight: 800,
+                color: "text.secondary",
+                mb: 1,
+                display: "block"
+              }}
+            >
               駅を選択 ({checkedStations.length})
             </Typography>
-            <Paper variant="outlined" sx={{ borderRadius: "12px", overflow: "hidden", border: "1px solid #EEE" }}>
-              <List dense sx={{ maxHeight: 200, overflowY: "auto", bgcolor: "white" }}>
+
+            <Paper
+              variant="outlined"
+              sx={{
+                borderRadius: "12px",
+                overflow: "hidden",
+                border: "1px solid #EEE",
+                height: { xs: 260, sm: 320, md: 420 }
+              }}
+            >
+              <List
+                dense
+                sx={{
+                  height: "100%",
+                  overflowY: "auto",
+                  bgcolor: "white"
+                }}
+              >
                 {stationList.map((s) => (
                   <ListItemButton
                     key={s.name}
-                    onClick={() => setStationList(prev => prev.map(item => item.name === s.name ? { ...item, check: !item.check } : item))}
+                    onClick={() =>
+                      setStationList((prev) =>
+                        prev.map((item) =>
+                          item.name === s.name
+                            ? { ...item, check: !item.check }
+                            : item
+                        )
+                      )
+                    }
                   >
-                    <Checkbox checked={s.check} size="small" sx={{ p: 0, mr: 1, color: BRAND_COLOR, "&.Mui-checked": { color: BRAND_COLOR } }} />
-                    <ListItemText primary={s.name} primaryTypographyProps={{ fontSize: "0.85rem", fontWeight: s.check ? 900 : 700 }} />
+                    <Checkbox
+                      checked={s.check}
+                      size="small"
+                      sx={{
+                        p: 0,
+                        mr: 1,
+                        color: BRAND_COLOR,
+                        "&.Mui-checked": { color: BRAND_COLOR }
+                      }}
+                    />
+                    <ListItemText
+                      primary={s.name}
+                      primaryTypographyProps={{
+                        fontSize: "0.85rem",
+                        fontWeight: s.check ? 900 : 700
+                      }}
+                    />
                   </ListItemButton>
                 ))}
               </List>
