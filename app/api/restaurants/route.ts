@@ -11,14 +11,14 @@ import { z } from "zod";
 // --- Constants ---
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const PLACES_API_URL = "https://places.googleapis.com/v1/places:searchText";
-const GATSURI_KEYWORDS = ["油そば", "牛丼", "定食", "カツ丼", "中華料理", "スタミナ料理", "カレー", "スープカレー"];
+const GATSURI_KEYWORDS = ["牛丼", "定食", "カツ丼", "中華料理", "カレー", "スープカレー"];
 
 /**
  * クエリを構築する (ラーメンを確定で含め、もう1つをランダムに選択)
  */
 const buildGatsuriQuery = () => {
   const shuffled = [...GATSURI_KEYWORDS].sort(() => 0.5 - Math.random());
-  return `がっつり 大盛り ラーメン ${shuffled[0]}`;
+  return `ラーメン 油そば すた丼 ${shuffled[0]}`;
 };
 
 /**
@@ -69,7 +69,7 @@ const fetchPlacesWithCache = unstable_cache(
         maxResultCount: 20,
         minRating: 3.0,
         locationBias: {
-          circle: { center: { latitude: lat, longitude: lng }, radius: 1500.0 }
+          circle: { center: { latitude: lat, longitude: lng }, radius: 800.0 }
         },
         includedType: "restaurant",
       }),
