@@ -12,8 +12,7 @@ type Props = {
 async function getStationCoords(name: string) {
   try {
     const res = await fetch(
-      `https://express.heartrails.com/api/json?method=getStations&name=${encodeURIComponent(name)}`,
-      { next: { revalidate: 86400 } }
+      `https://express.heartrails.com/api/json?method=getStations&name=${encodeURIComponent(name)}`
     );
     const data = await res.json();
     const station = data.response?.station?.[0];
@@ -41,19 +40,17 @@ export default async function Page({ params }: Props) {
   const coords = await getStationCoords(decodedName);
   const baseUrl = getBaseUrl();
 
-  // サーバー側で初期データを取得
   let initialRestaurants: RestaurantInfoDTO[] = [];
   if (coords) {
     try {
       const apiUrl = `${baseUrl}/api/restaurants?station=${encodeURIComponent(stationName)}&lat=${coords.lat}&lng=${coords.lng}`;
-      const res = await fetch(apiUrl, { next: { revalidate: 86400 } });
+      const res = await fetch(apiUrl); 
+      
       if (res.ok) {
         const data = await res.json();
         
-        // --- 【修正ポイント】データの正規化 ---
         initialRestaurants = (data.results || []).map((r: any) => ({
           ...r,
-          // descriptionが空、または文字列でない場合に備える
           description: r.description || `★${r.rating || 0} (${r.reviewCount || 0}件) ${r.address || ""}`,
           station: r.station || decodedName,
           walkMinutes: r.walkMinutes || 5,

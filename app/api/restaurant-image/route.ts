@@ -1,31 +1,25 @@
-import { unstable_cache } from "next/cache";
 import { NextResponse } from "next/server";
 
 const API_KEY = process.env.GOOGLE_CUSTOM_SEARCH_API_KEY;
 const CX = process.env.GOOGLE_CUSTOM_SEARCH_CX;
 
 /**
- * 画像検索の実行 (キャッシュ対応)
+ * 画像検索の実行
  */
-const getCachedImage = unstable_cache(
-  async (query: string): Promise<string | null> => {
-    if (!API_KEY || !CX) return null;
+const fetchImage = async (query: string): Promise<string | null> => {
+  if (!API_KEY || !CX) return null;
 
-    console.log(`[API Call] Google Image Search: ${query}`);
-    const response = await fetch(
-      `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CX}&q=${encodeURIComponent(
-        query
-      )}&searchType=image&num=1`
-    );
+  const response = await fetch(
+    `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CX}&q=${encodeURIComponent(
+      query
+    )}&searchType=image&num=1`
+  );
 
-    if (!response.ok) return null;
+  if (!response.ok) return null;
 
-    const data = await response.json();
-    return data.items?.[0]?.link || null;
-  },
-  ["restaurant-image-cache"],
-  { revalidate: 86400 } // 24時間キャッシュ
-);
+  const data = await response.json();
+  return data.items?.[0]?.link || null;
+};
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -36,7 +30,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const imageUrl = await getCachedImage(q);
+    const imageUrl = await fetchImage(q);
     console.log(imageUrl);
     return NextResponse.json({ imageUrl });
   } catch (error) {
