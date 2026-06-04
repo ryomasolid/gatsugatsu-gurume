@@ -13,7 +13,7 @@ type Props = {
 
 // サイトマップと同じ駅リストから静的パスを生成
 export function generateStaticParams() {
-  return STATION_LIST.map((name) => ({ stationName: encodeURIComponent(name) }));
+  return STATION_LIST.map((name) => ({ stationName: name }));
 }
 
 async function getStationCoords(
@@ -73,7 +73,7 @@ export default async function Page({ params }: Props) {
 
   if (coords) {
     try {
-      const apiUrl = `${baseUrl}/api/restaurants?station=${encodeURIComponent(stationName)}&lat=${coords.lat}&lng=${coords.lng}`;
+      const apiUrl = `${baseUrl}/api/restaurants?station=${encodeURIComponent(decodedName)}&lat=${coords.lat}&lng=${coords.lng}`;
       const res = await fetch(apiUrl, { next: { revalidate: 86400 } });
 
       if (res.ok) {

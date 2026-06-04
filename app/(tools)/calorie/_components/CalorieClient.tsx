@@ -402,7 +402,7 @@ export default function CalorieClient() {
               {uniqueStations.map((station) => (
                 <Link
                   key={station}
-                  href={`/station/${encodeURIComponent(station)}`}
+                  href={`/station/${station}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Box

@@ -103,7 +103,7 @@ export const WelcomeSection = () => {
               {POPULAR_STATIONS.map((station) => (
                 <Grid key={station.name} size={{ xs: 6, sm: 4, md: 2 }}>
                   <Link
-                    href={`/station/${encodeURIComponent(station.name)}?lat=${station.lat}&lng=${station.lng}`}
+                    href={`/station/${station.name}?lat=${station.lat}&lng=${station.lng}`}
                     style={{ textDecoration: "none" }}
                   >
                     <ButtonBase

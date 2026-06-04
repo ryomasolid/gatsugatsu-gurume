@@ -381,7 +381,7 @@ export default function WaitTimeClient() {
               {genre.stations.map((station) => (
                 <Link
                   key={station}
-                  href={`/station/${encodeURIComponent(station)}`}
+                  href={`/station/${station}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Box

@@ -93,7 +93,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
               search_term: s.name,
             });
             router.push(
-              `/station/${encodeURIComponent(s.name)}?lat=${s.y}&lng=${s.x}`
+              `/station/${s.name}?lat=${s.y}&lng=${s.x}`
             );
             if (onClose) onClose();
           }
@@ -167,7 +167,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
     if (checkedStations.length === 1) {
       const s = checkedStations[0];
       router.push(
-        `/station/${encodeURIComponent(s.name)}?lat=${s.y}&lng=${s.x}`
+        `/station/${s.name}?lat=${s.y}&lng=${s.x}`
       );
     } else {
       const query = new URLSearchParams({
