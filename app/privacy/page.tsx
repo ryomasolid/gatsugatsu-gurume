@@ -1,4 +1,11 @@
 import { Box, Container, Divider, Paper, Typography } from "@mui/material";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description:
+    "ガツガツグルメのプライバシーポリシーです。当アプリにおける利用者情報の取り扱いについてご説明します。",
+};
 
 export default function PrivacyPolicy() {
   return (

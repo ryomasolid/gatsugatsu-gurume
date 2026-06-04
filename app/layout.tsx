@@ -86,10 +86,49 @@ export default function RootLayout({
                 sx={{
                   display: "flex",
                   justifyContent: "center",
-                  gap: 3,
+                  flexWrap: "wrap",
+                  gap: { xs: 2, sm: 3 },
                   mb: 1,
                 }}
               >
+                <Link
+                  href="/about"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "text.secondary",
+                      cursor: "pointer",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "primary.main",
+                      },
+                    }}
+                  >
+                    運営者情報
+                  </Typography>
+                </Link>
+
+                <Link
+                  href="/terms"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "text.secondary",
+                      cursor: "pointer",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "primary.main",
+                      },
+                    }}
+                  >
+                    利用規約
+                  </Typography>
+                </Link>
+
                 <Link
                   href="/privacy"
                   style={{ textDecoration: "none", color: "inherit" }}
