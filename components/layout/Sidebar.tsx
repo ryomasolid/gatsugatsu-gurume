@@ -8,6 +8,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CasinoIcon from "@mui/icons-material/Casino";
+import CalculateIcon from "@mui/icons-material/Calculate";
 import {
   Box,
   Button,
@@ -228,6 +229,39 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 </Typography>
                 <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
                   迷ったらコレ！運命の一食を引け
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
+        {/* カロリー計算バナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/calorie" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #3B82F6",
+                bgcolor: "#EFF6FF",
+                boxShadow: "3px 3px 0px #3B82F6",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #3B82F6",
+                },
+              }}
+            >
+              <CalculateIcon sx={{ color: "#3B82F6", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#3B82F6", lineHeight: 1.2 }}>
+                  カロリー＆PFC計算
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  外食チェーンのメニューを計算
                 </Typography>
               </Box>
             </Box>
