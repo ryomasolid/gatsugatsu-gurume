@@ -1,7 +1,7 @@
 import { STATION_LIST } from "@/constants/stations";
 import { getBaseUrl } from "@/utils/getBaseUrl";
 import { Metadata } from "next";
-import StationClient from "./StationClient";
+import StationClient from "./_components/StationClient";
 import { RestaurantInfoDTO } from "./types";
 
 // 24時間ごとに再生成（ISR）

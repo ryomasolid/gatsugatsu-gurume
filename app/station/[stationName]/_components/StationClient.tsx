@@ -4,11 +4,9 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import StationHeader from "@/components/StationHeader";
 import { Box, Container } from "@mui/material";
 import { useEffect, useState } from "react";
-import StationIntroPanel from "./_components/StationIntroPanel";
-import RestaurantList from "./_components/RestaurantList";
-import { RestaurantInfoDTO } from "./types";
-
-export type { RestaurantInfoDTO };
+import StationIntroPanel from "./StationIntroPanel";
+import RestaurantList from "./RestaurantList";
+import { RestaurantInfoDTO } from "../types";
 
 type Props = {
   stationName: string;
