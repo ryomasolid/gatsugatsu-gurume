@@ -7,6 +7,7 @@ import PolicyIcon from "@mui/icons-material/Policy";
 import MailIcon from "@mui/icons-material/Mail";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import DescriptionIcon from "@mui/icons-material/Description";
+import CasinoIcon from "@mui/icons-material/Casino";
 import {
   Box,
   Button,
@@ -200,6 +201,39 @@ export default function Sidebar({ onClose }: SidebarProps) {
       {/* --- メインコンテンツ（スクロールエリア） --- */}
       <Box sx={{ flex: 1, overflowY: "auto", py: 2 }}>
         
+        {/* ガチャバナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/gacha" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: `2px solid ${BRAND_COLOR}`,
+                bgcolor: "#FFF5ED",
+                boxShadow: `3px 3px 0px ${BRAND_COLOR}`,
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: `5px 5px 0px ${BRAND_COLOR}`,
+                },
+              }}
+            >
+              <CasinoIcon sx={{ color: BRAND_COLOR, fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: BRAND_COLOR, lineHeight: 1.2 }}>
+                  今日のご飯決定ガチャ
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  迷ったらコレ！運命の一食を引け
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
         {/* 現在地検索 */}
         <Box sx={{ px: 3, mb: 4 }}>
           <Button
