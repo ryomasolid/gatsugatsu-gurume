@@ -10,6 +10,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import CasinoIcon from "@mui/icons-material/Casino";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import GroupsIcon from "@mui/icons-material/Groups";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import {
   Box,
   Button,
@@ -202,105 +203,6 @@ export default function Sidebar({ onClose }: SidebarProps) {
 
       {/* --- メインコンテンツ（スクロールエリア） --- */}
       <Box sx={{ flex: 1, overflowY: "auto", py: 2 }}>
-        
-        {/* ガチャバナー */}
-        <Box sx={{ px: 3, mb: 3 }}>
-          <Link href="/gacha" style={{ textDecoration: "none" }} onClick={onClose}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1.5,
-                p: 2,
-                borderRadius: 3,
-                border: `2px solid ${BRAND_COLOR}`,
-                bgcolor: "#FFF5ED",
-                boxShadow: `3px 3px 0px ${BRAND_COLOR}`,
-                transition: "all 0.15s",
-                "&:hover": {
-                  transform: "translate(-2px, -2px)",
-                  boxShadow: `5px 5px 0px ${BRAND_COLOR}`,
-                },
-              }}
-            >
-              <CasinoIcon sx={{ color: BRAND_COLOR, fontSize: "1.8rem" }} />
-              <Box>
-                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: BRAND_COLOR, lineHeight: 1.2 }}>
-                  今日のご飯決定ガチャ
-                </Typography>
-                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
-                  迷ったらコレ！運命の一食を引け
-                </Typography>
-              </Box>
-            </Box>
-          </Link>
-        </Box>
-
-        {/* カロリー計算バナー */}
-        <Box sx={{ px: 3, mb: 3 }}>
-          <Link href="/calorie" style={{ textDecoration: "none" }} onClick={onClose}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1.5,
-                p: 2,
-                borderRadius: 3,
-                border: "2px solid #3B82F6",
-                bgcolor: "#EFF6FF",
-                boxShadow: "3px 3px 0px #3B82F6",
-                transition: "all 0.15s",
-                "&:hover": {
-                  transform: "translate(-2px, -2px)",
-                  boxShadow: "5px 5px 0px #3B82F6",
-                },
-              }}
-            >
-              <CalculateIcon sx={{ color: "#3B82F6", fontSize: "1.8rem" }} />
-              <Box>
-                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#3B82F6", lineHeight: 1.2 }}>
-                  カロリー＆PFC計算
-                </Typography>
-                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
-                  外食チェーンのメニューを計算
-                </Typography>
-              </Box>
-            </Box>
-          </Link>
-        </Box>
-
-        {/* 割り勘バナー */}
-        <Box sx={{ px: 3, mb: 3 }}>
-          <Link href="/warikan" style={{ textDecoration: "none" }} onClick={onClose}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1.5,
-                p: 2,
-                borderRadius: 3,
-                border: "2px solid #22C55E",
-                bgcolor: "#F0FFF4",
-                boxShadow: "3px 3px 0px #22C55E",
-                transition: "all 0.15s",
-                "&:hover": {
-                  transform: "translate(-2px, -2px)",
-                  boxShadow: "5px 5px 0px #22C55E",
-                },
-              }}
-            >
-              <GroupsIcon sx={{ color: "#22C55E", fontSize: "1.8rem" }} />
-              <Box>
-                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#22C55E", lineHeight: 1.2 }}>
-                  割り勘＆傾斜計算
-                </Typography>
-                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
-                  幹事さん向け・LINEにそのまま共有
-                </Typography>
-              </Box>
-            </Box>
-          </Link>
-        </Box>
 
         {/* 現在地検索 */}
         <Box sx={{ px: 3, mb: 4 }}>
@@ -430,7 +332,139 @@ export default function Sidebar({ onClose }: SidebarProps) {
           </Box>
         )}
 
-        <Divider sx={{ mx: 3, mb: 4 }} />
+        {/* 元取れシミュレーターバナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/tabehoudai" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #D97706",
+                bgcolor: "#FFFBEB",
+                boxShadow: "3px 3px 0px #D97706",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #D97706",
+                },
+              }}
+            >
+              <EmojiEventsIcon sx={{ color: "#D97706", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#D97706", lineHeight: 1.2 }}>
+                  食べ放題・元取れ計算
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  損しない！コースの元を取れるか計算
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
+        {/* ガチャバナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/gacha" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: `2px solid ${BRAND_COLOR}`,
+                bgcolor: "#FFF5ED",
+                boxShadow: `3px 3px 0px ${BRAND_COLOR}`,
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: `5px 5px 0px ${BRAND_COLOR}`,
+                },
+              }}
+            >
+              <CasinoIcon sx={{ color: BRAND_COLOR, fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: BRAND_COLOR, lineHeight: 1.2 }}>
+                  今日のご飯決定ガチャ
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  迷ったらコレ！運命の一食を引け
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
+        {/* カロリー計算バナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/calorie" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #3B82F6",
+                bgcolor: "#EFF6FF",
+                boxShadow: "3px 3px 0px #3B82F6",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #3B82F6",
+                },
+              }}
+            >
+              <CalculateIcon sx={{ color: "#3B82F6", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#3B82F6", lineHeight: 1.2 }}>
+                  カロリー＆PFC計算
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  外食チェーンのメニューを計算
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
+        {/* 割り勘バナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/warikan" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #22C55E",
+                bgcolor: "#F0FFF4",
+                boxShadow: "3px 3px 0px #22C55E",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #22C55E",
+                },
+              }}
+            >
+              <GroupsIcon sx={{ color: "#22C55E", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#22C55E", lineHeight: 1.2 }}>
+                  割り勘＆傾斜計算
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  幹事さん向け・LINEにそのまま共有
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
+        <Divider sx={{ mx: 3, mb: 2 }} />
 
         {/* --- サイトメニュー（審査突破に必須） --- */}
         <Box sx={{ px: 2, mb: 4 }}>

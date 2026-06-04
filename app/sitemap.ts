@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...stationEntries,
     {
+      url: `${baseUrl}/tabehoudai`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/gacha`,
       lastModified: now,
       changeFrequency: "monthly",
