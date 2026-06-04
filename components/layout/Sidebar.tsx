@@ -2,10 +2,11 @@
 
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
-import InfoIcon from "@mui/icons-material/Info"; // 追加
-import PolicyIcon from "@mui/icons-material/Policy"; // 追加
-import MailIcon from "@mui/icons-material/Mail"; // 追加
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu"; // 追加
+import InfoIcon from "@mui/icons-material/Info";
+import PolicyIcon from "@mui/icons-material/Policy";
+import MailIcon from "@mui/icons-material/Mail";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import DescriptionIcon from "@mui/icons-material/Description";
 import {
   Box,
   Button,
@@ -336,6 +337,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
           </Typography>
           <List dense>
             <MenuLink href="/about" icon={<InfoIcon />} label="ガツガツグルメとは" onClick={onClose} />
+            <MenuLink href="/terms" icon={<DescriptionIcon />} label="利用規約" onClick={onClose} />
             <MenuLink href="/privacy" icon={<PolicyIcon />} label="プライバシーポリシー" onClick={onClose} />
             <MenuLink href="/contact" icon={<MailIcon />} label="お問い合わせ" onClick={onClose} />
           </List>

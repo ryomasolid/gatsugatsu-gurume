@@ -3,7 +3,9 @@
     "allow": [
       "Bash(dir:*)",
       "Bash(npm run build:*)",
-      "Bash(del \"F:\\\\Documents\\\\HP\\\\gatsugatsu-gurume\\\\app\\\\contact\\\\ContactForm.tsx\")"
+      "Bash(del \"F:\\\\Documents\\\\HP\\\\gatsugatsu-gurume\\\\app\\\\contact\\\\ContactForm.tsx\")",
+      "Bash(npx tsc *)"
     ]
-  }
+  },
+  "autoApprove": true
 }
