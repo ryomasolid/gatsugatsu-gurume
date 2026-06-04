@@ -1,4 +1,3 @@
-import { STATION_LIST } from "@/constants/stations";
 import { getBaseUrl } from "@/utils/getBaseUrl";
 import { Metadata } from "next";
 import StationClient from "./_components/StationClient";
@@ -10,11 +9,6 @@ export const revalidate = 86400;
 type Props = {
   params: Promise<{ stationName: string }>;
 };
-
-// サイトマップと同じ駅リストから静的パスを生成
-export function generateStaticParams() {
-  return STATION_LIST.map((name) => ({ stationName: name }));
-}
 
 async function getStationCoords(
   name: string
