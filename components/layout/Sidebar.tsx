@@ -9,6 +9,7 @@ import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CasinoIcon from "@mui/icons-material/Casino";
 import CalculateIcon from "@mui/icons-material/Calculate";
+import GroupsIcon from "@mui/icons-material/Groups";
 import {
   Box,
   Button,
@@ -262,6 +263,39 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 </Typography>
                 <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
                   外食チェーンのメニューを計算
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
+        {/* 割り勘バナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/warikan" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #22C55E",
+                bgcolor: "#F0FFF4",
+                boxShadow: "3px 3px 0px #22C55E",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #22C55E",
+                },
+              }}
+            >
+              <GroupsIcon sx={{ color: "#22C55E", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#22C55E", lineHeight: 1.2 }}>
+                  割り勘＆傾斜計算
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  幹事さん向け・LINEにそのまま共有
                 </Typography>
               </Box>
             </Box>
