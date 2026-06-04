@@ -1,10 +1,7 @@
 export const getBaseUrl = () => {
-  // ブラウザ環境（クライアントサイド）の場合
   if (typeof window !== "undefined") return "";
-
-  // Vercel本番環境（独自ドメインがあればそれを使う）
   if (process.env.NEXT_PUBLIC_APP_URL) return process.env.NEXT_PUBLIC_APP_URL;
-
-  // ローカル環境
+  // Vercel が自動で設定する環境変数（プレビュー・本番どちらにも存在する）
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
   return "http://localhost:3000";
 };
