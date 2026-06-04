@@ -145,8 +145,12 @@ export default function Sidebar({ onClose }: SidebarProps) {
       );
       const data = await res.json();
       if (data.response?.station) {
+        const targetPref = TODOFUKEN.find((v) => String(v.id) === String(selectedPrefId));
+        const stations: any[] = targetPref
+          ? data.response.station.filter((s: any) => s.prefecture === targetPref.name)
+          : data.response.station;
         setStationList(
-          data.response.station.map((s: any) => ({
+          stations.map((s: any) => ({
             name: s.name,
             count: 0,
             check: false,
