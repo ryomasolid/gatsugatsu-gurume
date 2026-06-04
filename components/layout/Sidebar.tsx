@@ -11,6 +11,7 @@ import CasinoIcon from "@mui/icons-material/Casino";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import GroupsIcon from "@mui/icons-material/Groups";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import {
   Box,
   Button,
@@ -458,6 +459,39 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 </Typography>
                 <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
                   幹事さん向け・LINEにそのまま共有
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
+        {/* 待ち時間予測バナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/waittime" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #0891B2",
+                bgcolor: "#ECFEFF",
+                boxShadow: "3px 3px 0px #0891B2",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #0891B2",
+                },
+              }}
+            >
+              <AccessTimeIcon sx={{ color: "#0891B2", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#0891B2", lineHeight: 1.2 }}>
+                  行列・待ち時間予測
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  並び人数を入れるだけで入店時刻を計算
                 </Typography>
               </Box>
             </Box>

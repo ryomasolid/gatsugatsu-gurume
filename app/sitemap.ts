@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...stationEntries,
     {
+      url: `${baseUrl}/waittime`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/tabehoudai`,
       lastModified: now,
       changeFrequency: "monthly",
