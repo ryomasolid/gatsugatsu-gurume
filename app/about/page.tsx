@@ -1,232 +1,114 @@
-import { Box, Container, Divider, Paper, Typography } from "@mui/material";
+import { Box, Container, Typography, Stack, Paper, Divider } from "@mui/material";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import StarsIcon from "@mui/icons-material/Stars";
+import InfoIcon from "@mui/icons-material/Info";
 import { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "運営者情報",
+  title: "ガツガツグルメとは",
   description:
-    "ガツガツグルメの運営者情報です。当アプリの運営方針やコンセプトについてご紹介します。",
+    "ガツガツグルメは、駅近・爆盛り・高コスパに特化したグルメ検索サービスです。独自の掲載基準とキュレーションで本当に満腹になれるお店を厳選。",
 };
 
-export default function About() {
+export default function AboutPage() {
+  const BRAND_COLOR = "#FF6B00";
+  const DARK_COLOR = "#1A1A1A";
+
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Paper elevation={0} sx={{ p: 4, bgcolor: "transparent" }}>
-        <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
-          運営者情報
-        </Typography>
-
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 4 }}>
-          「ガツガツグルメ」をご利用いただきありがとうございます。当アプリの運営に関する情報をご案内します。
-        </Typography>
-
-        <Section title="サービス概要">
-          <Box sx={{ mb: 3 }}>
-            <InfoRow label="サービス名" value="ガツガツグルメ" />
-            <InfoRow
-              label="サービス内容"
-              value="駅周辺のラーメン・牛丼・定食など、がっつり食べられる飲食店の検索サービス"
-            />
-            <InfoRow
-              label="URL"
-              value="https://gatsugatsu-gurume.vercel.app"
-              isLink
-            />
-            <InfoRow label="サービス開始日" value="2025年12月" />
-          </Box>
-        </Section>
-
-        <Section title="運営者情報">
-          <Box sx={{ mb: 3 }}>
-            <InfoRow label="運営形態" value="個人運営" />
-            <InfoRow label="運営者" value="ガツガツグルメ運営事務局" />
-            <InfoRow
-              label="お問い合わせ"
-              value="ryomasolid@yahoo.co.jp"
-              isEmail
-            />
-            <InfoRow label="対応時間" value="平日 10:00〜18:00（土日祝を除く）" />
-          </Box>
-          <Typography variant="body2" color="text.secondary">
-            ※お問い合わせへの回答には、数日お時間をいただく場合がございます。
-          </Typography>
-        </Section>
-
-        <Section title="ガツガツグルメのコンセプト">
-          <Typography variant="body2" paragraph>
-            「ガツガツグルメ」は、「今日はガッツリ食べたい！」というシンプルな欲求に応えるために生まれました。
-          </Typography>
-          <Typography variant="body2" paragraph>
-            忙しい毎日を過ごすビジネスパーソン、部活帰りの学生、育ち盛りのお子さんを持つご家庭など、「お腹いっぱい食べたい」と思う全ての方に向けて、駅周辺のボリューム満点な飲食店を素早く見つけられるサービスを目指しています。
-          </Typography>
-          <Typography variant="body2" paragraph>
-            ラーメン、牛丼、定食という「黄金の3大ジャンル」に特化することで、迷わずにお店を選べる体験を提供します。口コミ評価順に並び替えることで、本当に満足できるお店との出会いをサポートします。
-          </Typography>
-        </Section>
-
-        <Section title="当アプリの特徴">
-          <Box component="ul" sx={{ pl: 3, mb: 2 }}>
-            <Typography component="li" variant="body2" sx={{ mb: 1.5 }}>
-              <strong>駅から探せる：</strong>
-              最寄り駅を選ぶだけで、駅周辺のお店を簡単に検索できます。複数の駅をまとめて検索することも可能です。
+    <Container maxWidth="md" sx={{ py: { xs: 6, md: 10 } }}>
+      <Paper
+        elevation={0}
+        sx={{
+          p: { xs: 4, md: 8 },
+          borderRadius: 8,
+          border: `3px solid ${DARK_COLOR}`,
+          boxShadow: `10px 10px 0px ${DARK_COLOR}`,
+          bgcolor: "#fff",
+        }}
+      >
+        <Stack spacing={5}>
+          {/* ヘッダーエリア */}
+          <Box sx={{ textAlign: "center" }}>
+            <WhatshotIcon sx={{ fontSize: "4rem", color: BRAND_COLOR, mb: 2 }} />
+            <Typography variant="h3" fontWeight={900} sx={{ letterSpacing: "-0.02em", mb: 1 }}>
+              ガツガツグルメとは
             </Typography>
-            <Typography component="li" variant="body2" sx={{ mb: 1.5 }}>
-              <strong>3大ジャンル特化：</strong>
-              ラーメン、牛丼・丼物、定食に絞ることで、「がっつり食べたい」ニーズにダイレクトに応えます。
-            </Typography>
-            <Typography component="li" variant="body2" sx={{ mb: 1.5 }}>
-              <strong>口コミ順表示：</strong>
-              Google Mapsの口コミ評価を基に、評判の良いお店から順に表示します。
-            </Typography>
-            <Typography component="li" variant="body2" sx={{ mb: 1.5 }}>
-              <strong>シンプルな操作：</strong>
-              余計な機能を省き、「検索→選ぶ→行く」のシンプルな流れを実現しています。
+            <Typography variant="subtitle1" sx={{ color: BRAND_COLOR, fontWeight: 800 }}>
+              - 駅近・爆盛り・高コスパ特化型検索ガイド -
             </Typography>
           </Box>
-        </Section>
 
-        <Section title="利用している外部サービス">
-          <Typography variant="body2" paragraph>
-            当アプリでは、より良いサービスを提供するために以下の外部サービスを利用しています。
-          </Typography>
-          <Box component="ul" sx={{ pl: 3, mb: 2 }}>
-            <Typography component="li" variant="body2" sx={{ mb: 1 }}>
-              <strong>Google Maps Platform：</strong>
-              店舗情報、地図表示、口コミ情報の取得
+          <Divider sx={{ borderBottomWidth: 3, borderColor: DARK_COLOR }} />
+
+          {/* ミッションステートメント */}
+          <Box>
+            <Typography variant="h5" sx={{ fontWeight: 900, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+              <StarsIcon sx={{ color: BRAND_COLOR }} />
+              私たちのミッション
             </Typography>
-            <Typography component="li" variant="body2" sx={{ mb: 1 }}>
-              <strong>HeartRails Express API：</strong>
-              駅・路線情報の取得
+            <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.8, mb: 2, color: DARK_COLOR }}>
+              「空腹は、最大のスパイスではない。最大の『敵』だ。」
             </Typography>
-            <Typography component="li" variant="body2" sx={{ mb: 1 }}>
-              <strong>Google Analytics：</strong>
-              サービス改善のためのアクセス解析
-            </Typography>
-            <Typography component="li" variant="body2" sx={{ mb: 1 }}>
-              <strong>Google AdSense：</strong>
-              広告配信
+            <Typography variant="body1" sx={{ color: "#444", lineHeight: 2 }}>
+              現代の駅周辺は飲食店で溢れています。しかし、本当に腹が減っている時に「期待外れのボリューム」でガッカリした経験はありませんか？
+              ガツガツグルメは、日々を全力で戦う人々の「腹を満たしたい」という本能に直接応えるため、駅徒歩数分以内の【がっつり飯】だけを厳選して届ける、日本初（自社調べ）の特化型サーチエンジンです。
             </Typography>
           </Box>
-        </Section>
 
-        <Section title="免責事項">
-          <Typography variant="body2" paragraph>
-            当アプリに掲載されている店舗情報は、Google Maps
-            Platformより取得したものです。営業時間、定休日、メニュー内容、価格等は予告なく変更される場合がありますので、ご来店前に各店舗へ直接ご確認ください。
-          </Typography>
-          <Typography variant="body2" paragraph>
-            当アプリの利用により生じたいかなる損害についても、運営者は一切の責任を負いかねます。詳細は
-            <Link
-              href="/terms"
-              style={{ color: "#1976d2", textDecoration: "underline" }}
-            >
-              利用規約
-            </Link>
-            をご確認ください。
-          </Typography>
-        </Section>
+          {/* 独自基準（Googleへのアピール） */}
+          <Box sx={{ bgcolor: "#F8F8F8", p: { xs: 3, md: 5 }, borderRadius: 6, border: `2px solid ${DARK_COLOR}` }}>
+            <Typography variant="h6" sx={{ fontWeight: 900, mb: 3, display: "flex", alignItems: "center", gap: 1.5 }}>
+              <CheckCircleOutlineIcon sx={{ color: BRAND_COLOR }} />
+              厳格な掲載基準（キュレーションポリシー）
+            </Typography>
+            <Stack spacing={3}>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Typography sx={{ fontWeight: 900, color: BRAND_COLOR, fontSize: "1.2rem" }}>01</Typography>
+                <Box>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>圧倒的な満腹感（ボリューム）の保証</Typography>
+                  <Typography variant="body2" sx={{ color: "#666", mt: 0.5 }}>
+                    大盛り、デカ盛り、おかわり自由。提供される食事の「密度」と「量」に妥協がない店舗のみを抽出しています。
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Typography sx={{ fontWeight: 900, color: BRAND_COLOR, fontSize: "1.2rem" }}>02</Typography>
+                <Box>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>「最速」でアクセス可能な立地条件</Typography>
+                  <Typography variant="body2" sx={{ color: "#666", mt: 0.5 }}>
+                    忙しい移動の合間でも立ち寄れるよう、駅改札から徒歩圏内（概ね500m以内）に特化し、移動時間を最小化します。
+                  </Typography>
+                </Box>
+              </Box>
+              <Box sx={{ display: "flex", gap: 2 }}>
+                <Typography sx={{ fontWeight: 900, color: BRAND_COLOR, fontSize: "1.2rem" }}>03</Typography>
+                <Box>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>独自の解析アルゴリズムによる選別</Typography>
+                  <Typography variant="body2" sx={{ color: "#666", mt: 0.5 }}>
+                    APIの生データをそのまま表示するのではなく、独自の「ガツガツタグ検出システム」により、口コミや詳細データから「本当に量が多い店」を自動・手動を組み合わせて判別しています。
+                  </Typography>
+                </Box>
+              </Box>
+            </Stack>
+          </Box>
 
-        <Divider sx={{ my: 4 }} />
-
-        <Box>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            ご意見・ご要望がございましたら、
-            <Link
-              href="/contact"
-              style={{ color: "#1976d2", textDecoration: "underline" }}
-            >
-              お問い合わせフォーム
-            </Link>
-            よりお気軽にご連絡ください。皆さまからのフィードバックをもとに、より使いやすいサービスを目指してまいります。
-          </Typography>
-          <Typography variant="caption" display="block" color="text.disabled">
-            最終更新日：2025年12月24日
-          </Typography>
-        </Box>
+          {/* 信頼性への取り組み */}
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: 900, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+              <InfoIcon sx={{ color: BRAND_COLOR }} />
+              運営の透明性と正確性について
+            </Typography>
+            <Typography variant="body1" sx={{ color: "#444", lineHeight: 2 }}>
+              ガツガツグルメでは、Google Maps API等の最新データを利用しつつ、情報の鮮度を保つために定期的なメンテナンスを行っています。
+              また、ユーザーの皆様からの「ここもがっつりだった！」「情報が古い」といったリアルなフィードバックを元に、データベースを日々ブラッシュアップしています。
+            </Typography>
+            <Typography variant="body2" sx={{ mt: 3, p: 2, borderLeft: `4px solid ${BRAND_COLOR}`, bgcolor: "#FFF9F5", color: "#666" }}>
+              ※掲載情報はAPIから取得したものを独自に加工・編集しています。最新の営業時間やメニューについては、必ずリンク先のGoogleマップ等で最終確認を行ってください。
+            </Typography>
+          </Box>
+        </Stack>
       </Paper>
     </Container>
-  );
-}
-
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Box sx={{ mb: 4 }}>
-      <Typography
-        variant="h6"
-        component="h2"
-        sx={{
-          fontSize: "1.1rem",
-          fontWeight: "bold",
-          borderLeft: "4px solid #1976d2",
-          pl: 1.5,
-          mb: 2,
-          lineHeight: 1.4,
-        }}
-      >
-        {title}
-      </Typography>
-      {children}
-    </Box>
-  );
-}
-
-function InfoRow({
-  label,
-  value,
-  isLink = false,
-  isEmail = false,
-}: {
-  label: string;
-  value: string;
-  isLink?: boolean;
-  isEmail?: boolean;
-}) {
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        borderBottom: "1px solid",
-        borderColor: "grey.200",
-        py: 1.5,
-      }}
-    >
-      <Typography
-        variant="body2"
-        sx={{
-          minWidth: 140,
-          fontWeight: "bold",
-          color: "text.secondary",
-        }}
-      >
-        {label}
-      </Typography>
-      <Typography variant="body2">
-        {isLink ? (
-          <a
-            href={value}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#1976d2", textDecoration: "underline" }}
-          >
-            {value}
-          </a>
-        ) : isEmail ? (
-          <a
-            href={`mailto:${value}`}
-            style={{ color: "#1976d2", textDecoration: "underline" }}
-          >
-            {value}
-          </a>
-        ) : (
-          value
-        )}
-      </Typography>
-    </Box>
   );
 }
