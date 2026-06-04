@@ -97,15 +97,7 @@ export const calculateGatsuIndex = (restaurant: any): number => {
     score += 20;
   }
 
-  // 2. 満足度の重み付け（rating, reviewCountが空の場合も考慮）
-  const rating = restaurant.rating || 0;
-  const reviewCount = restaurant.reviewCount || 0;
-
-  // レビュー数が多いほど信頼性が高いので加点
-  const popularityBonus = rating * (Math.min(reviewCount, 100) / 10);
-  score += popularityBonus;
-
-  // 3. 徒歩ボーナス（walkMinutesがない場合は加点なし）
+  // 2. 徒歩ボーナス（walkMinutesがない場合は加点なし）
   const walkMinutes = restaurant.walkMinutes || 99;
   if (walkMinutes <= 2) score += 20;
   else if (walkMinutes <= 5) score += 10;

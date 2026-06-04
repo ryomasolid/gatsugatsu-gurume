@@ -7,8 +7,6 @@ export const RestaurantSchema = z.object({
   name: z.string(),
   genre: z.string(),
   address: z.string(),
-  rating: z.number().catch(0), // 数値以外が来たら0にする
-  reviewCount: z.number().catch(0), // 数値以外が来たら0にする
   location: z.object({
     latitude: z.number(),
     longitude: z.number(),
@@ -20,8 +18,6 @@ export const GooglePlaceSchema = z.object({
   id: z.string(),
   displayName: z.object({ text: z.string() }),
   formattedAddress: z.string(),
-  rating: z.number().optional(),
-  userRatingCount: z.number().optional(),
   types: z.array(z.string()),
   primaryType: z.string().optional(),
   location: z.object({
