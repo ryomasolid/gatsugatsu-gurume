@@ -22,14 +22,18 @@ export const fetchPlaces = async (
 
   console.log("Fetching places with:", { query, lat, lng });
 
+  const offset = 0.009;
+
   const requestBody = {
     textQuery: query,
     languageCode: "ja",
     maxResultCount: 10,
     locationRestriction: {
-      center: { latitude: lat, longitude: lng },
-      radius: 1000.0,
-    },
+      rectangle: {
+        low: { latitude: lat - offset, longitude: lng - offset },
+        high: { latitude: lat + offset, longitude: lng + offset }
+      }
+    }
   };
 
   try {
