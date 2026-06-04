@@ -1,8 +1,13 @@
-"use client";
-
 import { Box, Container, Divider, Paper, Typography, Stack } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "お問い合わせ",
+  description:
+    "ガツガツグルメへのお問い合わせページです。掲載情報の修正依頼、新規店舗の推薦、その他ご意見などお気軽にお送りください。",
+};
 
 export default function Contact() {
   const BRAND_COLOR = "#FF6B00";

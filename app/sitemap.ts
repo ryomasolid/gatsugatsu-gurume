@@ -34,13 +34,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
+    // トップページ
     {
       url: baseUrl,
       lastModified: now,
       changeFrequency: "daily",
       priority: 1,
     },
+    // 駅ページ
     ...stationEntries,
+    // 固定ページ
     {
       url: `${baseUrl}/about`,
       lastModified: now,
@@ -48,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/terms`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.5,
@@ -57,7 +60,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/privacy`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.3,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
   ];
 }

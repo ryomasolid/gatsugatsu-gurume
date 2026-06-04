@@ -1,10 +1,15 @@
-"use client";
-
 import { Box, Container, Typography, Stack, Paper, Divider } from "@mui/material";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import StarsIcon from "@mui/icons-material/Stars";
 import InfoIcon from "@mui/icons-material/Info";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ガツガツグルメとは",
+  description:
+    "ガツガツグルメは、駅近・爆盛り・高コスパに特化したグルメ検索サービスです。独自の掲載基準とキュレーションで本当に満腹になれるお店を厳選。",
+};
 
 export default function AboutPage() {
   const BRAND_COLOR = "#FF6B00";

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(npm run build:*)",
+      "Bash(del \"F:\\\\Documents\\\\HP\\\\gatsugatsu-gurume\\\\app\\\\contact\\\\ContactForm.tsx\")"
+    ]
+  }
+}

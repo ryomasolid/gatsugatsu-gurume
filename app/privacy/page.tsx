@@ -1,7 +1,12 @@
-"use client";
-
 import { Box, Container, Divider, Paper, Typography, Stack } from "@mui/material";
 import GavelIcon from "@mui/icons-material/Gavel";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description:
+    "ガツガツグルメのプライバシーポリシーです。広告配信、アクセス解析、個人情報の取り扱いについてご説明します。",
+};
 
 export default function PrivacyPolicy() {
   const BRAND_COLOR = "#FF6B00";
