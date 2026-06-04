@@ -64,6 +64,8 @@ export default function LayoutClientWrapper({
         component="main"
         sx={{
           flexGrow: 1,
+          minWidth: 0,       // フレックスアイテムのオーバーフロー防止
+          overflowX: "hidden",
           p: { xs: 2, md: 4 },
           width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
           mt: { xs: 8, md: 0 }, // スマホヘッダー分のマージン

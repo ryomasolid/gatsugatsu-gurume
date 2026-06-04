@@ -66,6 +66,22 @@ export default function ThemeRegistry({
             },
           },
         },
+
+        // iOS Safari: font-size < 16px のフォームにフォーカスすると自動ズームする問題を防ぐ
+        MuiInputBase: {
+          styleOverrides: {
+            input: {
+              fontSize: "1rem",
+            },
+          },
+        },
+        MuiSelect: {
+          styleOverrides: {
+            select: {
+              fontSize: "1rem",
+            },
+          },
+        },
       },
     });
 
