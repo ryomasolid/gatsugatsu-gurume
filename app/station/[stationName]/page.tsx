@@ -85,16 +85,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     topGenres.length > 0 ? topGenres.join("・") : "ラーメン・定食・カレー";
   const countText = count > 0 ? `${count}店舗` : "多数";
 
-  const title = `【2026最新】${decodedName}駅のがっつりグルメ${countLabel} | がつがつグルメ`;
-  const description = `${decodedName}駅周辺のデカ盛り・がっつり飯を${countText}紹介！${genreLabel}など、ボリューム満点で高コスパな名店をまとめました。腹ペコ必見の情報が満載です。`;
+  // 「デカ盛り」を最前面に置き、ランチ・コスパ系クエリもカバー
+  const title = `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel} | がつがつグルメ`;
+  const description = `${decodedName}周辺のデカ盛り・大盛りランチを${countText}厳選！${genreLabel}など、コスパ最強のがっつり飯をまとめました。${decodedName}駅でお腹いっぱい食べるなら必見です。`;
 
   return {
     title,
     description,
-    keywords: [decodedName, "がっつり", "デカ盛り", "ランチ", "グルメ", ...topGenres],
+    keywords: [
+      decodedName,
+      "デカ盛り",
+      "大盛り",
+      "がっつり",
+      "ランチ",
+      "コスパ",
+      "安い",
+      "グルメ",
+      ...topGenres,
+    ],
     alternates: { canonical: canonicalPath },
     openGraph: {
-      title: `【2026最新】${decodedName}駅のがっつりグルメ${countLabel}`,
+      title: `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel}`,
       description,
       url: `${SITE_URL}${canonicalPath}`,
       type: "website",
@@ -103,7 +114,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `【2026最新】${decodedName}駅のがっつりグルメ${countLabel}`,
+      title: `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel}`,
       description,
     },
   };
