@@ -1,6 +1,7 @@
 "use client";
 
 import { calculateGatsuIndex, detectGatsuTags } from "@/utils/tagDetector";
+import { sendGAEvent } from "@next/third-parties/google";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Box,
@@ -57,6 +58,12 @@ export default function RestaurantCard(props: Props) {
   }, [props.id, props.name, props.stationName]);
 
   const handleMapOpen = () => {
+    sendGAEvent("event", "map_click", {
+      restaurant_name: props.name,
+      station_name: props.stationName,
+      genre: props.genre,
+      gatsu_score: gatsuScore,
+    });
     const query = encodeURIComponent(`${props.name} ${props.address}`);
     window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
   };
