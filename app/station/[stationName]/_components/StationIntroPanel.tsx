@@ -24,7 +24,7 @@ export default function StationIntroPanel({ stationName, lines }: Props) {
         gutterBottom
         sx={{ fontSize: { xs: "1.5rem", md: "2rem" } }}
       >
-        {stationName}駅周辺のがっつり飯・デカ盛り店
+        {stationName}周辺のデカ盛り・がっつりランチ厳選
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 700, lineHeight: 1.8 }}>
         {stationName}駅周辺で、お腹いっぱい食べられる名店をピックアップしました。
