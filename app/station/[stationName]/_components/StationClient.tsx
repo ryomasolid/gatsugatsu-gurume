@@ -3,6 +3,7 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import StationHeader from "@/components/StationHeader";
 import { Box, Container } from "@mui/material";
+import { sendGAEvent } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
 import StationIntroPanel from "./StationIntroPanel";
 import RestaurantList from "./RestaurantList";
@@ -18,6 +19,10 @@ export default function StationClient({ stationName, initialRestaurants, initial
   const [restaurants] = useState<RestaurantInfoDTO[]>(initialRestaurants);
   const [lines, setLines] = useState<string[]>([]);
   const [loading] = useState(false);
+
+  useEffect(() => {
+    sendGAEvent("event", "station_view", { station_name: stationName });
+  }, [stationName]);
 
   useEffect(() => {
     const fetchLines = async () => {
