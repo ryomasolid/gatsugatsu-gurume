@@ -55,5 +55,3 @@ export const STATION_GROUPS: StationGroup[] = [
     ],
   },
 ];
-
-export const STATION_LIST = STATION_GROUPS.flatMap((g) => g.stations);

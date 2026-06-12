@@ -5,7 +5,13 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
 import Link from "next/link";
 
-export const Breadcrumbs = ({ stationName }: { stationName: string }) => {
+export const Breadcrumbs = ({
+  stationName,
+  prefecture,
+}: {
+  stationName: string;
+  prefecture?: string;
+}) => {
   return (
     <Box sx={{ py: 2, px: { xs: 2, md: 0 } }}>
       <MUIBreadcrumbs
@@ -32,6 +38,20 @@ export const Breadcrumbs = ({ stationName }: { stationName: string }) => {
           <HomeIcon sx={{ mr: 0.5, fontSize: "1.2rem" }} />
           ホーム
         </MUILink>
+
+        {prefecture && (
+          <MUILink
+            component={Link}
+            href={`/area/${encodeURIComponent(prefecture)}`}
+            sx={{
+              color: "#666",
+              textDecoration: "none",
+              "&:hover": { color: "#FF6B00" },
+            }}
+          >
+            {prefecture}
+          </MUILink>
+        )}
 
         <Typography sx={{ color: "#1A1A1A", fontWeight: 900 }}>
           {stationName}駅周辺のがっつり飯

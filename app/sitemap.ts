@@ -1,78 +1,47 @@
-import { STATION_LIST } from "@/constants/stations";
+import {
+  getAllLineNames,
+  getAllPrefectures,
+  getAllStationNames,
+} from "@/utils/stationData";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://gatsugatsu-gurume.com";
-  const now = new Date();
 
-  const stationEntries: MetadataRoute.Sitemap = STATION_LIST.map((name) => ({
-    url: `${baseUrl}/station/${encodeURIComponent(name)}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.8,
+  const stationEntries: MetadataRoute.Sitemap = getAllStationNames().map(
+    (name) => ({
+      url: `${baseUrl}/station/${encodeURIComponent(name)}`,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    })
+  );
+
+  const lineEntries: MetadataRoute.Sitemap = getAllLineNames().map((name) => ({
+    url: `${baseUrl}/line/${encodeURIComponent(name)}`,
+    changeFrequency: "monthly",
+    priority: 0.6,
   }));
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    ...stationEntries,
-    {
-      url: `${baseUrl}/waittime`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/tabehoudai`,
-      lastModified: now,
+  const areaEntries: MetadataRoute.Sitemap = getAllPrefectures().map(
+    (pref) => ({
+      url: `${baseUrl}/area/${encodeURIComponent(pref)}`,
       changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/gacha`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/calorie`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/warikan`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
+      priority: 0.6,
+    })
+  );
+
+  const staticEntries: MetadataRoute.Sitemap = [
+    { url: baseUrl, changeFrequency: "daily", priority: 1 },
+    { url: `${baseUrl}/waittime`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/tabehoudai`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/gacha`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/calorie`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/warikan`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/about`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/terms`, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/privacy`, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/contact`, changeFrequency: "yearly", priority: 0.5 },
   ];
+
+  return [...staticEntries, ...areaEntries, ...lineEntries, ...stationEntries];
 }

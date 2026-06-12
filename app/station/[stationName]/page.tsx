@@ -1,11 +1,14 @@
 import { getStationGuide } from "@/constants/stationGuides";
 import { calculateDistance, calculateWalkMinutes } from "@/utils/geo";
 import { getBaseUrl } from "@/utils/getBaseUrl";
+import { getNeighborStations, getRepresentativeStation } from "@/utils/stationData";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import StationClient from "./_components/StationClient";
 import { RestaurantInfoDTO } from "./types";
 
-export const revalidate = 86400;
+// 店舗データの鮮度とPlaces APIコストのバランスから7日キャッシュとする
+export const revalidate = 604800;
 
 const SITE_URL = "https://gatsugatsu-gurume.com";
 
@@ -22,37 +25,21 @@ type RawRestaurantResult = Omit<RestaurantInfoDTO, "description" | "station" | "
 type StationInfo = {
   coords: { lat: string; lng: string };
   lines: string[];
+  prefecture: string;
 };
 
-async function getStationInfo(name: string): Promise<StationInfo | null> {
-  try {
-    const res = await fetch(
-      `https://express.heartrails.com/api/json?method=getStations&name=${encodeURIComponent(name)}`,
-      { next: { revalidate: 86400 } }
-    );
-    const data = (await res.json()) as {
-      response?: { station?: { x: string; y: string; line: string }[] };
-    };
-    const stations = data.response?.station;
-    if (!stations || stations.length === 0) return null;
-
-    const first = stations[0];
-    const lat = parseFloat(first.y);
-    const lng = parseFloat(first.x);
-
-    // 同名駅が他県にある場合に備え、最初の駅から約1km以内の駅のみ路線集計の対象とする
-    const nearby = stations.filter(
-      (st) =>
-        Math.abs(parseFloat(st.y) - lat) < 0.01 &&
-        Math.abs(parseFloat(st.x) - lng) < 0.01
-    );
-    const lines = Array.from(new Set(nearby.map((st) => st.line)));
-
-    return { coords: { lat: String(first.y), lng: String(first.x) }, lines };
-  } catch (e) {
-    console.error("駅情報の取得失敗:", e);
-    return null;
-  }
+/**
+ * ローカルの全国駅データから駅情報を解決する。
+ * 同名駅が複数ある場合は乗り入れ路線数が最も多い駅を代表とする。
+ */
+function getStationInfo(name: string): StationInfo | null {
+  const rep = getRepresentativeStation(name);
+  if (!rep) return null;
+  return {
+    coords: { lat: String(rep.entry.y), lng: String(rep.entry.x) },
+    lines: rep.lines,
+    prefecture: rep.entry.pref,
+  };
 }
 
 async function getStationRestaurants(
@@ -60,38 +47,40 @@ async function getStationRestaurants(
   coords: { lat: string; lng: string }
 ): Promise<RestaurantInfoDTO[]> {
   const baseUrl = getBaseUrl();
-  try {
-    const apiUrl = `${baseUrl}/api/restaurants?station=${encodeURIComponent(decodedName)}&lat=${coords.lat}&lng=${coords.lng}`;
-    const res = await fetch(apiUrl, { next: { revalidate: 86400 } });
-    if (!res.ok) return [];
-    const data = (await res.json()) as { results?: RawRestaurantResult[] };
-    const stationLat = parseFloat(coords.lat);
-    const stationLng = parseFloat(coords.lng);
+  const apiUrl = `${baseUrl}/api/restaurants?station=${encodeURIComponent(decodedName)}&lat=${coords.lat}&lng=${coords.lng}`;
+  const res = await fetch(apiUrl, { next: { revalidate: 604800 } });
 
-    return (data.results ?? [])
-      .map((r) => {
-        const walkMinutes = r.location
-          ? calculateWalkMinutes(
-              calculateDistance(
-                stationLat,
-                stationLng,
-                r.location.latitude,
-                r.location.longitude
-              )
-            )
-          : 0;
-        return {
-          ...r,
-          description: r.description ?? "",
-          station: r.station ?? decodedName,
-          walkMinutes,
-        };
-      })
-      .sort((a, b) => a.walkMinutes - b.walkMinutes);
-  } catch (e) {
-    console.error("レストランデータの取得失敗:", e);
-    return [];
+  // 取得失敗（API障害など）は「店舗0件」と区別して5xxにする。
+  // 200+noindexを返すと、一時障害のタイミングでクロールされたページが
+  // 検索インデックスから除外されてしまうため。
+  if (!res.ok) {
+    throw new Error(`レストランデータの取得に失敗しました (HTTP ${res.status})`);
   }
+
+  const data = (await res.json()) as { results?: RawRestaurantResult[] };
+  const stationLat = parseFloat(coords.lat);
+  const stationLng = parseFloat(coords.lng);
+
+  return (data.results ?? [])
+    .map((r) => {
+      const walkMinutes = r.location
+        ? calculateWalkMinutes(
+            calculateDistance(
+              stationLat,
+              stationLng,
+              r.location.latitude,
+              r.location.longitude
+            )
+          )
+        : 0;
+      return {
+        ...r,
+        description: r.description ?? "",
+        station: r.station ?? decodedName,
+        walkMinutes,
+      };
+    })
+    .sort((a, b) => a.walkMinutes - b.walkMinutes);
 }
 
 function getTopGenres(restaurants: RestaurantInfoDTO[], limit = 3): string[] {
@@ -110,8 +99,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const decodedName = decodeURIComponent(stationName);
   const canonicalPath = `/station/${encodeURIComponent(decodedName)}`;
 
-  const info = await getStationInfo(decodedName);
-  const restaurants = info ? await getStationRestaurants(decodedName, info.coords) : [];
+  const info = getStationInfo(decodedName);
+  if (!info) {
+    return { robots: { index: false, follow: false } };
+  }
+
+  const restaurants = await getStationRestaurants(decodedName, info.coords);
   const count = restaurants.length;
   const topGenres = getTopGenres(restaurants);
 
@@ -139,7 +132,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...topGenres,
     ],
     alternates: { canonical: canonicalPath },
-    // 店舗データが取得できない駅は内容が薄いため、インデックス対象から除外する
+    // 店舗データが0件の駅は内容が薄いため、インデックス対象から除外する
     ...(count === 0 && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel}`,
@@ -161,10 +154,11 @@ export default async function Page({ params }: Props) {
   const { stationName } = await params;
   const decodedName = decodeURIComponent(stationName);
 
-  const info = await getStationInfo(decodedName);
-  const initialRestaurants = info
-    ? await getStationRestaurants(decodedName, info.coords)
-    : [];
+  const info = getStationInfo(decodedName);
+  if (!info) notFound();
+
+  const initialRestaurants = await getStationRestaurants(decodedName, info.coords);
+  const neighborLines = getNeighborStations(decodedName);
 
   const pageUrl = `${SITE_URL}/station/${encodeURIComponent(decodedName)}`;
   const guide = getStationGuide(decodedName);
@@ -177,6 +171,12 @@ export default async function Page({ params }: Props) {
       {
         "@type": "ListItem",
         position: 2,
+        name: `${info.prefecture}の路線一覧`,
+        item: `${SITE_URL}/area/${encodeURIComponent(info.prefecture)}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: `${decodedName}駅のがっつりグルメ`,
         item: pageUrl,
       },
@@ -226,9 +226,11 @@ export default async function Page({ params }: Props) {
       <StationClient
         stationName={decodedName}
         initialRestaurants={initialRestaurants}
-        initialCoords={info?.coords ?? null}
-        lines={info?.lines ?? []}
+        initialCoords={info.coords}
+        lines={info.lines}
         guide={guide}
+        prefecture={info.prefecture}
+        neighborLines={neighborLines}
       />
     </>
   );
