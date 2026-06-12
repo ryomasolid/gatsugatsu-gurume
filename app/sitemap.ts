@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticEntries: MetadataRoute.Sitemap = [
     { url: baseUrl, changeFrequency: "daily", priority: 1 },
+    { url: `${baseUrl}/shindan`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/trend2026`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/waittime`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/tabehoudai`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/gacha`, changeFrequency: "monthly", priority: 0.8 },
