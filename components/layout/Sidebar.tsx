@@ -24,6 +24,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  ListSubheader,
   MenuItem,
   Paper,
   Select,
@@ -56,6 +57,59 @@ type SidebarProps = {
 
 const BRAND_COLOR = "#FF6B00";
 const DARK_COLOR = "#1A1A1A";
+
+// --- ドロップダウン見やすさ改善用の共通定義 ---
+
+const REGION_ORDER = ["北海道", "東北", "関東", "中部", "近畿", "中国", "四国", "九州", "沖縄"];
+
+const selectMenuProps = {
+  PaperProps: {
+    sx: {
+      maxHeight: 420,
+      borderRadius: 3,
+      border: "1px solid #EEE",
+      boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+    },
+  },
+};
+
+const menuItemSx = {
+  fontWeight: 700,
+  fontSize: "0.9rem",
+  borderRadius: 2,
+  mx: 0.5,
+  my: 0.25,
+  "&:hover": { bgcolor: "#FFF9F5" },
+  "&.Mui-selected": {
+    bgcolor: "#FFF5ED",
+    color: BRAND_COLOR,
+    fontWeight: 900,
+    "&:hover": { bgcolor: "#FFF5ED" },
+  },
+};
+
+const subheaderSx = {
+  fontWeight: 900,
+  fontSize: "0.7rem",
+  letterSpacing: "0.1em",
+  color: BRAND_COLOR,
+  bgcolor: "#fff",
+  lineHeight: "32px",
+  borderBottom: "1px solid #F5F5F5",
+};
+
+/** 路線名をグループ分けする（JR / 地下鉄 / 東急 / 京急 / 私鉄・その他） */
+const getLineGroup = (line: string): string => {
+  if (line.startsWith("JR")) return "JR";
+  if (line.includes("地下鉄") || line.startsWith("東京メトロ") || line.startsWith("都営")) {
+    return "地下鉄";
+  }
+  if (line.startsWith("東急")) return "東急";
+  if (line.startsWith("京急") || line.includes("京浜急行")) return "京急";
+  return "私鉄・その他";
+};
+
+const LINE_GROUP_ORDER = ["JR", "地下鉄", "東急", "京急", "私鉄・その他"];
 
 export default function Sidebar({ onClose }: SidebarProps) {
   const router = useRouter();
@@ -242,12 +296,24 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 onChange={(e) => handleChangePrefectures(e.target.value)}
                 displayEmpty
                 size="small"
+                MenuProps={selectMenuProps}
                 sx={{ bgcolor: "white", borderRadius: "8px", fontWeight: 700 }}
               >
                 <MenuItem value="" disabled>都道府県を選択</MenuItem>
-                {TODOFUKEN.map((v) => (
-                  <MenuItem key={v.id} value={String(v.id)}>{v.name}</MenuItem>
-                ))}
+                {REGION_ORDER.flatMap((region) => {
+                  const prefs = TODOFUKEN.filter((v) => v.region === region);
+                  if (prefs.length === 0) return [];
+                  return [
+                    <ListSubheader key={`region-${region}`} sx={subheaderSx}>
+                      {region}
+                    </ListSubheader>,
+                    ...prefs.map((v) => (
+                      <MenuItem key={v.id} value={String(v.id)} sx={menuItemSx}>
+                        {v.name}
+                      </MenuItem>
+                    )),
+                  ];
+                })}
               </Select>
             </FormControl>
 
@@ -257,12 +323,24 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 onChange={(e) => handleChangeLine(e.target.value)}
                 displayEmpty
                 size="small"
+                MenuProps={selectMenuProps}
                 sx={{ bgcolor: "white", borderRadius: "8px", fontWeight: 700 }}
               >
                 <MenuItem value="" disabled>{loadingLines ? "読み込み中..." : "路線を選択"}</MenuItem>
-                {rosenList.map((v) => (
-                  <MenuItem key={v.id} value={v.id}>{v.line}</MenuItem>
-                ))}
+                {LINE_GROUP_ORDER.flatMap((group) => {
+                  const lines = rosenList.filter((v) => getLineGroup(v.line) === group);
+                  if (lines.length === 0) return [];
+                  return [
+                    <ListSubheader key={`group-${group}`} sx={subheaderSx}>
+                      {group}（{lines.length}路線）
+                    </ListSubheader>,
+                    ...lines.map((v) => (
+                      <MenuItem key={v.id} value={v.id} sx={menuItemSx}>
+                        {v.line}
+                      </MenuItem>
+                    )),
+                  ];
+                })}
               </Select>
             </FormControl>
           </Paper>
