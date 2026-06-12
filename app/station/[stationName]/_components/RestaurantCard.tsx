@@ -2,6 +2,7 @@
 
 import { calculateGatsuIndex, detectGatsuTags } from "@/utils/tagDetector";
 import { sendGAEvent } from "@next/third-parties/google";
+import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Box,
@@ -124,12 +125,21 @@ export default function RestaurantCard(props: Props) {
           </Stack>
         )}
 
-        <Box sx={{ display: "flex", alignItems: "flex-start", gap: 0.5, mb: 3 }}>
+        <Box sx={{ display: "flex", alignItems: "flex-start", gap: 0.5, mb: 1 }}>
           <LocationOnIcon sx={{ fontSize: "1rem", color: BRAND_COLOR, mt: 0.2, flexShrink: 0 }} />
           <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.8rem", lineHeight: 1.6 }}>
             {props.address}
           </Typography>
         </Box>
+
+        {props.walkMinutes > 0 && (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 0.5, mb: 3 }}>
+            <DirectionsWalkIcon sx={{ fontSize: "1rem", color: BRAND_COLOR, flexShrink: 0 }} />
+            <Typography variant="body2" sx={{ fontSize: "0.8rem", fontWeight: 800, color: "#444" }}>
+              {props.stationName}駅から徒歩約{props.walkMinutes}分
+            </Typography>
+          </Box>
+        )}
 
         <Button
           fullWidth

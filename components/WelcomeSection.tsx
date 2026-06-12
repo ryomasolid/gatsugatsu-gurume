@@ -89,8 +89,8 @@ export const WelcomeSection = () => {
               variant="body1"
               sx={{ fontWeight: 700, color: "#666", lineHeight: 1.8, maxWidth: "700px" }}
             >
-              ガツガツグルメは、全国の主要駅から【徒歩5分圏内】のデカ盛り・高コスパ店を独自の解析ロジックで抽出。
-              最新の口コミデータに基づき、今すぐ腹を満たしたいあなたに最適な「戦場」を提案します。
+              ガツガツグルメは、全国の主要駅周辺【概ね1km圏内】のデカ盛り・高コスパ店を独自のジャンル判定ロジックで抽出。
+              駅からの徒歩分数を座標から自動計算し、今すぐ腹を満たしたいあなたに最適な「戦場」を提案します。
             </Typography>
           </Box>
 
@@ -171,20 +171,20 @@ export const WelcomeSection = () => {
                   ガツガツの流儀
                 </Typography>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <PolicyItem 
-                    icon={<BoltIcon />} 
-                    title="圧倒的「満腹」" 
-                    desc="独自のタグ解析により、ボリューム自慢の店のみを掲載。" 
+                  <PolicyItem
+                    icon={<BoltIcon />}
+                    title="圧倒的「満腹」"
+                    desc="独自のジャンル判定により、ボリューム系の店に絞って掲載。"
                   />
-                  <PolicyItem 
-                    icon={<PlaceIcon />} 
-                    title="駅から「爆速」" 
-                    desc="腹ペコでの移動は不要。全店舗駅から徒歩5分圏内を推奨。" 
+                  <PolicyItem
+                    icon={<PlaceIcon />}
+                    title="駅から「爆速」"
+                    desc="駅からの徒歩分数を全店舗で自動計算。近い順にすぐわかる。"
                   />
-                  <PolicyItem 
-                    icon={<RecordVoiceOverIcon />} 
-                    title="ガチの「生声」" 
-                    desc="広告ではない、リアルな満足度に基づいた店舗選別。" 
+                  <PolicyItem
+                    icon={<RecordVoiceOverIcon />}
+                    title="毎日「更新」"
+                    desc="掲載データは約24時間ごとに自動更新。鮮度を維持。"
                   />
                 </Box>
               </Box>

@@ -52,7 +52,7 @@ export default function AboutPage() {
             </Typography>
             <Typography variant="body1" sx={{ color: "#444", lineHeight: 2 }}>
               現代の駅周辺は飲食店で溢れています。しかし、本当に腹が減っている時に「期待外れのボリューム」でガッカリした経験はありませんか？
-              ガツガツグルメは、日々を全力で戦う人々の「腹を満たしたい」という本能に直接応えるため、駅徒歩数分以内の【がっつり飯】だけを厳選して届ける、日本初（自社調べ）の特化型サーチエンジンです。
+              ガツガツグルメは、日々を全力で戦う人々の「腹を満たしたい」という本能に直接応えるため、駅から徒歩圏内の【がっつり飯】だけに絞って届ける特化型検索ガイドです。
             </Typography>
           </Box>
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 <Box>
                   <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>「最速」でアクセス可能な立地条件</Typography>
                   <Typography variant="body2" sx={{ color: "#666", mt: 0.5 }}>
-                    忙しい移動の合間でも立ち寄れるよう、駅改札から徒歩圏内（概ね500m以内）に特化し、移動時間を最小化します。
+                    忙しい移動の合間でも立ち寄れるよう、駅周辺（概ね1km圏内）に特化。駅座標からの距離をもとに徒歩分数を自動計算し、全店舗に表示しています。
                   </Typography>
                 </Box>
               </Box>
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 <Box>
                   <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>独自の解析アルゴリズムによる選別</Typography>
                   <Typography variant="body2" sx={{ color: "#666", mt: 0.5 }}>
-                    APIの生データをそのまま表示するのではなく、独自の「ガツガツタグ検出システム」により、口コミや詳細データから「本当に量が多い店」を自動・手動を組み合わせて判別しています。
+                    APIの生データをそのまま表示するのではなく、店名・カテゴリ・位置情報から独自ルールでジャンルを判定し、ラーメン・丼もの・定食などボリューム系のジャンルに該当する店舗のみを抽出。徒歩分数とジャンルをもとにした参考スコア（GATSU-INDEX）も独自に算出しています。
                   </Typography>
                 </Box>
               </Box>
