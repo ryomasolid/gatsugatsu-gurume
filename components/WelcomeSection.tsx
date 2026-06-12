@@ -183,8 +183,8 @@ export const WelcomeSection = () => {
                   />
                   <PolicyItem
                     icon={<RecordVoiceOverIcon />}
-                    title="毎日「更新」"
-                    desc="掲載データは約24時間ごとに自動更新。鮮度を維持。"
+                    title="定期「更新」"
+                    desc="掲載データは約1週間ごとに自動更新。鮮度を維持。"
                   />
                 </Box>
               </Box>

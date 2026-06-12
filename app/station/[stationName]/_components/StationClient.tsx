@@ -9,6 +9,7 @@ import StationIntroPanel from "./StationIntroPanel";
 import StationSummary from "./StationSummary";
 import StationFAQ from "./StationFAQ";
 import MethodologySection from "./MethodologySection";
+import NeighborStationLinks from "./NeighborStationLinks";
 import RestaurantList from "./RestaurantList";
 import { RestaurantInfoDTO } from "../types";
 
@@ -18,6 +19,8 @@ type Props = {
   initialCoords: { lat: string; lng: string } | null;
   lines: string[];
   guide?: string;
+  prefecture: string;
+  neighborLines: { line: string; neighbors: string[] }[];
 };
 
 export default function StationClient({
@@ -25,6 +28,8 @@ export default function StationClient({
   initialRestaurants,
   lines,
   guide,
+  prefecture,
+  neighborLines,
 }: Props) {
   useEffect(() => {
     sendGAEvent("event", "station_view", { station_name: stationName });
@@ -34,7 +39,7 @@ export default function StationClient({
     <Box sx={{ bgcolor: "#F8F9FA", minHeight: "100vh", pb: 8 }}>
       <StationHeader stationName={stationName} />
       <Container maxWidth="xl">
-        <Breadcrumbs stationName={stationName} />
+        <Breadcrumbs stationName={stationName} prefecture={prefecture} />
         <StationIntroPanel stationName={stationName} lines={lines} guide={guide} />
         <StationSummary stationName={stationName} restaurants={initialRestaurants} />
         <RestaurantList
@@ -46,6 +51,10 @@ export default function StationClient({
           stationName={stationName}
           restaurants={initialRestaurants}
           lines={lines}
+        />
+        <NeighborStationLinks
+          stationName={stationName}
+          neighborLines={neighborLines}
         />
         <MethodologySection />
       </Container>
