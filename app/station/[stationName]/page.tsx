@@ -1,3 +1,5 @@
+import { getStationGuide } from "@/constants/stationGuides";
+import { calculateDistance, calculateWalkMinutes } from "@/utils/geo";
 import { getBaseUrl } from "@/utils/getBaseUrl";
 import { Metadata } from "next";
 import StationClient from "./_components/StationClient";
@@ -17,22 +19,38 @@ type RawRestaurantResult = Omit<RestaurantInfoDTO, "description" | "station" | "
   walkMinutes?: number;
 };
 
-async function getStationCoords(
-  name: string
-): Promise<{ lat: string; lng: string } | null> {
+type StationInfo = {
+  coords: { lat: string; lng: string };
+  lines: string[];
+};
+
+async function getStationInfo(name: string): Promise<StationInfo | null> {
   try {
     const res = await fetch(
       `https://express.heartrails.com/api/json?method=getStations&name=${encodeURIComponent(name)}`,
       { next: { revalidate: 86400 } }
     );
     const data = (await res.json()) as {
-      response?: { station?: { x: string; y: string }[] };
+      response?: { station?: { x: string; y: string; line: string }[] };
     };
-    const station = data.response?.station?.[0];
-    if (!station) return null;
-    return { lat: String(station.y), lng: String(station.x) };
+    const stations = data.response?.station;
+    if (!stations || stations.length === 0) return null;
+
+    const first = stations[0];
+    const lat = parseFloat(first.y);
+    const lng = parseFloat(first.x);
+
+    // 同名駅が他県にある場合に備え、最初の駅から約1km以内の駅のみ路線集計の対象とする
+    const nearby = stations.filter(
+      (st) =>
+        Math.abs(parseFloat(st.y) - lat) < 0.01 &&
+        Math.abs(parseFloat(st.x) - lng) < 0.01
+    );
+    const lines = Array.from(new Set(nearby.map((st) => st.line)));
+
+    return { coords: { lat: String(first.y), lng: String(first.x) }, lines };
   } catch (e) {
-    console.error("駅座標の取得失敗:", e);
+    console.error("駅情報の取得失敗:", e);
     return null;
   }
 }
@@ -47,12 +65,29 @@ async function getStationRestaurants(
     const res = await fetch(apiUrl, { next: { revalidate: 86400 } });
     if (!res.ok) return [];
     const data = (await res.json()) as { results?: RawRestaurantResult[] };
-    return (data.results ?? []).map((r) => ({
-      ...r,
-      description: r.description ?? "",
-      station: r.station ?? decodedName,
-      walkMinutes: r.walkMinutes ?? 5,
-    }));
+    const stationLat = parseFloat(coords.lat);
+    const stationLng = parseFloat(coords.lng);
+
+    return (data.results ?? [])
+      .map((r) => {
+        const walkMinutes = r.location
+          ? calculateWalkMinutes(
+              calculateDistance(
+                stationLat,
+                stationLng,
+                r.location.latitude,
+                r.location.longitude
+              )
+            )
+          : 0;
+        return {
+          ...r,
+          description: r.description ?? "",
+          station: r.station ?? decodedName,
+          walkMinutes,
+        };
+      })
+      .sort((a, b) => a.walkMinutes - b.walkMinutes);
   } catch (e) {
     console.error("レストランデータの取得失敗:", e);
     return [];
@@ -75,8 +110,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const decodedName = decodeURIComponent(stationName);
   const canonicalPath = `/station/${encodeURIComponent(decodedName)}`;
 
-  const coords = await getStationCoords(decodedName);
-  const restaurants = coords ? await getStationRestaurants(decodedName, coords) : [];
+  const info = await getStationInfo(decodedName);
+  const restaurants = info ? await getStationRestaurants(decodedName, info.coords) : [];
   const count = restaurants.length;
   const topGenres = getTopGenres(restaurants);
 
@@ -87,7 +122,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // 「デカ盛り」を最前面に置き、ランチ・コスパ系クエリもカバー
   const title = `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel} | がつがつグルメ`;
-  const description = `${decodedName}周辺のデカ盛り・大盛りランチを${countText}厳選！${genreLabel}など、コスパ最強のがっつり飯をまとめました。${decodedName}駅でお腹いっぱい食べるなら必見です。`;
+  const description = `${decodedName}周辺のデカ盛り・大盛りランチを${countText}厳選！${genreLabel}など、駅からの徒歩分数つきでがっつり飯をまとめました。${decodedName}駅でお腹いっぱい食べるなら必見です。`;
 
   return {
     title,
@@ -104,6 +139,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...topGenres,
     ],
     alternates: { canonical: canonicalPath },
+    // 店舗データが取得できない駅は内容が薄いため、インデックス対象から除外する
+    ...(count === 0 && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel}`,
       description,
@@ -124,12 +161,13 @@ export default async function Page({ params }: Props) {
   const { stationName } = await params;
   const decodedName = decodeURIComponent(stationName);
 
-  const coords = await getStationCoords(decodedName);
-  const initialRestaurants = coords
-    ? await getStationRestaurants(decodedName, coords)
+  const info = await getStationInfo(decodedName);
+  const initialRestaurants = info
+    ? await getStationRestaurants(decodedName, info.coords)
     : [];
 
   const pageUrl = `${SITE_URL}/station/${encodeURIComponent(decodedName)}`;
+  const guide = getStationGuide(decodedName);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -188,7 +226,9 @@ export default async function Page({ params }: Props) {
       <StationClient
         stationName={decodedName}
         initialRestaurants={initialRestaurants}
-        initialCoords={coords}
+        initialCoords={info?.coords ?? null}
+        lines={info?.lines ?? []}
+        guide={guide}
       />
     </>
   );
