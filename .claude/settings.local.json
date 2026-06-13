@@ -4,7 +4,8 @@
       "Bash(dir:*)",
       "Bash(npm run build:*)",
       "Bash(del \"F:\\\\Documents\\\\HP\\\\gatsugatsu-gurume\\\\app\\\\contact\\\\ContactForm.tsx\")",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(git -C F:/Documents/HP/gatsugatsu-gurume branch -a)"
     ]
   },
   "autoApprove": true
