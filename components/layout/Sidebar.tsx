@@ -25,6 +25,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  ListSubheader,
   MenuItem,
   Paper,
   Select,
@@ -58,6 +59,35 @@ type SidebarProps = {
 const BRAND_COLOR = "#FF6B00";
 const DARK_COLOR = "#1A1A1A";
 
+// 都道府県ドロップダウンの地方グループ表示順
+const REGION_ORDER = [
+  "北海道", "東北", "関東", "中部", "近畿", "中国", "四国", "九州", "沖縄",
+];
+
+// 路線ドロップダウンの事業者グループ判定用（先頭一致）
+const PRIVATE_RAILWAY_PREFIXES = [
+  "東急", "京王", "小田急", "西武", "東武", "京成", "京急", "相鉄",
+  "名鉄", "近鉄", "南海", "京阪", "阪急", "阪神", "西鉄",
+];
+
+const LINE_GROUP_ORDER = [
+  "JR", "新幹線", "地下鉄", ...PRIVATE_RAILWAY_PREFIXES, "私鉄・その他",
+];
+
+function getLineGroup(lineName: string): string {
+  if (lineName.includes("新幹線")) return "新幹線";
+  if (lineName.startsWith("JR")) return "JR";
+  if (
+    lineName.includes("地下鉄") ||
+    lineName.includes("メトロ") ||
+    lineName.startsWith("都営")
+  ) {
+    return "地下鉄";
+  }
+  const company = PRIVATE_RAILWAY_PREFIXES.find((p) => lineName.startsWith(p));
+  return company ?? "私鉄・その他";
+}
+
 export default function Sidebar({ onClose }: SidebarProps) {
   const router = useRouter();
   const [selectedPrefId, setSelectedPrefId] = useState<string>("");
@@ -72,6 +102,30 @@ export default function Sidebar({ onClose }: SidebarProps) {
     () => stationList.filter((s) => s.check),
     [stationList]
   );
+
+  // 地方ごとにまとめた都道府県リスト
+  const groupedPrefs = useMemo(
+    () =>
+      REGION_ORDER.map((region) => ({
+        region,
+        prefs: TODOFUKEN.filter((p) => p.region === region),
+      })).filter((g) => g.prefs.length > 0),
+    []
+  );
+
+  // 事業者ごとにまとめた路線リスト
+  const groupedRosen = useMemo(() => {
+    const map = new Map<string, RosenDto[]>();
+    for (const rosen of rosenList) {
+      const group = getLineGroup(rosen.line);
+      if (!map.has(group)) map.set(group, []);
+      map.get(group)!.push(rosen);
+    }
+    return LINE_GROUP_ORDER.filter((g) => map.has(g)).map((group) => ({
+      group,
+      lines: map.get(group)!,
+    }));
+  }, [rosenList]);
 
   const handleCurrentLocationSearch = () => {
     if (!navigator.geolocation) {
@@ -246,9 +300,12 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 sx={{ bgcolor: "white", borderRadius: "8px", fontWeight: 700 }}
               >
                 <MenuItem value="" disabled>都道府県を選択</MenuItem>
-                {TODOFUKEN.map((v) => (
-                  <MenuItem key={v.id} value={String(v.id)}>{v.name}</MenuItem>
-                ))}
+                {groupedPrefs.flatMap((g) => [
+                  <ListSubheader key={`region-${g.region}`}>{g.region}</ListSubheader>,
+                  ...g.prefs.map((v) => (
+                    <MenuItem key={v.id} value={String(v.id)}>{v.name}</MenuItem>
+                  )),
+                ])}
               </Select>
             </FormControl>
 
@@ -261,9 +318,12 @@ export default function Sidebar({ onClose }: SidebarProps) {
                 sx={{ bgcolor: "white", borderRadius: "8px", fontWeight: 700 }}
               >
                 <MenuItem value="" disabled>{loadingLines ? "読み込み中..." : "路線を選択"}</MenuItem>
-                {rosenList.map((v) => (
-                  <MenuItem key={v.id} value={v.id}>{v.line}</MenuItem>
-                ))}
+                {groupedRosen.flatMap((g) => [
+                  <ListSubheader key={`group-${g.group}`}>{g.group}</ListSubheader>,
+                  ...g.lines.map((v) => (
+                    <MenuItem key={v.id} value={v.id}>{v.line}</MenuItem>
+                  )),
+                ])}
               </Select>
             </FormControl>
           </Paper>
