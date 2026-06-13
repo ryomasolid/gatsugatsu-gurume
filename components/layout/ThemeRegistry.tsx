@@ -82,6 +82,52 @@ export default function ThemeRegistry({
             },
           },
         },
+
+        // Select展開時のドロップダウンメニュー：枠線と影で背景から分離し、
+        // 太字＋ゆとりのある行間で見やすくする
+        MuiMenu: {
+          styleOverrides: {
+            paper: {
+              borderRadius: 12,
+              border: "2px solid #1A1A1A",
+              boxShadow: "4px 4px 0px rgba(26, 26, 26, 0.9)",
+              maxHeight: 360,
+              marginTop: 4,
+            },
+            list: {
+              padding: "6px",
+            },
+          },
+        },
+        MuiMenuItem: {
+          styleOverrides: {
+            root: {
+              borderRadius: 8,
+              fontWeight: 700,
+              fontSize: "0.95rem",
+              color: "#1A1A1A",
+              paddingTop: 10,
+              paddingBottom: 10,
+              marginBottom: 2,
+              "&:hover": {
+                backgroundColor: "#FFF5ED",
+                color: "#FF6B00",
+              },
+              "&.Mui-selected": {
+                backgroundColor: "#FFF5ED",
+                color: "#FF6B00",
+                fontWeight: 900,
+                "&:hover": {
+                  backgroundColor: "#FFE8D9",
+                },
+              },
+              "&.Mui-disabled": {
+                opacity: 0.55,
+                fontWeight: 700,
+              },
+            },
+          },
+        },
       },
     });
 
