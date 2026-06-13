@@ -99,6 +99,21 @@ export default function ThemeRegistry({
             },
           },
         },
+        // ドロップダウン内のグループ見出し（地方名・鉄道事業者名など）
+        MuiListSubheader: {
+          styleOverrides: {
+            root: {
+              fontWeight: 900,
+              fontSize: "0.72rem",
+              letterSpacing: "0.1em",
+              color: "#FF6B00",
+              backgroundColor: "#FFF9F5",
+              lineHeight: "30px",
+              borderRadius: 6,
+              marginTop: 4,
+            },
+          },
+        },
         MuiMenuItem: {
           styleOverrides: {
             root: {
