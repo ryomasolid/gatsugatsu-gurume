@@ -8,6 +8,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import DescriptionIcon from "@mui/icons-material/Description";
 import CasinoIcon from "@mui/icons-material/Casino";
+import PsychologyIcon from "@mui/icons-material/Psychology";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import GroupsIcon from "@mui/icons-material/Groups";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
@@ -336,6 +337,39 @@ export default function Sidebar({ onClose }: SidebarProps) {
             </Paper>
           </Box>
         )}
+
+        {/* 飯タイプ診断バナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/shindan" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #7C3AED",
+                bgcolor: "#FAF5FF",
+                boxShadow: "3px 3px 0px #7C3AED",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #7C3AED",
+                },
+              }}
+            >
+              <PsychologyIcon sx={{ color: "#7C3AED", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#7C3AED", lineHeight: 1.2 }}>
+                  飯タイプ診断
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  8つの質問でわかる食の本性・全8タイプ
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
 
         {/* 元取れシミュレーターバナー */}
         <Box sx={{ px: 3, mb: 3 }}>

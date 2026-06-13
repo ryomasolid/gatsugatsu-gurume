@@ -3,6 +3,13 @@ import Link from "next/link";
 
 const TOOLS = [
   {
+    href: "/shindan",
+    emoji: "🔮",
+    title: "飯タイプ診断",
+    desc: "8つの質問でわかる、あなたの食の本性。全8タイプの診断結果はXでシェアして友達と相性チェック。登録不要・2分で完了。",
+    color: "#7C3AED",
+  },
+  {
     href: "/waittime",
     emoji: "⏱️",
     title: "行列・待ち時間予測",
