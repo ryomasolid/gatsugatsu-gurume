@@ -33,6 +33,10 @@ export default function StationClient({
 }: Props) {
   useEffect(() => {
     sendGAEvent("event", "station_view", { station_name: stationName });
+
+    if (document.referrer.includes("google.")) {
+      sendGAEvent("event", "organic_search_landing", { station_name: stationName });
+    }
   }, [stationName]);
 
   return (
