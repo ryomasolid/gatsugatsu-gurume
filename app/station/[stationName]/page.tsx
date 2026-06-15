@@ -4,6 +4,7 @@ import { getBaseUrl } from "@/utils/getBaseUrl";
 import { getNeighborStations, getRepresentativeStation } from "@/utils/stationData";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import StationClient from "./_components/StationClient";
 import { RestaurantInfoDTO } from "./types";
 
@@ -42,7 +43,8 @@ function getStationInfo(name: string): StationInfo | null {
   };
 }
 
-async function getStationRestaurants(
+// generateMetadata と Page の両方から呼ばれるため、React.cache で同一レンダリング内の重複実行を防ぐ
+const getStationRestaurants = cache(async function getStationRestaurants(
   decodedName: string,
   coords: { lat: string; lng: string }
 ): Promise<RestaurantInfoDTO[]> {
@@ -81,7 +83,7 @@ async function getStationRestaurants(
       };
     })
     .sort((a, b) => a.walkMinutes - b.walkMinutes);
-}
+});
 
 function getTopGenres(restaurants: RestaurantInfoDTO[], limit = 3): string[] {
   const counts: Record<string, number> = {};
