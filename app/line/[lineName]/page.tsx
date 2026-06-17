@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: canonicalPath },
+    // 駅へのリンク集が主体で独自コンテンツが薄いため、ナビゲーション用に follow のみ残して noindex とする
+    robots: { index: false, follow: true },
     openGraph: {
       title,
       description,

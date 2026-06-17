@@ -110,6 +110,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const count = restaurants.length;
   const topGenres = getTopGenres(restaurants);
 
+  // 独自の編集部ガイドを持つ駅のみインデックス対象とする。
+  // ガイドのない駅はテンプレート＋Places APIの自動生成内容で独自性が低いため、
+  // noindex にして「ガイド付き駅＋ツール」だけの質の高いサイトとして審査・評価されるようにする。
+  // （follow は残し、駅ページ経由のクロール・回遊は維持する）
+  const isIndexable = count > 0 && getStationGuide(decodedName) !== undefined;
+
   const countLabel = count > 0 ? `${count}選` : "厳選";
   const genreLabel =
     topGenres.length > 0 ? topGenres.join("・") : "ラーメン・定食・カレー";
@@ -134,8 +140,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...topGenres,
     ],
     alternates: { canonical: canonicalPath },
-    // 店舗データが0件の駅は内容が薄いため、インデックス対象から除外する
-    ...(count === 0 && { robots: { index: false, follow: true } }),
+    // 独自ガイドを持たない駅・店舗0件の駅は内容が薄いため、インデックス対象から除外する
+    ...(!isIndexable && { robots: { index: false, follow: true } }),
     openGraph: {
       title: `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel}`,
       description,

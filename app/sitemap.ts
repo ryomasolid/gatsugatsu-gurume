@@ -1,32 +1,17 @@
-import {
-  getAllLineNames,
-  getAllPrefectures,
-  getAllStationNames,
-} from "@/utils/stationData";
+import { getGuideStationNames } from "@/constants/stationGuides";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://gatsugatsu-gurume.com";
 
-  const stationEntries: MetadataRoute.Sitemap = getAllStationNames().map(
+  // インデックス対象は独自の編集部ガイドを持つ駅のみ。
+  // ガイドのない駅・路線・エリアページは noindex のためサイトマップから除外し、
+  // 「独自コンテンツを持つページだけ」をクローラーに提示する。
+  const stationEntries: MetadataRoute.Sitemap = getGuideStationNames().map(
     (name) => ({
       url: `${baseUrl}/station/${encodeURIComponent(name)}`,
       changeFrequency: "weekly",
       priority: 0.7,
-    })
-  );
-
-  const lineEntries: MetadataRoute.Sitemap = getAllLineNames().map((name) => ({
-    url: `${baseUrl}/line/${encodeURIComponent(name)}`,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
-
-  const areaEntries: MetadataRoute.Sitemap = getAllPrefectures().map(
-    (pref) => ({
-      url: `${baseUrl}/area/${encodeURIComponent(pref)}`,
-      changeFrequency: "monthly",
-      priority: 0.6,
     })
   );
 
@@ -45,5 +30,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, changeFrequency: "yearly", priority: 0.5 },
   ];
 
-  return [...staticEntries, ...areaEntries, ...lineEntries, ...stationEntries];
+  return [...staticEntries, ...stationEntries];
 }
