@@ -62,12 +62,14 @@ async function main() {
   }
 
   // 取得済み = 主要110駅 + これまで蓄積した拡張分。両方をスキップ対象にする。
+  // 拡張分は「一度取得した駅」をすべて取得済み扱いにする（0件＝空配列の駅も含む）。
+  // 0件の駅は空配列のまま ext に残るので、後でまとめて拾い直せる。
   const main = await loadJsonOr(MAIN_PATH, { stations: {} });
   const ext = await loadJsonOr(EXT_PATH, { stations: {} });
   const extStations = ext.stations ?? {};
   const done = new Set([
     ...Object.keys(main.stations ?? {}),
-    ...Object.keys(extStations).filter((n) => extStations[n]?.length > 0),
+    ...Object.keys(extStations),
   ]);
 
   // 優先度順（candidates は tier昇順→路線数降順で並んでいる）に未取得・Tier条件内を抽出
