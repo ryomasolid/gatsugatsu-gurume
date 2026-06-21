@@ -86,7 +86,7 @@ export default function AboutPage() {
                 <Box>
                   <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>独自の解析アルゴリズムによる選別</Typography>
                   <Typography variant="body2" sx={{ color: "#666", mt: 0.5 }}>
-                    APIの生データをそのまま表示するのではなく、店名・カテゴリ・位置情報から独自ルールでジャンルを判定し、ラーメン・丼もの・定食などボリューム系のジャンルに該当する店舗のみを抽出。徒歩分数とジャンルをもとにした参考スコア（GATSU-INDEX）も独自に算出しています。
+                    APIの生データをそのまま表示するのではなく、店名・カテゴリ・位置情報から独自ルールでジャンルを判定し、ラーメン・丼もの・定食などボリューム系のジャンルに該当する店舗のみを抽出しています。
                   </Typography>
                 </Box>
               </Box>
