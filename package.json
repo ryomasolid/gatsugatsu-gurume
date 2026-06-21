@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "snapshot": "node scripts/generate-station-snapshots.mjs"
+    "snapshot": "node scripts/generate-station-snapshots.mjs",
+    "snapshot:candidates": "node scripts/generate-snapshot-candidates.mjs",
+    "snapshot:batch": "node scripts/snapshot-batch.mjs"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",

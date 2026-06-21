@@ -8,6 +8,9 @@
  *   - ジャンル判定は保存せず生データ(GooglePlace形状)のみ持つ。ジャンルは実行時に
  *     getGenre で導出するため、ここに GENRE_RULES を複製しない（単一ソース維持）。
  *
+ * 110駅以外の駅を「使用量を見ながら100駅ずつ」蓄積したい場合は snapshot-batch.mjs を使う。
+ * 取得ロジック（fetch/整形/座標解決）は scripts/lib/places.mjs に集約している。
+ *
  * 実行: npm run snapshot   (内部で node scripts/generate-station-snapshots.mjs)
  *   GOOGLE_API_KEY は .env から読み込む。
  *   主要駅数 × キーワード数 ぶんの Places アクセスが発生するため、頻繁な再実行は避けること
@@ -15,43 +18,17 @@
  */
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import {
+  ROOT,
+  resolveKeywords,
+  loadEnv,
+  buildStationIndex,
+  representative,
+  fetchStationPlaces,
+} from "./lib/places.mjs";
 
-const ROOT = process.cwd();
-const PLACES_API_URL = "https://places.googleapis.com/v1/places:searchText";
-const FIELD_MASK =
-  "places.id,places.displayName,places.formattedAddress,places.location,places.types,places.primaryType";
-// app/api/restaurants/helpers.ts の GATSURI_KEYWORDS と対応。
-// ランタイムは毎回ランダムに1語だけ使うが、スナップショットは全語を叩いて
-// id で重複排除し、安定した充実リストを作る。
-const ALL_KEYWORDS = ["ラーメン", "定食", "中華", "カレー", "牛丼", "丼"];
-// SNAPSHOT_KEYWORDS=2 のように指定すると先頭N語だけ使い、総コール数を 110×N に抑える。
-const KEYWORD_COUNT = Math.min(
-  Math.max(1, Number(process.env.SNAPSHOT_KEYWORDS) || ALL_KEYWORDS.length),
-  ALL_KEYWORDS.length
-);
-const GATSURI_KEYWORDS = ALL_KEYWORDS.slice(0, KEYWORD_COUNT);
-const MAX_PER_STATION = 20; // 1駅あたりの最大掲載件数
-const OFFSET = 0.009; // placesClient.ts と同じ矩形範囲
-const WAIT_MS = 200;
-const MAX_RETRY = 5; // 429/5xx の再試行回数
+const GATSURI_KEYWORDS = resolveKeywords();
 const FORCE = process.argv.includes("--force"); // 既存スナップショットを無視して全再取得
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-/** .env を読み込んで process.env に反映（未設定のキーのみ） */
-async function loadEnv() {
-  try {
-    const raw = await readFile(path.join(ROOT, ".env"), "utf8");
-    for (const line of raw.split(/\r?\n/)) {
-      const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
-      if (m && process.env[m[1]] === undefined) {
-        process.env[m[1]] = m[2].replace(/^["']|["']$/g, "");
-      }
-    }
-  } catch {
-    /* .env が無くても環境変数があれば動く */
-  }
-}
 
 /** constants/stationGuides.ts から主要駅名（オブジェクトのキー）を抽出する */
 async function loadGuideStationNames() {
@@ -67,113 +44,6 @@ async function loadGuideStationNames() {
   let m;
   while ((m = re.exec(body)) !== null) names.push(m[1]);
   return names;
-}
-
-/** data/stations.json から駅名→代表駅(座標)の解決インデックスを構築 */
-async function buildStationIndex() {
-  const data = JSON.parse(
-    await readFile(path.join(ROOT, "data", "stations.json"), "utf8")
-  );
-  const index = new Map();
-  for (const line of data.lines) {
-    for (const st of line.stations) {
-      const variants = index.get(st.name) ?? [];
-      // 同名・同県・近接（約2km以内）は同一駅とみなし路線を束ねる（utils/stationData.ts と同ロジック）
-      const existing = variants.find(
-        (v) =>
-          v.pref === st.pref &&
-          Math.abs(v.y - st.y) < 0.02 &&
-          Math.abs(v.x - st.x) < 0.02
-      );
-      if (existing) {
-        existing.lines.add(line.name);
-      } else {
-        variants.push({
-          pref: st.pref,
-          x: st.x,
-          y: st.y,
-          lines: new Set([line.name]),
-        });
-      }
-      index.set(st.name, variants);
-    }
-  }
-  return index;
-}
-
-function representative(index, name) {
-  const variants = index.get(name);
-  if (!variants || variants.length === 0) return null;
-  // 乗り入れ路線数が最も多いものを代表とする
-  return [...variants].sort((a, b) => b.lines.size - a.lines.size)[0];
-}
-
-async function fetchPlaces(apiKey, query, lat, lng) {
-  const body = {
-    textQuery: query,
-    languageCode: "ja",
-    maxResultCount: 10,
-    locationRestriction: {
-      rectangle: {
-        low: { latitude: lat - OFFSET, longitude: lng - OFFSET },
-        high: { latitude: lat + OFFSET, longitude: lng + OFFSET },
-      },
-    },
-  };
-
-  for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
-    const res = await fetch(PLACES_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": apiKey,
-        "X-Goog-FieldMask": FIELD_MASK,
-      },
-      body: JSON.stringify(body),
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      return data.places ?? [];
-    }
-
-    // 429（レート上限）・5xx は時間を置いて再試行。それ以外は即エラー。
-    if (res.status === 429 || res.status >= 500) {
-      if (attempt === MAX_RETRY) {
-        throw new Error(`Places API HTTP ${res.status}（${MAX_RETRY}回再試行後も失敗）`);
-      }
-      // per-minute 制限を回復させるため長めに待つ（10s, 20s, 40s, 80s...）
-      const backoff = 10000 * 2 ** (attempt - 1);
-      console.log(`    HTTP ${res.status} → ${backoff / 1000}s 待って再試行 (${attempt}/${MAX_RETRY - 1})`);
-      await sleep(backoff);
-      continue;
-    }
-
-    const err = await res.text().catch(() => "");
-    throw new Error(`Places API HTTP ${res.status}: ${err.slice(0, 200)}`);
-  }
-  return [];
-}
-
-/** GooglePlaceSchema（utils/restaurantHelpers.ts）に対応する最小限の整形・検証 */
-function normalizePlace(p) {
-  if (
-    !p?.id ||
-    !p?.displayName?.text ||
-    !p?.formattedAddress ||
-    typeof p?.location?.latitude !== "number" ||
-    typeof p?.location?.longitude !== "number"
-  ) {
-    return null;
-  }
-  return {
-    id: p.id,
-    displayName: { text: p.displayName.text },
-    formattedAddress: p.formattedAddress,
-    types: Array.isArray(p.types) ? p.types : [],
-    ...(p.primaryType ? { primaryType: p.primaryType } : {}),
-    location: { latitude: p.location.latitude, longitude: p.location.longitude },
-  };
 }
 
 async function main() {
@@ -223,21 +93,7 @@ async function main() {
       continue;
     }
 
-    const byId = new Map();
-    for (const keyword of GATSURI_KEYWORDS) {
-      await sleep(WAIT_MS);
-      try {
-        const places = await fetchPlaces(apiKey, `${keyword} がっつり`, rep.y, rep.x);
-        for (const raw of places) {
-          const norm = normalizePlace(raw);
-          if (norm && !byId.has(norm.id)) byId.set(norm.id, norm);
-        }
-      } catch (e) {
-        console.warn(`  ${name} / "${keyword}": ${e.message}`);
-      }
-    }
-
-    const list = [...byId.values()].slice(0, MAX_PER_STATION);
+    const { list } = await fetchStationPlaces(apiKey, rep, GATSURI_KEYWORDS);
     stations[name] = list;
     await save(); // 1駅ごとに保存：中断しても続きから再開できる
     console.log(`  [${i}/${todo.length}] ${name}: ${list.length} 件`);

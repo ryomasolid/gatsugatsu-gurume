@@ -1,0 +1,10451 @@
+{
+  "generatedAt": "2026-06-21",
+  "area": "首都圏（東京都・神奈川県・埼玉県・千葉県）",
+  "rankingSignal": "乗り入れ路線数（近接マージ後の代表駅）",
+  "snapshottedCount": 110,
+  "candidateCount": 1490,
+  "tierLegend": {
+    "1": "UI一覧(STATION_GROUPS)掲載済・スナップショット未生成（最優先）",
+    "2": "UI一覧外・路線数4本以上のターミナル",
+    "3": "UI一覧外・路線数2〜3本",
+    "4": "路線数1本（網羅対象外・参考）"
+  },
+  "tierCounts": {
+    "1": 29,
+    "2": 11,
+    "3": 195,
+    "4": 1255
+  },
+  "candidates": [
+    {
+      "name": "西船橋",
+      "pref": "千葉県",
+      "lines": 5,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "大崎",
+      "pref": "東京都",
+      "lines": 5,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "四ツ谷",
+      "pref": "東京都",
+      "lines": 4,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "代々木",
+      "pref": "東京都",
+      "lines": 4,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "目黒",
+      "pref": "東京都",
+      "lines": 4,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "有楽町",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "綾瀬",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "駒込",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "笹塚",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "三鷹",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "市ケ谷",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "自由が丘",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "巣鴨",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "田端",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "二子玉川",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "明大前",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "葛西",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "金町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "駒沢大学",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "経堂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "光が丘",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "十条",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "小岩",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "成城学園前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "成増",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "西葛西",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "千歳烏山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "大森",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "目白",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": true,
+      "tier": 1
+    },
+    {
+      "name": "大船",
+      "pref": "神奈川県",
+      "lines": 6,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "京成高砂",
+      "pref": "東京都",
+      "lines": 5,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "小田原",
+      "pref": "神奈川県",
+      "lines": 5,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "大手町",
+      "pref": "東京都",
+      "lines": 5,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "さいたま新都心",
+      "pref": "埼玉県",
+      "lines": 4,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "押上",
+      "pref": "東京都",
+      "lines": 4,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "熊谷",
+      "pref": "埼玉県",
+      "lines": 4,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "新横浜",
+      "pref": "神奈川県",
+      "lines": 4,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "新鎌ヶ谷",
+      "pref": "千葉県",
+      "lines": 4,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "浅草",
+      "pref": "東京都",
+      "lines": 4,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "拝島",
+      "pref": "東京都",
+      "lines": 4,
+      "inStationGroups": false,
+      "tier": 2
+    },
+    {
+      "name": "永田町",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "霞ケ関",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "我孫子",
+      "pref": "千葉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "寄居",
+      "pref": "埼玉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "京成津田沼",
+      "pref": "千葉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "橋本",
+      "pref": "神奈川県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "金沢八景",
+      "pref": "神奈川県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "銀座",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "九段下",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "空港第2ビル",
+      "pref": "千葉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "高幡不動",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "高尾",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "国分寺",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "市ヶ谷",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "小竹向原",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "湘南台",
+      "pref": "神奈川県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "新木場",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "神保町",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "成田空港",
+      "pref": "千葉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "西大井",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "西谷",
+      "pref": "神奈川県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "青山一丁目",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "蘇我",
+      "pref": "千葉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "多摩川",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "大和",
+      "pref": "神奈川県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "中野坂上",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "長津田",
+      "pref": "神奈川県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東松戸",
+      "pref": "千葉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東村山",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東中野",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "南千住",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "二俣川",
+      "pref": "神奈川県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "日比谷",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "日本橋",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "尾久",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "表参道",
+      "pref": "東京都",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "和光市",
+      "pref": "埼玉県",
+      "lines": 3,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "あざみ野",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "かしわ台",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "さがみ野",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "センター南",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "センター北",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "ユーカリが丘",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "安房鴨川",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "稲毛",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "印旛日本医大",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "羽生",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "羽沢横浜国大",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "羽田空港第3ターミナル",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "曳舟",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "越生",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "下高井戸",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "鎌倉",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "茅ヶ崎",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "茅場町",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "関内",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "希望ヶ丘",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "旗の台",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "久喜",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "京急蒲田",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "京急川崎",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "京成成田",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "強羅",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "玉川上水",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "金沢文庫",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "熊野前",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "栗橋",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "月島",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "五井",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "吾野",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "後楽園",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "厚木",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "弘明寺",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "香取",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "高輪ゲートウェイ",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "高麗川",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "国会議事堂前",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "国府津",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "佐倉",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "坂戸",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "桜木町",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "三ツ境",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "三越前",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "三田",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "市川",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "汐留",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "住吉",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "春日",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "春日部",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "所沢",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "小川",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "小川町",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "小平",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "松岸",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "上総中野",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "上大岡",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "尻手",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "信濃町",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "新丸子",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "新御徒町",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "新松戸",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "新杉田",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "新川崎",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "新百合ヶ丘",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "森下",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "人形町",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "瀬谷",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "成田",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "成東",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "清澄白河",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "西荻窪",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "西国分寺",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "西所沢",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "西新井",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "西武球場前",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "青砥",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "赤羽岩淵",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "赤坂見附",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "千川",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "千駄ケ谷",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "千葉ニュータウン中央",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "千葉みなと",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "千葉中央",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "川越",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "泉岳寺",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "浅草橋",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "相模大塚",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "相模大野",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "蔵前",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "多摩湖",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "多摩動物公園",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "代々木上原",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "大岡山",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "大久保",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "大原",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "大網",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "大門",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "地下鉄成増",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "地下鉄赤塚",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "中井",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "中延",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "中央林間",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "中山",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "中目黒",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "町屋",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "調布",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "銚子",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "鶴ヶ峰",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "鶴見",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "天王洲アイル",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "天王台",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "天空橋",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "田園調布",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "都賀",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東銀座",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東戸塚",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東新宿",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東神奈川",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東成田",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東川口",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東飯能",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東府中",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "東武動物公園",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "南浦和",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "南流山",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "馬橋",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "萩山",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "白金高輪",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "白金台",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "八丁畷",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "八丁堀",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "氷川台",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "浜川崎",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "府中本町",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "武蔵浦和",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "武蔵境",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "分倍河原",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "平和台",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "保土ヶ谷",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "豊洲",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "豊島園",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "北習志野",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "北野",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "堀ノ内",
+      "pref": "神奈川県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "本郷三丁目",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "本庄早稲田",
+      "pref": "埼玉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "本千葉",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "本八幡",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "麻布十番",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "木更津",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "要町",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "流山おおたかの森",
+      "pref": "千葉県",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "溜池山王",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "両国",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "六本木",
+      "pref": "東京都",
+      "lines": 2,
+      "inStationGroups": false,
+      "tier": 3
+    },
+    {
+      "name": "YRP野比",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "いずみ中央",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "いずみ野",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "おゆみ野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "お花茶屋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "お台場海浜公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "くぬぎ山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "こどもの国",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "すずかけ台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "スポーツセンター",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "せんげん台",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ソシオ流通センター",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "たまプラーザ",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ちはら台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "つきのわ",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "つきみ野",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "つくし野",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "つつじヶ丘",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "テレコムセンター",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "とうきょうスカイツリー",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ときわ台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "はるひ野",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ひばりヶ丘",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ひろせ野鳥の森",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ふかや花園",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ふじみ野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ベイサイド・ステーション",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "みずほ台",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "みつわ台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "みどり台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "みなとみらい",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "みなみ寄居",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "みのり台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "めじろ台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "モノレール浜松町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "ゆめが丘",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "リゾートゲートウェイ・ステーション",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "阿夫利神社",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "愛甲石田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "愛宕",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "旭",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "芦ヶ久保",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "芦花公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "安食",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "安針塚",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "安善",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "安房勝山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "安房小湊",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "安房天津",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "伊勢原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "伊勢佐木長者町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "伊奈中央",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "衣笠",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "井の頭公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "井荻",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "井細田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "井土ヶ谷",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "井野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "磯子",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "一ノ割",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "一橋学園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "一之江",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "一本松",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "逸見",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "稲荷山公園",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "稲荷町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "稲城",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "稲城長沼",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "稲村ヶ崎",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "稲田堤",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "稲毛海岸",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "印西牧の原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "羽貫",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "羽村",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "羽田空港第1・第2ターミナル",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "羽田空港第1ターミナル",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "羽田空港第2ターミナル",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鵜の木",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鵜原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浦安",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浦賀",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浦山口",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浦和美園",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "運河",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荏原中延",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荏原町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "影森",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "栄町",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "永田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "永福町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "越谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "越谷レイクタウン",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "越中島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "榎戸",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "猿田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "奥多摩",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "奥沢",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "横芝",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "横須賀",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "横須賀中央",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "横瀬",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "横田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "王子駅前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "王子神谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "黄金町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "岡部",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桶川",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "恩田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下井草",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下永谷",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下丸子",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下郡",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下溝",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下山口",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下神明",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下赤塚",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下曽我",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下総橘",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下総松崎",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下総神崎",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下総中山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下総豊里",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下板橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下飯田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "下落合",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "加須",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "加茂宮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "河辺",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "花月総持寺",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "花崎",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "花小金井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "霞ヶ関",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "海の公園柴口",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "海の公園南口",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "海士有木",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "海鹿島",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "海芝浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "海神",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "海浜幕張",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "皆野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "開成",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "外苑前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "外川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柿生",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "学園前",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "学芸大学",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "学習院下",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "笠上黒生",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "笠幡",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "梶が谷",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "梶原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "滑河",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "葛西臨海公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "蒲生",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鎌ヶ谷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鎌ヶ谷大仏",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鎌取",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鎌倉高校前",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鴨宮",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鴨居",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "栢山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "寒川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "干潟",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "観音",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "館山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "丸山",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "岸根公園",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "巌根",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "岩井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "岩原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "岩槻",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "岩本町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "喜多見",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鬼越",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鬼子母神前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "亀戸水神",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "亀有",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "祇園",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "菊川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "吉川",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "吉川美南",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "吉野原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "吉野町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "逆井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久が原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久我原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久我山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久住",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久地",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久米川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久里浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "久留里",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮ノ下",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮の坂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮ノ前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮ノ平",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮崎台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宮前平",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "求名",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "牛込神楽坂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "牛込柳町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "牛田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "牛浜",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王よみうりランド",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王稲田堤",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王永山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王多摩センター",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王多摩川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王八王子",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王片倉",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京王堀之内",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急久里浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急新子安",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急大津",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急長沢",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急鶴見",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急田浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急東神奈川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京急富岡",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成稲毛",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成臼井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成曳舟",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成関屋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成金町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成佐倉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成酒々井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成小岩",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成上野",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成西船",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成千葉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成船橋",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成大久保",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成大和田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成中山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成八幡",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成幕張",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成幕張本郷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "京成立石",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "競艇場前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "狭間",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "狭山ヶ丘",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "狭山市",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "極楽寺",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "玉川学園前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "玉淀",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "金子",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "銀座一丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "九重",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "九品仏",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "駒場東大前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "熊川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "栗平",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "君ヶ浜",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "君津",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "軍畑",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "穴守稲荷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "穴川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "穴部",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "月崎",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "検見川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "検見川浜",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "犬吠",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "県庁前",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "県立大学",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "見沼代親水公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "元加治",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "元山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "元町・中華街",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "原市",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "原当麻",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "原木中山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "古淵",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "古里",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "戸越",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "戸越銀座",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "戸越公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "戸塚安行",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "戸田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "戸田公園",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "戸部",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "湖北",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "虎ノ門",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "虎ノ門ヒルズ",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "五月台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "五香",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "五反野",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "五百羅漢",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "御花畑",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "御岳山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "御宿",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "御成門",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "御嶽",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "御嶽山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "護国寺",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "光風台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "公園",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "公園下",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "公園上",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "公津の杜",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "向ヶ丘遊園",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "向河原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "向原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "幸浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "幸手",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "幸谷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "広尾",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "庚申塚",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "江ノ島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "江見",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "江戸川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "江戸川橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "江戸川台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "江田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "江北",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "港町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "港南台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "港南中央",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "甲州街道",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "綱島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "航空公園",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荒川一中前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荒川区役所前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荒川七丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荒川車庫前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荒川二丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "荒川遊園地前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "行川アイランド",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "行田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "行田市",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "行徳",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "香川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高井戸",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高根公団",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高根木戸",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高座渋谷",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高坂",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高滝",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高津",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高島町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高島平",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高尾山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高尾山口",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高野",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高柳",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高輪台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "高麗",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鴻巣",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "豪徳寺",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "麹町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "国吉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "国際展示場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "国道",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "国府台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "国立",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "国立競技場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "国領",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鵠沼",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鵠沼海岸",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "黒川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "腰越",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "狛江",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "今羽",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "根岸",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "根津",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "根府川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "佐貫町",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "佐原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "砂川七番",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "座間",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "阪東橋",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鷺ノ宮",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鷺沼",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "作草部",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜ヶ丘",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜街道",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜上水",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜新町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜沢",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜田門",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "桜木",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "笹川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "雑司が谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "雑色",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鮫洲",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三ツ沢下町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三ツ沢上町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三ノ輪",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三ノ輪橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三浦海岸",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三河島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三郷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三郷中央",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三咲",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三崎口",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三鷹台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三峰口",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "三門",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "参宮橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "山下",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "山手",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "山田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "山北",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "産業振興センター",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "四ツ木",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "四街道",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "四谷三丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "姉ケ崎",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "子安",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "市が尾",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "市場前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "市川塩浜",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "市川真間",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "市川大野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "市大医学部",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "市役所前",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "志久",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "志村坂上",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "志村三丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "志津",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "志茂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "志木",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "指扇",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "児玉",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "持田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "蒔田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "汐入",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鹿島田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "七光台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "七里",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "七里ヶ浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "実籾",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "篠崎",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柴崎",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柴崎体育館",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柴又",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "芝浦ふ頭",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "芝公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "芝山千代田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "舎人",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "舎人公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "社家",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "若松河田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "若葉",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "若葉台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "若林",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "酒々井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宗吾参道",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "秋山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "秋川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "秋津",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "習志野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "十二橋",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "十日市場",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "渋沢",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宿河原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "初石",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "初台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "初富",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "曙橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "女子大",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "勝どき",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "勝浦",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "勝田台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小机",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小宮",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小金城趾",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小見川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小作",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小室",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小手指",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小菅",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小前田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小倉台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小村井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小谷松",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小伝馬町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小田栄",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小田急永山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小田急相模原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小田急多摩センター",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小島新田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小涌谷",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小林",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "小櫃",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "昭島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "昭和",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "昭和島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松が谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松陰神社前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松久",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松戸新田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松飛台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "松尾",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "沼袋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "沼南",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "沼部",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "湘南海岸公園",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "湘南江の島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "湘南深沢",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "湘南町屋",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鐘ヶ淵",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上井草",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上永谷",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上強羅",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上熊谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上溝",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上星川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上石神井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総一ノ宮",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総亀山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総久保",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総牛久",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総興津",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総三又",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総山田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総松丘",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総清川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総川間",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総村上",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総大久保",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総中川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総鶴舞",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総東",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上総湊",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上大井",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上中里",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上長瀞",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上板橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上尾",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上福岡",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上北台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上北沢",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上本郷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上野御徒町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上野広小路",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "上野毛",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "城見ヶ丘",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "常盤平",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新井宿",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新井薬師前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新羽",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新浦安",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新越谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新河岸",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新狭山",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新郷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新検見川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新古河",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新御茶ノ水",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新庚申塚",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新江古田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新綱島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新高円寺",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新高島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新高島平",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新座",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新桜台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新三河島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新三郷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新子安",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新柴又",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新芝浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新秋津",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新習志野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新宿御苑前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新宿西口",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新所沢",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新小金井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新小平",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新松田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新整備場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新千葉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新線新宿",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新船橋",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新代田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新大久保",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新大津",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新大塚",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新中野",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新津田沼",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新田野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新日本橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新馬場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新柏",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新白岡",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新八柱",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新板橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新富町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新豊洲",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新茂原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "新木",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "森林公園",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "深谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "真鶴",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "神楽坂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "神泉",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "神谷町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "神奈川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "神奈川新町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "神武寺",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "神保原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "秦野",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "親鼻",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "逗子",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "逗子・葉山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "吹上",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "水郷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "水天宮前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "瑞江",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "杉戸高野台",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "杉田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "菅野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "世田谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "世田谷代田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "是政",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "成瀬",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "成田湯川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "整備場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "星川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "正丸",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "清水公園",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "清瀬",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "清滝",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "生田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "生麦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "聖蹟桜ヶ丘",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西ケ原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西ヶ原四丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西羽生",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西浦和",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西永福",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西横浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西海鹿島",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西鎌倉",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西吾野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西高島平",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西国立",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西小山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西新井大師西",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西新宿",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西新宿五丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西千葉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西川越",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西川口",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西早稲田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西巣鴨",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西太子堂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西大家",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西大宮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西大原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西大島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西調布",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西登戸",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西馬込",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西白井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西畑",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西八王子",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西府",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西武園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西武園ゆうえんち",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西武新宿",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西武秩父",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西武柳沢",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西武立川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "西立川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "青井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "青海",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "青梅",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "青梅街道",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "青物横丁",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "青堀",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "青葉台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "石原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "石上",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "石神井公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "石神前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "石川台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "石川町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "赤羽橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "赤坂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "赤土小学校前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "折原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "雪が谷大塚",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "仙川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千歳",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千歳船橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千住大橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千城台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千城台北",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千石",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千倉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千駄木",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千鳥町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千葉公園",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "千葉寺",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川越市",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川角",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川間",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川口元郷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川崎新町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川崎大師",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "川和町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "扇大橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "扇町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "泉体育館",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浅野",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "洗足",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "洗足池",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "船橋競馬場",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "船橋日大前",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "船橋法典",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "船堀",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "前原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "善行",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "祖師ヶ谷大蔵",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "倉橋",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "倉見",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "早雲山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "早川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "巣鴨新田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "相原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "相武台下",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "相武台前",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "相模金子",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "相模原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "相模湖",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "相模沼田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "総元",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "草加",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "増尾",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "足柄",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "足立小台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "袖ケ浦",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "村上",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "多摩センター",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "多摩境",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "多磨",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "多磨霊園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "太海",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "太東",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "代々木公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "代々木八幡",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "代官山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "代田橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "台場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大井競馬場前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大磯",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大貫",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大宮公園",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大戸",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大口",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大佐倉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大崎広小路",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大山ケーブル",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大山寺",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大師橋",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大師前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大森海岸",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大森台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大森町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大神宮下",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大泉学園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大倉山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大多喜",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大袋",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大町",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大鳥居",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大塚・帝京大学",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大塚駅前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大平台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大麻生",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大野原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大雄山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "大和田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鷹の台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "滝不動",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "滝本",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "滝野川一丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "沢井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "辰巳",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "谷峨",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "谷在家",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "谷津",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "谷塚",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "谷保",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "丹荘",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "淡路町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "男衾",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "地区センター",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "池ノ上",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "池上",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "池尻大橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "築地",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "築地市場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "竹ノ塚",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "竹岡",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "竹橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "竹芝",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "竹沢",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "秩父",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中浦和",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中央大学・明星大学",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中河原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中学校",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中強羅",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中神",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中川",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中村橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中板橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中野新橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中野島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "中野富士見町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "仲ノ町",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "仲御徒町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "仲町台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "彫刻の森",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "朝霞",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "朝霞台",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "潮見",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "町屋駅前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "町屋二丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "長浦",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "長原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "長後",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "長者町",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "長沼",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "長谷",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "長瀞",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鳥浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "津久井浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "津田山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "椎柴",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "椎名町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "追浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "塚原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "塚田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "辻堂",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鶴ヶ島",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鶴巻温泉",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鶴間",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鶴見市場",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鶴見小野",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鶴瀬",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鶴川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "程久保",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "的場",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鉄道博物館",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "天王町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "天台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "田浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "田原町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "田奈",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "田無",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "都筑ふれあいの丘",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "都庁前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "都電雑司ヶ谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "都立家政",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "土気",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "土呂",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "唐木田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "塔ノ沢",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東あずま",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東浦和",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東雲",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東横田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東我孫子",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東海神",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東海大学前",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東岩槻",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東久留米",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東宮原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東京ディズニーシー・ステーション",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東京ディズニーランド・ステーション",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東京テレポート",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東京ビッグサイト",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東京国際クルーズターミナル",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東金",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東吾野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東向島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東行田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東高円寺",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東山田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東山北",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東秋留",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東十条",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東所沢",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東小金井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東松原",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東松山",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東逗子",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東清川",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東青梅",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東千葉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東船橋",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東総元",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東大宮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東大前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東大島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東大和市",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東池袋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東池袋四丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東中山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東中神",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東長崎",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東日本橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東白楽",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東尾久三丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東武竹沢",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東武練馬",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東伏見",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東福生",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東北沢",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東毛呂",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東門前",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東葉勝田台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東陽町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東林間",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東浪見",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "東鷲宮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "湯河原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "湯島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "等々力",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "藤が丘",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "藤の牛島",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "藤沢本町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "藤野",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "動物公園",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "読売ランド前",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "那古船形",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "内幸町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "内宿",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南阿佐ヶ谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南羽生",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南越谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南橋本",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南栗橋",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南古谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南行徳",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南砂町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南桜井",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南三原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南酒々井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南新宿",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南船橋",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南多摩",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南太田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南大沢",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南大塚",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南町田グランベリーパーク",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南柏",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南鳩ヶ谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南部市場",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南平",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南万騎が原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南与野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "南林間",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "二宮",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "二子新地",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "二重橋前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "二俣新町",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "二俣尾",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "二和向台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日の出",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日ノ出町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日吉本町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日向",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日向和田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日進",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日本大通り",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "日野",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "入間市",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "入生田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "入曽",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "入谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "乃木坂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "能見台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "波久礼",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬喰横山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬喰町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬込",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬込沢",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬車道",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬堀海岸",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬来田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "馬立",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "梅ヶ丘",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "梅屋敷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "梅郷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "梅島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柏たなか",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柏の葉キャンパス",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "白井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "白岡",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "白楽",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "白丸",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "白久",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "白山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "白糸台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "箱根ヶ崎",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "箱根湯本",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "箱根板橋",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "幡ヶ谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八王子みなみ野",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八街",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八景島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八広",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八坂",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八積",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八千代台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八千代中央",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八千代緑が丘",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八柱",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八潮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八日市場",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八幡山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八幡宿",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "八木崎",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鉢形",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鳩ヶ谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鳩ノ巣",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "半蔵門",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "反町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "板橋本町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飯岡",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飯給",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飯山満",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飯倉",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飯田岡",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飯能",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "番田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飛鳥山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "飛田給",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "樋口",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "尾山台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "姫宮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "百合ヶ丘",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "百草園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "俵田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鰭ヶ崎",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "品川シーサイド",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浜金谷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浜町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浜田山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浜野",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "不動前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "富浦",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "富士フィルム前",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "富士見ヶ丘",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "富士見台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "富士見町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "富水",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "布佐",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "布田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "府中",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "府中競馬正門前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浮間舟渡",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武州荒木",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武州中川",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武州長瀬",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武州唐沢",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武州日野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武川",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵引田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵横手",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵関",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵五日市",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵溝ノ口",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵高萩",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵砂川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵小金井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵小山",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵新城",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵新田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵増戸",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵大和",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵中原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵藤沢",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵白石",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵野台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武蔵嵐山",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "武里",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "舞岡",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "舞浜",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "風祭",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "福浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "福生",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "福俵",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "淵野辺",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "仏子",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "物井",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "平井",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "平間",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "平山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "平山城址公園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "平沼橋",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "平塚",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "平和島",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "並木中央",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "並木北",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "片瀬江ノ島",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "片瀬山",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "片倉",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "片倉町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "弁天橋",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "保谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "保田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "宝町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "方南町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "豊四季",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "豊春",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "豊田",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北綾瀬",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北浦和",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北越谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北鎌倉",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北茅ヶ崎",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北久里浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北戸田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北鴻巣",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北国分",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北坂戸",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北参道",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北山田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北春日部",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北初富",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北小金",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北松戸",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北上尾",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北新横浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北赤羽",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北千束",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北大宮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北池袋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北朝霞",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北柏",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北八王子",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北品川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北府中",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北本",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "北与野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "堀切",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "堀切菖蒲園",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本郷台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本駒込",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本鵠沼",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本所吾妻橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本庄",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本川越",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本銚子",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本納",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "本蓮沼",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "幕張",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "幕張豊砂",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "幕張本郷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "末広町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "万願寺",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "妙典",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "妙蓮寺",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "明覚",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "明戸",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "明治神宮前",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "明治神宮前〈原宿〉",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "面影橋",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "茂原",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "毛呂",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "木下",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "木場",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "目白山下",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "門沢橋",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "野上",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "野田市",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "野島公園",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "野方",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "弥生台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "矢口渡",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "矢向",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "矢切",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "矢川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "矢部",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "矢野口",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "薬園台",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柳小路",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柳瀬川",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "柳生",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "有明",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "有明テニスの森",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "由比ヶ浜",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "祐天寺",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "与野",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "与野本町",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "誉田",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "洋光台",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "用賀",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "用土",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "踊場",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "養老渓谷",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "落合",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "落合南長崎",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "里見",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "立会川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "立場",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "立川南",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "立川北",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "立飛",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "流山",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "流山セントラルパーク",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "流通センター",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "緑が丘",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "緑園都市",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "緑町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鈴木町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "恋ヶ窪",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "練馬高野台",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "練馬春日町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "蓮根",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "蓮沼",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "蓮田",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "浪花",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "六浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "六会日大前",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "六郷土手",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "六実",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "六町",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "六本木一丁目",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "和戸",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "和泉多摩川",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "和田浦",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "和田河原",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "和田町",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "和田塚",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "和銅黒谷",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "鷲宮",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "蕨",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "屏風浦",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "獨協大学前",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "籠原",
+      "pref": "埼玉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "糀谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "茗荷谷",
+      "pref": "東京都",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "葭川公園",
+      "pref": "千葉県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    },
+    {
+      "name": "螢田",
+      "pref": "神奈川県",
+      "lines": 1,
+      "inStationGroups": false,
+      "tier": 4
+    }
+  ]
+}
