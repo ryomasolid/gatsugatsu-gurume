@@ -1,6 +1,6 @@
 "use client";
 
-import { calculateGatsuIndex, detectGatsuTags } from "@/utils/tagDetector";
+import { detectGatsuTags } from "@/utils/tagDetector";
 import { sendGAEvent } from "@next/third-parties/google";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -30,7 +30,6 @@ export default function RestaurantCard(props: Props) {
   const [isApiLoading, setIsApiLoading] = useState(false);
 
   const gatsuTags = detectGatsuTags(safeDesc);
-  const gatsuScore = calculateGatsuIndex({ ...props, description: safeDesc });
 
   useEffect(() => {
     const cached = localStorage.getItem(`${IMG_CACHE_PREFIX}${props.id}`);
@@ -63,7 +62,6 @@ export default function RestaurantCard(props: Props) {
       restaurant_name: props.name,
       station_name: props.stationName,
       genre: props.genre,
-      gatsu_score: gatsuScore,
     });
     const query = encodeURIComponent(`${props.name} ${props.address}`);
     window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
@@ -93,7 +91,6 @@ export default function RestaurantCard(props: Props) {
         genre={props.genre}
         displayImageUrl={displayImageUrl}
         isApiLoading={isApiLoading}
-        gatsuScore={gatsuScore}
       />
 
       <CardContent sx={{ flexGrow: 1, p: 3 }}>
@@ -166,10 +163,9 @@ type ThumbnailProps = {
   genre: string;
   displayImageUrl: string;
   isApiLoading: boolean;
-  gatsuScore: number;
 };
 
-function CardThumbnail({ name, genre, displayImageUrl, isApiLoading, gatsuScore }: ThumbnailProps) {
+function CardThumbnail({ name, genre, displayImageUrl, isApiLoading }: ThumbnailProps) {
   return (
     <Box sx={{ position: "relative", height: 220, width: "100%" }}>
       {isApiLoading && (
@@ -180,33 +176,6 @@ function CardThumbnail({ name, genre, displayImageUrl, isApiLoading, gatsuScore 
           sx={{ position: "absolute", zIndex: 1 }}
         />
       )}
-
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: -15,
-          right: 15,
-          bgcolor: "#1A1A1A",
-          color: "#fff",
-          p: "8px 12px",
-          borderRadius: "10px",
-          border: `2px solid ${BRAND_COLOR}`,
-          zIndex: 3,
-          textAlign: "center",
-          boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-        }}
-      >
-        <Typography
-          variant="caption"
-          sx={{ display: "block", fontSize: "0.6rem", fontWeight: 900, mb: -0.5 }}
-        >
-          GATSU-INDEX
-        </Typography>
-        <Typography variant="h6" sx={{ fontWeight: 900, color: BRAND_COLOR }}>
-          {gatsuScore}
-          <span style={{ fontSize: "0.8rem", marginLeft: "2px" }}>pt</span>
-        </Typography>
-      </Box>
 
       <NextImage
         src={displayImageUrl}
