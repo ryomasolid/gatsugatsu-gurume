@@ -19,6 +19,8 @@ type Props = {
   initialCoords: { lat: string; lng: string } | null;
   lines: string[];
   guide?: string;
+  dataDate?: string;
+  maintenance?: boolean;
   prefecture: string;
   neighborLines: { line: string; neighbors: string[] }[];
 };
@@ -28,6 +30,8 @@ export default function StationClient({
   initialRestaurants,
   lines,
   guide,
+  dataDate,
+  maintenance,
   prefecture,
   neighborLines,
 }: Props) {
@@ -44,11 +48,17 @@ export default function StationClient({
       <StationHeader stationName={stationName} />
       <Container maxWidth="xl">
         <Breadcrumbs stationName={stationName} prefecture={prefecture} />
-        <StationIntroPanel stationName={stationName} lines={lines} guide={guide} />
+        <StationIntroPanel
+          stationName={stationName}
+          lines={lines}
+          guide={guide}
+          dataDate={dataDate}
+        />
         <StationSummary stationName={stationName} restaurants={initialRestaurants} />
         <RestaurantList
           restaurants={initialRestaurants}
           loading={false}
+          maintenance={maintenance}
           stationName={stationName}
         />
         <StationFAQ

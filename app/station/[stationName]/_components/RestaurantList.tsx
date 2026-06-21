@@ -6,10 +6,16 @@ import RestaurantCard from "./RestaurantCard";
 type Props = {
   restaurants: RestaurantInfoDTO[];
   loading: boolean;
+  maintenance?: boolean;
   stationName: string;
 };
 
-export default function RestaurantList({ restaurants, loading, stationName }: Props) {
+export default function RestaurantList({
+  restaurants,
+  loading,
+  maintenance,
+  stationName,
+}: Props) {
   return (
     <Box component="section">
       <Typography
@@ -25,6 +31,10 @@ export default function RestaurantList({ restaurants, loading, stationName }: Pr
         <Box sx={{ display: "flex", justifyContent: "center", mt: 10 }}>
           <CircularProgress thickness={5} size={60} sx={{ color: "#FF6B00" }} />
         </Box>
+      ) : maintenance ? (
+        <Alert severity="warning" sx={{ mt: 4, borderRadius: 3, fontWeight: "bold" }}>
+          現在メンテナンス中のため、店舗情報を表示できません。ご不便をおかけしますが、しばらく経ってから再度お越しください。
+        </Alert>
       ) : restaurants.length === 0 ? (
         <Alert severity="info" sx={{ mt: 4, borderRadius: 3, fontWeight: "bold" }}>
           {stationName}駅周辺で「がっつり基準」を満たすお店が現在見つかりませんでした。

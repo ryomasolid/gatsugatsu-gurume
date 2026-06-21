@@ -4,9 +4,24 @@ type Props = {
   stationName: string;
   lines: string[];
   guide?: string;
+  dataDate?: string;
 };
 
-export default function StationIntroPanel({ stationName, lines, guide }: Props) {
+/** "2026-06-20" → "2026年6月" */
+function formatDataDate(dataDate?: string): string | null {
+  if (!dataDate) return null;
+  const m = dataDate.match(/^(\d{4})-(\d{2})/);
+  if (!m) return null;
+  return `${m[1]}年${Number(m[2])}月`;
+}
+
+export default function StationIntroPanel({
+  stationName,
+  lines,
+  guide,
+  dataDate,
+}: Props) {
+  const dataDateLabel = formatDataDate(dataDate);
   return (
     <Paper
       elevation={0}
@@ -51,6 +66,14 @@ export default function StationIntroPanel({ stationName, lines, guide }: Props) 
             {guide}
           </Typography>
         </Box>
+      )}
+      {dataDateLabel && (
+        <Typography
+          variant="caption"
+          sx={{ mt: 2, display: "block", color: "#999", fontWeight: 700 }}
+        >
+          ※掲載店舗の情報は{dataDateLabel}時点のものです。最新の営業状況は各店舗にご確認ください。
+        </Typography>
       )}
       {lines.length > 0 && (
         <Box sx={{ mt: 3, display: "flex", flexWrap: "wrap", gap: 1, alignItems: "center" }}>

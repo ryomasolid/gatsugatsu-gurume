@@ -1,6 +1,12 @@
+import { formatPlaceResult } from "@/app/api/restaurants/helpers";
 import { getStationGuide } from "@/constants/stationGuides";
+import {
+  getSnapshotGeneratedAt,
+  getStationSnapshot,
+} from "@/constants/stationSnapshots";
 import { calculateDistance, calculateWalkMinutes } from "@/utils/geo";
 import { getBaseUrl } from "@/utils/getBaseUrl";
+import { isMaintenanceMode } from "@/utils/maintenance";
 import { getNeighborStations, getRepresentativeStation } from "@/utils/stationData";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -43,11 +49,26 @@ function getStationInfo(name: string): StationInfo | null {
   };
 }
 
-// generateMetadata と Page の両方から呼ばれるため、React.cache で同一レンダリング内の重複実行を防ぐ
-const getStationRestaurants = cache(async function getStationRestaurants(
+/**
+ * 主要駅（スナップショットあり）はローカルデータから整形し、Places API を叩かない。
+ * それ以外（長尾の駅）は従来通りライブの /api/restaurants にフォールバックする。
+ */
+async function getRawResults(
   decodedName: string,
   coords: { lat: string; lng: string }
-): Promise<RestaurantInfoDTO[]> {
+): Promise<RawRestaurantResult[]> {
+  const snapshot = getStationSnapshot(decodedName);
+  if (snapshot) {
+    // スナップショットを持つ駅は API を使わないためメンテナンス中も表示できる。
+    // ジャンルはライブ経路と同じ formatPlaceResult で実行時に導出する
+    return snapshot.map(formatPlaceResult);
+  }
+
+  // メンテナンスモード中はライブ API を叩かず空で返す（UI 側でメンテナンス文言を表示）
+  if (isMaintenanceMode()) {
+    return [];
+  }
+
   const baseUrl = getBaseUrl();
   const apiUrl = `${baseUrl}/api/restaurants?station=${encodeURIComponent(decodedName)}&lat=${coords.lat}&lng=${coords.lng}`;
   const res = await fetch(apiUrl, { next: { revalidate: 604800 } });
@@ -60,10 +81,19 @@ const getStationRestaurants = cache(async function getStationRestaurants(
   }
 
   const data = (await res.json()) as { results?: RawRestaurantResult[] };
+  return data.results ?? [];
+}
+
+// generateMetadata と Page の両方から呼ばれるため、React.cache で同一レンダリング内の重複実行を防ぐ
+const getStationRestaurants = cache(async function getStationRestaurants(
+  decodedName: string,
+  coords: { lat: string; lng: string }
+): Promise<RestaurantInfoDTO[]> {
+  const rawResults = await getRawResults(decodedName, coords);
   const stationLat = parseFloat(coords.lat);
   const stationLng = parseFloat(coords.lng);
 
-  return (data.results ?? [])
+  return rawResults
     .map((r) => {
       const walkMinutes = r.location
         ? calculateWalkMinutes(
@@ -170,6 +200,11 @@ export default async function Page({ params }: Props) {
 
   const pageUrl = `${SITE_URL}/station/${encodeURIComponent(decodedName)}`;
   const guide = getStationGuide(decodedName);
+  // スナップショット配信の駅は「情報の時点」を明示する（鮮度の正直さ＝品質シグナル）
+  const dataDate = getStationSnapshot(decodedName) ? getSnapshotGeneratedAt() : "";
+  // ライブ API 依存の駅は、メンテナンス中は店舗を出せないため文言表示に切り替える
+  // （スナップショットを持つ駅は影響を受けない）
+  const maintenance = isMaintenanceMode() && !getStationSnapshot(decodedName);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -237,6 +272,8 @@ export default async function Page({ params }: Props) {
         initialCoords={info.coords}
         lines={info.lines}
         guide={guide}
+        dataDate={dataDate}
+        maintenance={maintenance}
         prefecture={info.prefecture}
         neighborLines={neighborLines}
       />

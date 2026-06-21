@@ -1,14 +1,18 @@
+import { isMaintenanceMode } from "@/utils/maintenance";
 import { RestaurantSchema } from "@/utils/restaurantHelpers";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { buildGatsuriQuery, calculateAvgLocation, formatPlaceResult } from "./helpers";
-import { MOCK_RESTAURANTS } from "./mockData";
 import { fetchPlaces } from "./placesClient";
-
-const USE_MOCK = process.env.USE_MOCK === "true";
 
 export async function GET(request: Request) {
   try {
+    // メンテナンスモード中は Places API を一切叩かない
+    if (isMaintenanceMode()) {
+      console.log("[MAINTENANCE] Skipping Places API");
+      return NextResponse.json({ results: [], maintenance: true });
+    }
+
     const { searchParams } = new URL(request.url);
 
     const latParam = searchParams.get("lat");
@@ -34,11 +38,6 @@ export async function GET(request: Request) {
     console.log("Calculated center:", { lat, lng, from: { lats, lngs } });
 
     const query = buildGatsuriQuery();
-
-    if (USE_MOCK) {
-      console.log("[MOCK] Returning mock restaurant data");
-      return NextResponse.json({ results: MOCK_RESTAURANTS });
-    }
 
     const places = await fetchPlaces(query, lat, lng);
 
