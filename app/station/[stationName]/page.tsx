@@ -1,4 +1,5 @@
 import { formatPlaceResult } from "@/app/api/restaurants/helpers";
+import { isStationIndexable } from "@/constants/reviewMode";
 import { getStationGuide } from "@/constants/stationGuides";
 import {
   getSnapshotGeneratedAt,
@@ -140,11 +141,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const count = restaurants.length;
   const topGenres = getTopGenres(restaurants);
 
-  // 独自の編集部ガイドを持つ駅のみインデックス対象とする。
+  // 独自の編集部ガイドを持つ駅のみインデックス対象とする（審査モード中はさらに主要駅に限定）。
   // ガイドのない駅はテンプレート＋Places APIの自動生成内容で独自性が低いため、
   // noindex にして「ガイド付き駅＋ツール」だけの質の高いサイトとして審査・評価されるようにする。
   // （follow は残し、駅ページ経由のクロール・回遊は維持する）
-  const isIndexable = count > 0 && getStationGuide(decodedName) !== undefined;
+  const isIndexable = count > 0 && isStationIndexable(decodedName);
 
   const countLabel = count > 0 ? `${count}選` : "厳選";
   const genreLabel =
