@@ -2,6 +2,7 @@
 
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 import InfoIcon from "@mui/icons-material/Info";
 import PolicyIcon from "@mui/icons-material/Policy";
 import MailIcon from "@mui/icons-material/Mail";
@@ -596,6 +597,39 @@ export default function Sidebar({ onClose }: SidebarProps) {
           </Link>
         </Box>
 
+        {/* がっつり飯コラムバナー */}
+        <Box sx={{ px: 3, mb: 3 }}>
+          <Link href="/column" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1.5,
+                p: 2,
+                borderRadius: 3,
+                border: "2px solid #DC2626",
+                bgcolor: "#FEF2F2",
+                boxShadow: "3px 3px 0px #DC2626",
+                transition: "all 0.15s",
+                "&:hover": {
+                  transform: "translate(-2px, -2px)",
+                  boxShadow: "5px 5px 0px #DC2626",
+                },
+              }}
+            >
+              <MenuBookIcon sx={{ color: "#DC2626", fontSize: "1.8rem" }} />
+              <Box>
+                <Typography sx={{ fontWeight: 900, fontSize: "0.9rem", color: "#DC2626", lineHeight: 1.2 }}>
+                  がっつり飯コラム
+                </Typography>
+                <Typography sx={{ fontWeight: 700, fontSize: "0.7rem", color: "#999" }}>
+                  二郎系の食べ方・デカ盛り完食術・外食の知識
+                </Typography>
+              </Box>
+            </Box>
+          </Link>
+        </Box>
+
         <Divider sx={{ mx: 3, mb: 2 }} />
 
         {/* --- サイトメニュー（審査突破に必須） --- */}
@@ -605,6 +639,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
           </Typography>
           <List dense>
             <MenuLink href="/about" icon={<InfoIcon />} label="ガツガツグルメとは" onClick={onClose} />
+            <MenuLink href="/column" icon={<MenuBookIcon />} label="がっつり飯コラム" onClick={onClose} />
             <MenuLink href="/terms" icon={<DescriptionIcon />} label="利用規約" onClick={onClose} />
             <MenuLink href="/privacy" icon={<PolicyIcon />} label="プライバシーポリシー" onClick={onClose} />
             <MenuLink href="/contact" icon={<MailIcon />} label="お問い合わせ" onClick={onClose} />

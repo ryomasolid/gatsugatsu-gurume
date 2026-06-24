@@ -107,6 +107,65 @@ export default function AboutPage() {
               ※掲載情報はAPIから取得したものを独自に加工・編集しています。最新の営業時間やメニューについては、必ずリンク先のGoogleマップ等で最終確認を行ってください。
             </Typography>
           </Box>
+
+          <Divider sx={{ borderBottomWidth: 3, borderColor: DARK_COLOR }} />
+
+          {/* コンテンツ制作方針 */}
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: 900, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+              <CheckCircleOutlineIcon sx={{ color: BRAND_COLOR }} />
+              コンテンツ制作方針
+            </Typography>
+            <Typography variant="body1" sx={{ color: "#444", lineHeight: 2 }}>
+              当サイトの店舗情報は、Google Places APIの検索結果をもとに、店名・カテゴリ・位置情報から独自ルールでジャンルを判定し、
+              「がっつり系」に該当する店舗のみを抽出・編集して掲載しています。徒歩分数は駅の座標と店舗の位置情報から独自に算出した目安です。
+              あわせて、編集部が書き下ろした「
+              <Box component="a" href="/column" sx={{ color: BRAND_COLOR, fontWeight: 800, textDecoration: "none" }}>がっつり飯コラム</Box>
+              」では、二郎系の食べ方やデカ盛り完食のコツ、外食とカロリーの付き合い方など、店舗データに依存しない独自の読み物も提供しています。
+              情報は定期的に見直し、誤りのご指摘をいただいた際は速やかに修正します。
+            </Typography>
+          </Box>
+
+          <Divider sx={{ borderBottomWidth: 3, borderColor: DARK_COLOR }} />
+
+          {/* 運営者情報 */}
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: 900, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+              <InfoIcon sx={{ color: BRAND_COLOR }} />
+              運営者情報
+            </Typography>
+            <Box sx={{ border: `2px solid ${DARK_COLOR}`, borderRadius: 4, overflow: "hidden" }}>
+              {[
+                { label: "サイト名", value: "ガツガツグルメ（GATSUGATSU GURUME）" },
+                { label: "運営", value: "ガツガツグルメ編集部" },
+                { label: "サイトURL", value: "https://gatsugatsu-gurume.com" },
+                { label: "お問い合わせ", value: "お問い合わせフォーム・メール（ryomasolid@yahoo.co.jp）" },
+                { label: "事業内容", value: "駅周辺のがっつり系グルメ情報の提供、外食関連の無料ツール・コラムの運営" },
+                { label: "使用データ", value: "Google Places API ほか（独自に加工・編集のうえ掲載）" },
+              ].map((row, i) => (
+                <Box
+                  key={row.label}
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    borderTop: i === 0 ? "none" : "1px solid #EEE",
+                  }}
+                >
+                  <Box sx={{ bgcolor: "#F8F8F8", p: 2, fontWeight: 900, color: DARK_COLOR, width: { xs: "100%", sm: 160 }, flexShrink: 0 }}>
+                    <Typography variant="body2" sx={{ fontWeight: 900 }}>{row.label}</Typography>
+                  </Box>
+                  <Box sx={{ p: 2, color: "#444" }}>
+                    <Typography variant="body2" sx={{ lineHeight: 1.8, wordBreak: "break-word" }}>{row.value}</Typography>
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+            <Typography variant="body2" sx={{ mt: 2, color: "#666", lineHeight: 1.8 }}>
+              掲載内容の修正依頼・店舗の推薦・その他のお問い合わせは、
+              <Box component="a" href="/contact" sx={{ color: BRAND_COLOR, fontWeight: 800, textDecoration: "none" }}>お問い合わせページ</Box>
+              よりお気軽にご連絡ください。
+            </Typography>
+          </Box>
         </Stack>
       </Paper>
     </Container>
