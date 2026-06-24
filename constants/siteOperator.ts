@@ -11,12 +11,8 @@ export const SITE_OPERATOR = {
   url: "https://gatsugatsu-gurume.com",
   /** 編集部としての名義 */
   editorialName: "ガツガツグルメ編集部",
-  /**
-   * 運営責任者の表示名。
-   * TODO: 実名（または屋号）に差し替えると E-E-A-T がさらに強くなります。
-   * 当面は連絡先と一致するハンドル名を表示しています。
-   */
-  representativeName: "ryomasolid",
+  /** 運営責任者の表示名（ペンネーム） */
+  representativeName: "ごま",
   contactEmail: "ryomasolid@yahoo.co.jp",
   contactPath: "/contact",
   established: "2025年",
