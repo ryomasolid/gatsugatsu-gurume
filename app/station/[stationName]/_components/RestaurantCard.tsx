@@ -1,6 +1,7 @@
 "use client";
 
 import { detectGatsuTags } from "@/utils/tagDetector";
+import { generateRestaurantNote } from "@/utils/restaurantNote";
 import { sendGAEvent } from "@next/third-parties/google";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -30,6 +31,17 @@ export default function RestaurantCard(props: Props) {
   const [isApiLoading, setIsApiLoading] = useState(false);
 
   const gatsuTags = detectGatsuTags(safeDesc);
+
+  // ライブAPI由来の説明文があればそれを優先し、なければ
+  // ジャンル・立地に基づく紹介文を生成して表示する（カードの情報量を補強）。
+  const note =
+    safeDesc ||
+    generateRestaurantNote({
+      genre: props.genre,
+      stationName: props.stationName,
+      walkMinutes: props.walkMinutes,
+      id: props.id,
+    });
 
   useEffect(() => {
     const cached = localStorage.getItem(`${IMG_CACHE_PREFIX}${props.id}`);
@@ -121,6 +133,13 @@ export default function RestaurantCard(props: Props) {
             ))}
           </Stack>
         )}
+
+        <Typography
+          variant="body2"
+          sx={{ color: "#555", lineHeight: 1.8, fontSize: "0.85rem", mb: 2 }}
+        >
+          {note}
+        </Typography>
 
         <Box sx={{ display: "flex", alignItems: "flex-start", gap: 0.5, mb: 1 }}>
           <LocationOnIcon sx={{ fontSize: "1rem", color: BRAND_COLOR, mt: 0.2, flexShrink: 0 }} />

@@ -1,14 +1,14 @@
 import { getColumnSlugs } from "@/constants/columns";
-import { getGuideStationNames } from "@/constants/stationGuides";
+import { getIndexableStationNames } from "@/constants/reviewMode";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://gatsugatsu-gurume.com";
 
-  // インデックス対象は独自の編集部ガイドを持つ駅のみ。
+  // インデックス対象は独自の編集部ガイドを持つ駅のみ（審査モード中は主要駅に限定）。
   // ガイドのない駅・路線・エリアページは noindex のためサイトマップから除外し、
   // 「独自コンテンツを持つページだけ」をクローラーに提示する。
-  const stationEntries: MetadataRoute.Sitemap = getGuideStationNames().map(
+  const stationEntries: MetadataRoute.Sitemap = getIndexableStationNames().map(
     (name) => ({
       url: `${baseUrl}/station/${encodeURIComponent(name)}`,
       changeFrequency: "weekly",

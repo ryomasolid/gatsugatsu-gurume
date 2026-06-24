@@ -3,6 +3,8 @@ import WhatshotIcon from "@mui/icons-material/Whatshot";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import StarsIcon from "@mui/icons-material/Stars";
 import InfoIcon from "@mui/icons-material/Info";
+import { SITE_OPERATOR } from "@/constants/siteOperator";
+import EditorProfile from "@/components/EditorProfile";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -136,10 +138,12 @@ export default function AboutPage() {
             </Typography>
             <Box sx={{ border: `2px solid ${DARK_COLOR}`, borderRadius: 4, overflow: "hidden" }}>
               {[
-                { label: "サイト名", value: "ガツガツグルメ（GATSUGATSU GURUME）" },
-                { label: "運営", value: "ガツガツグルメ編集部" },
-                { label: "サイトURL", value: "https://gatsugatsu-gurume.com" },
-                { label: "お問い合わせ", value: "お問い合わせフォーム・メール（ryomasolid@yahoo.co.jp）" },
+                { label: "サイト名", value: `${SITE_OPERATOR.siteName}（${SITE_OPERATOR.siteNameEn}）` },
+                { label: "運営", value: SITE_OPERATOR.editorialName },
+                { label: "運営責任者", value: SITE_OPERATOR.representativeName },
+                { label: "開設", value: SITE_OPERATOR.established },
+                { label: "サイトURL", value: SITE_OPERATOR.url },
+                { label: "お問い合わせ", value: `お問い合わせフォーム・メール（${SITE_OPERATOR.contactEmail}）` },
                 { label: "事業内容", value: "駅周辺のがっつり系グルメ情報の提供、外食関連の無料ツール・コラムの運営" },
                 { label: "使用データ", value: "Google Places API ほか（独自に加工・編集のうえ掲載）" },
               ].map((row, i) => (
@@ -165,6 +169,10 @@ export default function AboutPage() {
               <Box component="a" href="/contact" sx={{ color: BRAND_COLOR, fontWeight: 800, textDecoration: "none" }}>お問い合わせページ</Box>
               よりお気軽にご連絡ください。
             </Typography>
+
+            <Box sx={{ mt: 3 }}>
+              <EditorProfile heading="運営・編集" />
+            </Box>
           </Box>
         </Stack>
       </Paper>

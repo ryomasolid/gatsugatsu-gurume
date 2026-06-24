@@ -1,4 +1,5 @@
 import ColumnBlocks from "@/components/ColumnBlocks";
+import EditorProfile from "@/components/EditorProfile";
 import {
   getColumn,
   getColumnSlugs,
@@ -209,6 +210,11 @@ export default async function ColumnArticlePage({ params }: Props) {
         )}
 
         <Divider sx={{ my: 5 }} />
+
+        {/* 執筆者プロフィール */}
+        <Box sx={{ mb: 4 }}>
+          <EditorProfile />
+        </Box>
 
         {/* 免責・運営注記 */}
         <Typography variant="caption" sx={{ display: "block", color: "#999", lineHeight: 1.8, mb: 5 }}>
