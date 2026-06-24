@@ -1,3 +1,4 @@
+import ColumnShowcase from "@/components/ColumnShowcase";
 import StationDirectory from "@/components/StationDirectory";
 import ToolsShowcase from "@/components/ToolsShowcase";
 import TrendBanner from "@/components/TrendBanner";
@@ -10,6 +11,7 @@ export default function Home() {
       <WelcomeSection />
       <TrendBanner />
       <ToolsShowcase />
+      <ColumnShowcase />
       <StationDirectory />
     </Container>
   );

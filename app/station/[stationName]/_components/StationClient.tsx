@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import StationIntroPanel from "./StationIntroPanel";
 import StationSummary from "./StationSummary";
 import StationFAQ from "./StationFAQ";
+import StationColumnLinks from "./StationColumnLinks";
 import MethodologySection from "./MethodologySection";
 import NeighborStationLinks from "./NeighborStationLinks";
 import RestaurantList from "./RestaurantList";
@@ -66,6 +67,7 @@ export default function StationClient({
           restaurants={initialRestaurants}
           lines={lines}
         />
+        <StationColumnLinks stationName={stationName} />
         <NeighborStationLinks
           stationName={stationName}
           neighborLines={neighborLines}

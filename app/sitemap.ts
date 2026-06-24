@@ -1,3 +1,4 @@
+import { getColumnSlugs } from "@/constants/columns";
 import { getGuideStationNames } from "@/constants/stationGuides";
 import { MetadataRoute } from "next";
 
@@ -15,8 +16,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  // 編集部オリジナルのコラム記事（API非依存の独自コンテンツ）
+  const columnEntries: MetadataRoute.Sitemap = getColumnSlugs().map((slug) => ({
+    url: `${baseUrl}/column/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   const staticEntries: MetadataRoute.Sitemap = [
     { url: baseUrl, changeFrequency: "daily", priority: 1 },
+    { url: `${baseUrl}/column`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/shindan`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/trend2026`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/waittime`, changeFrequency: "monthly", priority: 0.8 },
@@ -30,5 +39,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, changeFrequency: "yearly", priority: 0.5 },
   ];
 
-  return [...staticEntries, ...stationEntries];
+  return [...staticEntries, ...columnEntries, ...stationEntries];
 }
