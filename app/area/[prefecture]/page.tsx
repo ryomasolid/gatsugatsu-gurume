@@ -1,3 +1,4 @@
+import { isDirectoryEnabled } from "@/constants/reviewMode";
 import {
   getAllPrefectures,
   getLinesForPrefecture,
@@ -15,6 +16,8 @@ type Props = {
 };
 
 export function generateStaticParams() {
+  // 審査モード中はディレクトリを非公開（＝404）にして、長尾の駅への巡回経路を断つ
+  if (!isDirectoryEnabled()) return [];
   return getAllPrefectures().map((pref) => ({ prefecture: pref }));
 }
 

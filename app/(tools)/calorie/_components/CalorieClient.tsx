@@ -1,5 +1,6 @@
 "use client";
 
+import { isStationReachable } from "@/constants/reviewMode";
 import {
   Chain,
   ChainMenuItem,
@@ -99,9 +100,12 @@ export default function CalorieClient() {
     })
     .filter(Boolean) as Chain[];
 
+  // 審査モード中は 404 になる非主要駅を関連駅リンクから除外する
   const uniqueStations = Array.from(
     new Set(relatedChains.flatMap((c) => c.stations))
-  ).slice(0, 6);
+  )
+    .filter(isStationReachable)
+    .slice(0, 6);
 
   return (
     <Box sx={{ bgcolor: "#F8F9FA", minHeight: "100vh", pt: { xs: 10, md: 4 }, pb: 8 }}>

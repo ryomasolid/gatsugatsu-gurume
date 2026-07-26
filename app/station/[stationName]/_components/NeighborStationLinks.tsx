@@ -1,3 +1,4 @@
+import { isDirectoryEnabled, isStationReachable } from "@/constants/reviewMode";
 import { Box, Chip, Paper, Typography } from "@mui/material";
 import Link from "next/link";
 
@@ -9,9 +10,16 @@ type Props = {
 /**
  * 同じ路線の近隣駅へのリンク集。
  * クローラが全駅ページへ辿り着けるよう、横方向の内部リンクを提供する。
+ *
+ * 審査モード中は 404 になる駅・路線ページへのリンクを出さないよう、到達可能な駅のみに絞り、
+ * 路線一覧（line）へのリンクは表示しない。
  */
 export default function NeighborStationLinks({ stationName, neighborLines }: Props) {
-  const visible = neighborLines.filter((l) => l.neighbors.length > 0);
+  const showLineLinks = isDirectoryEnabled();
+  // 審査中はリンク先が 404 になる非主要駅を除外する
+  const visible = neighborLines
+    .map((l) => ({ ...l, neighbors: l.neighbors.filter(isStationReachable) }))
+    .filter((l) => l.neighbors.length > 0);
   if (visible.length === 0) return null;
 
   return (
@@ -47,12 +55,16 @@ export default function NeighborStationLinks({ stationName, neighborLines }: Pro
               component="h3"
               sx={{ fontWeight: 900, color: "#1A1A1A", mb: 1 }}
             >
-              <Link
-                href={`/line/${encodeURIComponent(line)}`}
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                {line}
-              </Link>
+              {showLineLinks ? (
+                <Link
+                  href={`/line/${encodeURIComponent(line)}`}
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  {line}
+                </Link>
+              ) : (
+                line
+              )}
             </Typography>
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, alignItems: "center" }}>
               {neighbors.map((name) => (
@@ -78,12 +90,14 @@ export default function NeighborStationLinks({ stationName, neighborLines }: Pro
                   />
                 </Link>
               ))}
-              <Link
-                href={`/line/${encodeURIComponent(line)}`}
-                style={{ color: "#FF6B00", fontWeight: 800, fontSize: "0.8rem" }}
-              >
-                {line}の全駅一覧 →
-              </Link>
+              {showLineLinks && (
+                <Link
+                  href={`/line/${encodeURIComponent(line)}`}
+                  style={{ color: "#FF6B00", fontWeight: 800, fontSize: "0.8rem" }}
+                >
+                  {line}の全駅一覧 →
+                </Link>
+              )}
             </Box>
           </Box>
         ))}
