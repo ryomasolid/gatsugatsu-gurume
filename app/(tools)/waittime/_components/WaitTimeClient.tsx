@@ -1,5 +1,6 @@
 "use client";
 
+import { isStationReachable } from "@/constants/reviewMode";
 import { SEAT_PRESETS, WAIT_TIME_GENRES } from "@/constants/waitTimeData";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -378,7 +379,7 @@ export default function WaitTimeClient() {
               各駅周辺のデカ盛り・がっつり店をチェック
             </Typography>
             <Stack direction="row" flexWrap="wrap" gap={1.5}>
-              {genre.stations.map((station) => (
+              {genre.stations.filter(isStationReachable).map((station) => (
                 <Link
                   key={station}
                   href={`/station/${station}`}

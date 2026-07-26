@@ -1,5 +1,6 @@
 "use client";
 
+import { isStationReachable } from "@/constants/reviewMode";
 import {
   MESHI_TYPES,
   MESHI_TYPE_ORDER,
@@ -352,7 +353,7 @@ export default function ShindanClient() {
                 {result.name}と相性のいい駅
               </Typography>
               <Stack direction="row" flexWrap="wrap" gap={1.5}>
-                {result.stations.map((station) => (
+                {result.stations.filter(isStationReachable).map((station) => (
                   <Link key={station} href={`/station/${station}`} style={{ textDecoration: "none" }}>
                     <Box
                       sx={{

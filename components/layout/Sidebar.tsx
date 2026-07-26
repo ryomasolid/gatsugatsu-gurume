@@ -38,6 +38,7 @@ import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import { PRIORITY_STATIONS, REVIEW_MODE } from "@/constants/reviewMode";
 import { TODOFUKEN } from "../../constants/todofukenData";
 
 export type StationDto = {
@@ -265,7 +266,48 @@ export default function Sidebar({ onClose }: SidebarProps) {
       {/* --- メインコンテンツ（スクロールエリア） --- */}
       <Box sx={{ flex: 1, overflowY: "auto", py: 2 }}>
 
+        {/*
+          審査モード中は、全国の都道府県・路線検索や現在地検索が長尾の駅ページ（審査中は404）へ
+          繋がってしまう。審査担当・クローラを壊れたリンクに誘導しないよう、審査中はこれらの検索UIを
+          隠し、代わりに到達可能な主要駅へのクイックリンクを表示する。審査通過後（REVIEW_MODE=false）は
+          従来どおり全国検索が復活する。
+        */}
+        {REVIEW_MODE && (
+          <Box sx={{ px: 3, mb: 4 }}>
+            <Typography variant="subtitle2" sx={{ fontWeight: 900, color: DARK_COLOR, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
+              <SearchIcon fontSize="small" sx={{ color: BRAND_COLOR }} /> 主要駅から探す
+            </Typography>
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+              {PRIORITY_STATIONS.map((name) => (
+                <Link
+                  key={name}
+                  href={`/station/${encodeURIComponent(name)}`}
+                  style={{ textDecoration: "none" }}
+                  onClick={onClose}
+                >
+                  <Box
+                    sx={{
+                      px: 1.5,
+                      py: 0.75,
+                      borderRadius: 2,
+                      border: "1px solid #EEE",
+                      bgcolor: "#FFF9F5",
+                      fontWeight: 800,
+                      fontSize: "0.8rem",
+                      color: DARK_COLOR,
+                      "&:hover": { borderColor: BRAND_COLOR, color: BRAND_COLOR },
+                    }}
+                  >
+                    {name}
+                  </Box>
+                </Link>
+              ))}
+            </Box>
+          </Box>
+        )}
+
         {/* 現在地検索 */}
+        {!REVIEW_MODE && (
         <Box sx={{ px: 3, mb: 4 }}>
           <Button
             fullWidth
@@ -285,8 +327,10 @@ export default function Sidebar({ onClose }: SidebarProps) {
             {loadingLocation ? "現在地を取得中..." : "現在地から探す"}
           </Button>
         </Box>
+        )}
 
         {/* 検索セクション */}
+        {!REVIEW_MODE && (
         <Box sx={{ px: 3, mb: 4 }}>
           <Typography variant="subtitle2" sx={{ fontWeight: 900, color: DARK_COLOR, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
             <SearchIcon fontSize="small" sx={{ color: BRAND_COLOR }} /> エリア・路線から探す
@@ -329,9 +373,10 @@ export default function Sidebar({ onClose }: SidebarProps) {
             </FormControl>
           </Paper>
         </Box>
+        )}
 
         {/* 駅リスト（選択時のみ表示） */}
-        {stationList.length > 0 && (
+        {!REVIEW_MODE && stationList.length > 0 && (
           <Box sx={{ px: 3, mb: 4 }}>
             <Typography
               variant="caption"
@@ -647,7 +692,8 @@ export default function Sidebar({ onClose }: SidebarProps) {
         </Box>
       </Box>
 
-      {/* --- 下部固定検索ボタン --- */}
+      {/* --- 下部固定検索ボタン（審査モード中は全国検索を隠すため非表示） --- */}
+      {!REVIEW_MODE && (
       <Box sx={{ p: 3, borderTop: "1px solid #EEE", bgcolor: "#fff" }}>
         <Button
           fullWidth
@@ -666,6 +712,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
           {checkedStations.length > 0 ? `${checkedStations.length}件の駅で検索` : "駅を選択してください"}
         </Button>
       </Box>
+      )}
     </Box>
   );
 }

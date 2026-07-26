@@ -1,5 +1,6 @@
 "use client";
 
+import { isStationReachable } from "@/constants/reviewMode";
 import {
   BUDGET_LABELS,
   BudgetType,
@@ -114,7 +115,10 @@ export default function GachaClient() {
     setResult(null);
   };
 
-  const relatedStations = result ? (GENRE_STATIONS[result.genre] ?? []) : [];
+  // 審査モード中は 404 になる非主要駅を関連駅リンクから除外する
+  const relatedStations = result
+    ? (GENRE_STATIONS[result.genre] ?? []).filter(isStationReachable)
+    : [];
 
   return (
     <Box sx={{ bgcolor: "#F8F9FA", minHeight: "100vh", pt: { xs: 10, md: 4 }, pb: 8 }}>

@@ -16,6 +16,7 @@ import {
   Divider,
 } from "@mui/material";
 import Link from "next/link";
+import { isStationReachable } from "@/constants/reviewMode";
 
 const pulse = keyframes`
   0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,107,0,0)); }
@@ -26,14 +27,18 @@ const pulse = keyframes`
 const BRAND_COLOR = "#FF6B00";
 const DARK_COLOR = "#1A1A1A";
 
+// 審査モード中に 404 になる駅（非主要駅）はヒーローのリンクからも除外する。
+// クローラが辿れる <a> リンクなので、壊れたリンクを残さないことが重要。
 const POPULAR_STATIONS = [
   { name: "新宿", lat: "35.690921", lng: "139.700258" },
   { name: "渋谷", lat: "35.658034", lng: "139.701636" },
   { name: "池袋", lat: "35.728926", lng: "139.71038" },
   { name: "秋葉原", lat: "35.698383", lng: "139.773071" },
   { name: "横浜", lat: "35.465786", lng: "139.622313" },
-  { name: "大阪", lat: "34.702485", lng: "135.495951" },
-];
+  { name: "品川", lat: "35.62876", lng: "139.73876" },
+  { name: "東京", lat: "35.681236", lng: "139.767125" },
+  { name: "上野", lat: "35.713768", lng: "139.777254" },
+].filter((s) => isStationReachable(s.name));
 
 export const WelcomeSection = () => {
   return (

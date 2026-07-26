@@ -52,6 +52,30 @@ export function isStationIndexable(stationName: string): boolean {
 }
 
 /**
+ * 指定駅をページとして「到達可能」にしてよいか。
+ *
+ * 審査モード中は主要駅（PRIORITY_STATIONS）のみ true とし、それ以外の駅ページは
+ * 404 にする。noindex だけでは審査botの巡回対象から外れないため、審査中は
+ * クローラ・審査担当が辿れる範囲を「独自性の高い主要駅」だけに物理的に限定し、
+ * テンプレ量産ページを評価対象から除外する狙い。
+ * 審査通過後は REVIEW_MODE を false に戻すと全駅が復活する。
+ */
+export function isStationReachable(stationName: string): boolean {
+  if (!REVIEW_MODE) return true;
+  return PRIORITY_STATIONS.includes(stationName);
+}
+
+/**
+ * 都道府県（area）・路線（line）のディレクトリページを公開してよいか。
+ *
+ * これらは駅へのリンク集が主体で独自コンテンツが乏しく、全駅への巡回経路にもなる。
+ * 審査モード中は false（＝404）にして、長尾の駅ページへクローラが辿り着く経路を断つ。
+ */
+export function isDirectoryEnabled(): boolean {
+  return !REVIEW_MODE;
+}
+
+/**
  * サイトマップに載せる（= index 対象の）駅名一覧。
  * 審査モード中は主要駅だけに絞る。
  */

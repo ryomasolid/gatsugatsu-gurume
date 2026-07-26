@@ -1,5 +1,6 @@
 "use client";
 
+import { isDirectoryEnabled } from "@/constants/reviewMode";
 import { Breadcrumbs as MUIBreadcrumbs, Typography, Link as MUILink, Box } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import HomeIcon from "@mui/icons-material/Home";
@@ -39,19 +40,23 @@ export const Breadcrumbs = ({
           ホーム
         </MUILink>
 
-        {prefecture && (
-          <MUILink
-            component={Link}
-            href={`/area/${encodeURIComponent(prefecture)}`}
-            sx={{
-              color: "#666",
-              textDecoration: "none",
-              "&:hover": { color: "#FF6B00" },
-            }}
-          >
-            {prefecture}
-          </MUILink>
-        )}
+        {prefecture &&
+          (isDirectoryEnabled() ? (
+            <MUILink
+              component={Link}
+              href={`/area/${encodeURIComponent(prefecture)}`}
+              sx={{
+                color: "#666",
+                textDecoration: "none",
+                "&:hover": { color: "#FF6B00" },
+              }}
+            >
+              {prefecture}
+            </MUILink>
+          ) : (
+            // 審査モード中は area ページが 404 のためリンクにせずテキスト表示
+            <Typography sx={{ color: "#666", fontWeight: 800 }}>{prefecture}</Typography>
+          ))}
 
         <Typography sx={{ color: "#1A1A1A", fontWeight: 900 }}>
           {stationName}駅周辺のがっつり飯

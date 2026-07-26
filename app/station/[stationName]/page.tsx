@@ -1,5 +1,9 @@
 import { formatPlaceResult } from "@/app/api/restaurants/helpers";
-import { isStationIndexable } from "@/constants/reviewMode";
+import {
+  isDirectoryEnabled,
+  isStationIndexable,
+  isStationReachable,
+} from "@/constants/reviewMode";
 import { getStationGuide } from "@/constants/stationGuides";
 import {
   getSnapshotGeneratedAt,
@@ -137,6 +141,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { robots: { index: false, follow: false } };
   }
 
+  // 審査モード中に到達不可（＝非主要駅）の駅は 404 になるため、noindex を明示する
+  if (!isStationReachable(decodedName)) {
+    return { robots: { index: false, follow: false } };
+  }
+
   const restaurants = await getStationRestaurants(decodedName, info.coords);
   const count = restaurants.length;
   const topGenres = getTopGenres(restaurants);
@@ -196,6 +205,9 @@ export default async function Page({ params }: Props) {
   const info = getStationInfo(decodedName);
   if (!info) notFound();
 
+  // 審査モード中は主要駅以外を 404 にし、テンプレ量産ページをクロール対象から外す
+  if (!isStationReachable(decodedName)) notFound();
+
   const initialRestaurants = await getStationRestaurants(decodedName, info.coords);
   const neighborLines = getNeighborStations(decodedName);
 
@@ -207,24 +219,31 @@ export default async function Page({ params }: Props) {
   // （スナップショットを持つ駅は影響を受けない）
   const maintenance = isMaintenanceMode() && !getStationSnapshot(decodedName);
 
+  // 審査モード中は area ページが 404 のため、パンくずから都道府県階層を除外する
+  const breadcrumbItems = [
+    { "@type": "ListItem", position: 1, name: "ホーム", item: SITE_URL },
+    ...(isDirectoryEnabled()
+      ? [
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: `${info.prefecture}の路線一覧`,
+            item: `${SITE_URL}/area/${encodeURIComponent(info.prefecture)}`,
+          },
+        ]
+      : []),
+    {
+      "@type": "ListItem",
+      position: isDirectoryEnabled() ? 3 : 2,
+      name: `${decodedName}駅のがっつりグルメ`,
+      item: pageUrl,
+    },
+  ];
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "ホーム", item: SITE_URL },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: `${info.prefecture}の路線一覧`,
-        item: `${SITE_URL}/area/${encodeURIComponent(info.prefecture)}`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: `${decodedName}駅のがっつりグルメ`,
-        item: pageUrl,
-      },
-    ],
+    itemListElement: breadcrumbItems,
   };
 
   const itemListJsonLd = {

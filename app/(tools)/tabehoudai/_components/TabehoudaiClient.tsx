@@ -1,5 +1,6 @@
 "use client";
 
+import { isStationReachable } from "@/constants/reviewMode";
 import {
   TABEHOUDAI_CHAINS,
   TabehoudaiMenuItem,
@@ -498,7 +499,7 @@ export default function TabehoudaiClient() {
               各駅周辺のデカ盛り・高コスパ店をチェック
             </Typography>
             <Stack direction="row" flexWrap="wrap" gap={1.5}>
-              {selectedChain.stations.map((station) => (
+              {selectedChain.stations.filter(isStationReachable).map((station) => (
                 <Link
                   key={station}
                   href={`/station/${station}`}

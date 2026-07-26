@@ -42,14 +42,14 @@ export default function StationIntroPanel({
       >
         {stationName}周辺のデカ盛り・がっつりランチ厳選
       </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 700, lineHeight: 1.8 }}>
-        {stationName}駅周辺で、お腹いっぱい食べられるお店をピックアップしました。
-        ラーメン・丼もの・定食などボリューム重視のジャンルに絞り、駅からの徒歩分数つきで掲載しています。
-      </Typography>
-      {guide && (
+      {/*
+        以前はここに全駅共通の定型導入文を表示していたが、テンプレート的な量産文になるため撤去。
+        導入文は、駅ごとに編集部が書き下ろした固有のガイド（guide）を本文として掲載する。
+      */}
+      {guide ? (
         <Box
           sx={{
-            mt: 3,
+            mt: 1,
             p: { xs: 2, md: 2.5 },
             borderLeft: "4px solid #FF6B00",
             bgcolor: "#FFF9F5",
@@ -62,10 +62,15 @@ export default function StationIntroPanel({
           >
             編集部メモ：{stationName}駅のがっつり飯事情
           </Typography>
-          <Typography variant="body2" sx={{ color: "#555", lineHeight: 1.9 }}>
+          <Typography variant="body1" sx={{ color: "#444", lineHeight: 1.9 }}>
             {guide}
           </Typography>
         </Box>
+      ) : (
+        <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 700, lineHeight: 1.8 }}>
+          {stationName}駅周辺で、お腹いっぱい食べられるお店をピックアップしました。
+          ラーメン・丼もの・定食などボリューム重視のジャンルに絞り、駅からの徒歩分数つきで掲載しています。
+        </Typography>
       )}
       {dataDateLabel && (
         <Typography
