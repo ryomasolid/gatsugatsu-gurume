@@ -62,7 +62,10 @@ export default function StationIntroPanel({
           >
             編集部メモ：{stationName}駅のがっつり飯事情
           </Typography>
-          <Typography variant="body1" sx={{ color: "#444", lineHeight: 1.9 }}>
+          <Typography
+            variant="body1"
+            sx={{ color: "#444", lineHeight: 1.9, whiteSpace: "pre-line" }}
+          >
             {guide}
           </Typography>
         </Box>
