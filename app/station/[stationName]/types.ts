@@ -6,6 +6,8 @@ export type RestaurantInfoDTO = {
   station: string;
   walkMinutes: number;
   description: string;
+  /** 編集部による店舗メモ（constants/editorialNotes.ts で管理。無い店は undefined） */
+  editorialNote?: string;
   location: { latitude: number; longitude: number };
 };
 

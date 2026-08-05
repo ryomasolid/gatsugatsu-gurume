@@ -38,6 +38,7 @@ import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import { getPublishedReports } from "@/constants/reports";
 import { PRIORITY_STATIONS, REVIEW_MODE } from "@/constants/reviewMode";
 import { TODOFUKEN } from "../../constants/todofukenData";
 
@@ -684,6 +685,9 @@ export default function Sidebar({ onClose }: SidebarProps) {
           </Typography>
           <List dense>
             <MenuLink href="/about" icon={<InfoIcon />} label="ガツガツグルメとは" onClick={onClose} />
+            {getPublishedReports().length > 0 && (
+              <MenuLink href="/report" icon={<RestaurantMenuIcon />} label="実食レポート" onClick={onClose} />
+            )}
             <MenuLink href="/column" icon={<MenuBookIcon />} label="がっつり飯コラム" onClick={onClose} />
             <MenuLink href="/terms" icon={<DescriptionIcon />} label="利用規約" onClick={onClose} />
             <MenuLink href="/privacy" icon={<PolicyIcon />} label="プライバシーポリシー" onClick={onClose} />

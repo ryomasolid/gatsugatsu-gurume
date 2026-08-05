@@ -40,7 +40,7 @@ export default function StationIntroPanel({
         gutterBottom
         sx={{ fontSize: { xs: "1.5rem", md: "2rem" } }}
       >
-        {stationName}周辺のデカ盛り・がっつりランチ厳選
+        {stationName}駅周辺のデカ盛り・がっつりランチガイド
       </Typography>
       {/*
         以前はここに全駅共通の定型導入文を表示していたが、テンプレート的な量産文になるため撤去。

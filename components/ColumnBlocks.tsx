@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import NextImage from "next/image";
 import { ColumnBlock } from "@/constants/columns";
 
 const BRAND_COLOR = "#FF6B00";
@@ -113,6 +114,38 @@ function ColumnBlockView({ block }: { block: ColumnBlock }) {
         >
           {block.text}
         </Typography>
+      );
+    case "photo":
+      return (
+        <Box component="figure" sx={{ m: 0 }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              aspectRatio: "4 / 3",
+              borderRadius: 3,
+              overflow: "hidden",
+              border: `2px solid ${DARK_COLOR}`,
+            }}
+          >
+            <NextImage
+              src={block.src}
+              alt={block.alt}
+              fill
+              sizes="(max-width: 900px) 100vw, 800px"
+              style={{ objectFit: "cover" }}
+            />
+          </Box>
+          {block.caption && (
+            <Typography
+              component="figcaption"
+              variant="caption"
+              sx={{ display: "block", mt: 1, color: "#888", fontWeight: 700 }}
+            >
+              {block.caption}
+            </Typography>
+          )}
+        </Box>
       );
     case "faq":
       return (
