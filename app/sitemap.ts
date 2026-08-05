@@ -1,4 +1,5 @@
 import { getColumnSlugs } from "@/constants/columns";
+import { getPublishedReportSlugs } from "@/constants/reports";
 import { getIndexableStationNames } from "@/constants/reviewMode";
 import { MetadataRoute } from "next";
 
@@ -23,6 +24,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // 編集部の実食レポート（一次体験コンテンツ。公開済みのみ）
+  const reportSlugs = getPublishedReportSlugs();
+  const reportEntries: MetadataRoute.Sitemap = reportSlugs.map((slug) => ({
+    url: `${baseUrl}/report/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+  // レポート一覧ページは、公開済みレポートが存在するときだけ載せる（0件時は404）
+  if (reportSlugs.length > 0) {
+    reportEntries.unshift({
+      url: `${baseUrl}/report`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  }
+
   const staticEntries: MetadataRoute.Sitemap = [
     { url: baseUrl, changeFrequency: "daily", priority: 1 },
     { url: `${baseUrl}/column`, changeFrequency: "weekly", priority: 0.8 },
@@ -39,5 +56,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, changeFrequency: "yearly", priority: 0.5 },
   ];
 
-  return [...staticEntries, ...columnEntries, ...stationEntries];
+  return [...staticEntries, ...reportEntries, ...columnEntries, ...stationEntries];
 }

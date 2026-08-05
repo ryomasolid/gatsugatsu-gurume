@@ -10,7 +10,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "ガツガツグルメとは",
   description:
-    "ガツガツグルメは、駅近・爆盛り・高コスパに特化したグルメ検索サービスです。独自の掲載基準とキュレーションで本当に満腹になれるお店を厳選。",
+    "ガツガツグルメは、編集部の実食レポートとオリジナルコラムを軸にした、駅近・がっつり飯の専門メディアです。主要駅周辺のボリューム系の店を徒歩分数つきで探せる検索機能も提供しています。",
 };
 
 export default function AboutPage() {
@@ -37,7 +37,7 @@ export default function AboutPage() {
               ガツガツグルメとは
             </Typography>
             <Typography variant="subtitle1" sx={{ color: BRAND_COLOR, fontWeight: 800 }}>
-              - 駅近・爆盛り・高コスパ特化型検索ガイド -
+              - 駅近「がっつり飯」ガイド＆実食メディア -
             </Typography>
           </Box>
 

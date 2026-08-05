@@ -1,4 +1,5 @@
 import { formatPlaceResult } from "@/app/api/restaurants/helpers";
+import { getEditorialNote } from "@/constants/editorialNotes";
 import {
   isDirectoryEnabled,
   isStationIndexable,
@@ -115,6 +116,7 @@ const getStationRestaurants = cache(async function getStationRestaurants(
         description: r.description ?? "",
         station: r.station ?? decodedName,
         walkMinutes,
+        editorialNote: getEditorialNote(decodedName, r.name),
       };
     })
     .sort((a, b) => a.walkMinutes - b.walkMinutes);
@@ -156,14 +158,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // （follow は残し、駅ページ経由のクロール・回遊は維持する）
   const isIndexable = count > 0 && isStationIndexable(decodedName);
 
-  const countLabel = count > 0 ? `${count}選` : "厳選";
   const genreLabel =
     topGenres.length > 0 ? topGenres.join("・") : "ラーメン・定食・カレー";
-  const countText = count > 0 ? `${count}店舗` : "多数";
+  const countText = count > 0 ? `${count}店` : "";
 
-  // 「デカ盛り」を最前面に置き、ランチ・コスパ系クエリもカバー
-  const title = `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel} | がつがつグルメ`;
-  const description = `${decodedName}周辺のデカ盛り・大盛りランチを${countText}厳選！${genreLabel}など、駅からの徒歩分数つきでがっつり飯をまとめました。${decodedName}駅でお腹いっぱい食べるなら必見です。`;
+  // 「厳選○選」のような、実態（ジャンル判定による自動抽出）と乖離する表現は使わない。
+  // 提供価値（編集部ガイド・徒歩分数・ジャンル別一覧）をそのまま書く。
+  const title = `${decodedName}駅のデカ盛り・がっつりランチまとめ｜徒歩分数つき | ガツガツグルメ`;
+  const description = `${decodedName}駅周辺（概ね1km圏内）のがっつり系の店${countText}を、編集部ガイドと駅からの徒歩分数つきで一覧化。${genreLabel}などジャンル別に、お腹いっぱい食べられる店を探せます。`;
 
   return {
     title,
@@ -183,16 +185,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // 独自ガイドを持たない駅・店舗0件の駅は内容が薄いため、インデックス対象から除外する
     ...(!isIndexable && { robots: { index: false, follow: true } }),
     openGraph: {
-      title: `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel}`,
+      title: `${decodedName}駅のデカ盛り・がっつりランチまとめ｜徒歩分数つき`,
       description,
       url: `${SITE_URL}${canonicalPath}`,
       type: "website",
-      siteName: "がつがつグルメ",
+      siteName: "ガツガツグルメ",
       locale: "ja_JP",
     },
     twitter: {
       card: "summary_large_image",
-      title: `【2026最新】${decodedName}のデカ盛り・がっつりランチ${countLabel}`,
+      title: `${decodedName}駅のデカ盛り・がっつりランチまとめ`,
       description,
     },
   };
@@ -249,8 +251,8 @@ export default async function Page({ params }: Props) {
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `${decodedName}駅周辺のがっつりグルメ厳選リスト`,
-    description: `${decodedName}駅周辺のデカ盛り・がっつり飯の名店${initialRestaurants.length}選`,
+    name: `${decodedName}駅周辺のがっつり系店舗リスト`,
+    description: `${decodedName}駅周辺のデカ盛り・がっつり系の店${initialRestaurants.length}店の一覧`,
     url: pageUrl,
     numberOfItems: initialRestaurants.length,
     itemListElement: initialRestaurants.map((r, index) => ({

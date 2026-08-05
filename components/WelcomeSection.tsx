@@ -88,14 +88,14 @@ export const WelcomeSection = () => {
               variant="h5"
               sx={{ fontWeight: 900, color: DARK_COLOR, mb: 2, fontSize: { xs: "1.2rem", md: "1.8rem" } }}
             >
-              駅近「がっつり飯」専用検索ガイド
+              駅近「がっつり飯」ガイド＆実食メディア
             </Typography>
             <Typography
               variant="body1"
               sx={{ fontWeight: 700, color: "#666", lineHeight: 1.8, maxWidth: "700px" }}
             >
-              ガツガツグルメは、全国の主要駅周辺【概ね1km圏内】のデカ盛り・高コスパ店を独自のジャンル判定ロジックで抽出。
-              駅からの徒歩分数を座標から自動計算し、今すぐ腹を満たしたいあなたに最適な「戦場」を提案します。
+              ガツガツグルメは、編集部の実食レポートとオリジナルコラムを軸にした「がっつり飯」の専門メディアです。
+              あわせて全国の主要駅周辺【概ね1km圏内】のボリューム系の店を、駅からの徒歩分数つきで探せます。
             </Typography>
           </Box>
 
@@ -149,7 +149,7 @@ export const WelcomeSection = () => {
               <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
                 <GenreRow emoji="🍜" title="濃厚・爆盛りラーメン" desc="二郎系、家系、濃厚豚骨を網羅。麺量と背脂のインパクトを重視。" />
                 <GenreRow emoji="🍚" title="限界突破の肉丼・カレー" desc="米が見えないほどの肉盛り。1kg超えのチャレンジメニューも補足。" />
-                <GenreRow emoji="🍱" title="おかわり無限の定食" desc="ご飯・味噌汁おかわり自由は当たり前。満腹保証の名店を厳選。" />
+                <GenreRow emoji="🍱" title="ボリューム系の定食" desc="米でしっかり満たす定食・食堂ジャンル。おかわりシステムのある店にも注目。" />
               </Box>
             </Grid>
 

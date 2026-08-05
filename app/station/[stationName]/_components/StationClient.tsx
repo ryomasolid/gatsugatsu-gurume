@@ -9,6 +9,7 @@ import StationIntroPanel from "./StationIntroPanel";
 import StationSummary from "./StationSummary";
 import StationFAQ from "./StationFAQ";
 import StationColumnLinks from "./StationColumnLinks";
+import StationReportLinks from "./StationReportLinks";
 import MethodologySection from "./MethodologySection";
 import NeighborStationLinks from "./NeighborStationLinks";
 import RestaurantList from "./RestaurantList";
@@ -67,6 +68,7 @@ export default function StationClient({
           restaurants={initialRestaurants}
           lines={lines}
         />
+        <StationReportLinks stationName={stationName} />
         <StationColumnLinks stationName={stationName} />
         <NeighborStationLinks
           stationName={stationName}

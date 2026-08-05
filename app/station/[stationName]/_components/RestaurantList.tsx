@@ -24,7 +24,7 @@ export default function RestaurantList({
         fontWeight="900"
         sx={{ mb: 3, display: "flex", alignItems: "center", gap: 1 }}
       >
-        <RestaurantIcon sx={{ color: "#FF6B00" }} /> 厳選ショップリスト
+        <RestaurantIcon sx={{ color: "#FF6B00" }} /> 駅周辺のがっつり系店舗リスト
       </Typography>
 
       {loading ? (

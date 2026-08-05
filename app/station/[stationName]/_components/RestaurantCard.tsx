@@ -136,6 +136,31 @@ export default function RestaurantCard(props: Props) {
           </Typography>
         )}
 
+        {props.editorialNote && (
+          <Box
+            sx={{
+              p: 1.5,
+              mb: 2,
+              borderLeft: `3px solid ${BRAND_COLOR}`,
+              bgcolor: "#FFF9F5",
+              borderRadius: "0 8px 8px 0",
+            }}
+          >
+            <Typography
+              variant="caption"
+              sx={{ fontWeight: 900, color: BRAND_COLOR, display: "block", mb: 0.3 }}
+            >
+              編集部メモ
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ color: "#555", lineHeight: 1.7, fontSize: "0.82rem" }}
+            >
+              {props.editorialNote}
+            </Typography>
+          </Box>
+        )}
+
         <Box sx={{ display: "flex", alignItems: "flex-start", gap: 0.5, mb: 1 }}>
           <LocationOnIcon sx={{ fontSize: "1rem", color: BRAND_COLOR, mt: 0.2, flexShrink: 0 }} />
           <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.8rem", lineHeight: 1.6 }}>

@@ -15,7 +15,9 @@ export type ColumnBlock =
   | { type: "list"; items: string[] }
   | { type: "steps"; steps: { title: string; body: string }[] }
   | { type: "note"; text: string }
-  | { type: "faq"; faqs: { q: string; a: string }[] };
+  | { type: "faq"; faqs: { q: string; a: string }[] }
+  /** 編集部が実際に撮影した写真。src は public/ 配下のパス（例: /reports/xxx/1.jpg） */
+  | { type: "photo"; src: string; alt: string; caption?: string };
 
 export type Column = {
   slug: string;
