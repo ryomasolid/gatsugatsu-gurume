@@ -27,6 +27,29 @@ Google Places API の検索結果(=Googleマップで見られる情報)だっ�
 - [ ] 訪問した曜日・時刻・行列人数・待ち時間をメモ
 - [ ] 食べながら「普通盛りの何倍か」「後半つらかったか」「完食できたか」を意識しておく
 
+## 準備済みの下書き10本(訪問候補)
+
+`constants/reports.ts` に、掲載データに実在する10店ぶんの下書きを準備済み。
+店の背景解説・構成・見出しは書けているので、**訪問して【】を埋めるだけ**で1本完成する。
+プレビューは `/report/<slug>` を直打ち(例: `/report/ikebukuro-ramen-jiro`)。
+
+| slug | 駅 | 店 | ネタの軸 |
+|---|---|---|---|
+| ikebukuro-ramen-jiro | 池袋 | ラーメン二郎 池袋東口店 | 直系二郎・コール実録 |
+| yokohama-yoshimuraya | 横浜 | 家系総本山 吉村家 | 家系発祥・行列実態 |
+| shinjuku-sutameshi-dondon | 新宿 | 情熱のすためしどんどん | スタ丼・速さ |
+| akihabara-pancho | 秋葉原 | スパゲッティーのパンチョ | 大盛りサイズ挑戦 |
+| tokyo-kaminari | 東京 | 雷 東京本丸店 | とみ田系×駅ナカ |
+| shimbashi-musashiya | 新橋 | むさしや | 老舗スタンドの行列 |
+| ueno-chinchinken | 上野 | 珍々軒 | ガード下町中華 |
+| takadanobaba-suehiro | 高田馬場 | 末廣ラーメン本舗 | 真っ黒中華そば＋ヤキメシ |
+| tachikawa-mashimashi | 立川 | 立川マシマシ 総本店 | マシライス |
+| shibuya-vegiro | 渋谷 | ベジ郎 渋谷総本店 | 麺なし二郎(定食) |
+
+- 行けない店・閉店していた店の下書きは消してよい(別の店で `_template` から作る)
+- 【】が1カ所でも残った状態で `draft: false` にしない
+- 「〜とはどんな店か」の背景セクションは執筆済みだが、現地で事実と違ったら直すこと
+
 ## 公開手順
 
 1. **写真を置く**: `public/reports/<slug>/` にJPGを置く(例: `public/reports/shinjuku-yaroramen/hero.jpg`)
